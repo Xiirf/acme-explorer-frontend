@@ -7,18 +7,22 @@ import { TripListComponent } from './components/trip/trip-list/trip-list.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { HeaderComponent } from './components/master/header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TripListComponent
+    TripListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
