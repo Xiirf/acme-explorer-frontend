@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -16,7 +15,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private fireAuth: AngularFireAuth, private http: HttpClient, public router: Router) { }
+  constructor(private fireAuth: AngularFireAuth, private http: HttpClient) { }
 
   register(actor: Actor): Promise<Actor> {
     return this.http.post<Actor>(`${environment.backendApiBaseUrl}/actors`, actor, httpOptions).toPromise();
