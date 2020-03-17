@@ -2,11 +2,12 @@ import { Entity } from './entity.model';
 
 export class Trip extends Entity {
     title: string;
+    ticker: string;
     description: string;
     requirements: string[];
     start: Date;
     end: Date;
-    pictures: String[];
+    pictures: string[];
     stages: Stage[];
     managerId: string;
 

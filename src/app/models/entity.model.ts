@@ -3,7 +3,7 @@ export class Entity {
     version: number;
 
     constructor() {
-        this.id = "0";
+        this.id = '0';
         this.version = 0;
     }
 }
