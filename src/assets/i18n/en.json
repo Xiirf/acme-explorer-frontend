@@ -1,0 +1,25 @@
+{
+    "actor": {
+        "name": "First Name",
+        "surname": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "phone": "Phone",
+        "address": "Address"
+    },
+    "validator": {
+        "required": {
+            "name": "The first name is required",
+            "surname": "The last name is required",
+            "email": "The email is required",
+            "password": "The password is required",
+            "phone": "The phone is required",
+            "address": "The address is required"
+        },
+        "email": "Please enter a valid email address",
+        "password": "Password must have between 8 and 12 letters"
+    },
+    "button": {
+        "submit": "Submit"
+    }
+}

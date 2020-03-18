@@ -1,0 +1,25 @@
+{
+    "actor": {
+        "name": "Nombre",
+        "surname": "Apellidos",
+        "email": "Correo electronico",
+        "password": "Contraseña",
+        "phone": "Teléfono",
+        "address": "Dirección"
+    },
+    "validator": {
+        "required": {
+            "name": "El nombre es requerido",
+            "surname": "Los apellidos son requeridos",
+            "email": "El correo electronico es requerido",
+            "password": "La contraseña es requerida",
+            "phone": "El téléfono es requerido",
+            "address": "La dirección es requerida"
+        },
+        "email": "Por favor, introduzca un correo electrónico válido",
+        "password": "La contraseña debe tener entre 8 y 12 caracteres"
+    },
+    "button": {
+        "submit": "Enviar"
+    }
+}

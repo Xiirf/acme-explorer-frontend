@@ -3,19 +3,19 @@
         <tr>
             <td>
                 <mat-form-field class="example-full-width">
-                    <mat-label>First Name</mat-label>
+                    <mat-label>{{'actor.name' | translate}}</mat-label>
                     <input matInput formControlName="name" [errorStateMatcher]="matcher">
                     <mat-error *ngIf="registerForm.controls.name.hasError('required')">
-                        First Name is <strong>required</strong>
+                        {{'validator.required.name' | translate}}
                     </mat-error>
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="example-full-width">
-                    <mat-label>Last Name</mat-label>
+                    <mat-label>{{'actor.surname' | translate}}</mat-label>
                     <input matInput formControlName="surname" [errorStateMatcher]="matcher">
                     <mat-error *ngIf="registerForm.controls.surname.hasError('required')">
-                        Last Name is <strong>required</strong>
+                        {{'validator.required.surname' | translate}}
                     </mat-error>
                 </mat-form-field>
             </td>
@@ -23,22 +23,22 @@
         <tr>
             <td>
                 <mat-form-field class="example-full-width">
-                    <mat-label>Phone</mat-label>
+                    <mat-label>{{'actor.phone' | translate}}</mat-label>
                     <input matInput formControlName="phone" [errorStateMatcher]="matcher">
                     <mat-error *ngIf="registerForm.controls.phone.hasError('required')">
-                        Phone is <strong>required</strong>
+                        {{'validator.required.phone' | translate}}
                     </mat-error>
                 </mat-form-field>
             </td>
             <td>
                 <mat-form-field class="example-full-width">
-                    <mat-label>Password</mat-label>
+                    <mat-label>{{'actor.password' | translate}}</mat-label>
                     <input matInput formControlName="password" [errorStateMatcher]="matcher" type="password">
                     <mat-error *ngIf="(registerForm.controls.password.hasError('minlength') || registerForm.controls.password.hasError('maxlength')) && !registerForm.controls.password.hasError('required')">
-                        Password must have between 8 and 12 letters
+                        {{'validator.password' | translate}}
                     </mat-error>
                     <mat-error *ngIf="registerForm.controls.password.hasError('required')">
-                        Password is <strong>required</strong>
+                        {{'validator.required.password' | translate}}
                     </mat-error>
                 </mat-form-field>
             </td>
@@ -46,13 +46,13 @@
         <tr>
             <td colspan="2">
                 <mat-form-field class="example-full-width">
-                    <mat-label>Email</mat-label>
+                    <mat-label>{{'actor.email' | translate}}</mat-label>
                     <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
                     <mat-error *ngIf="registerForm.controls.email.hasError('email') && !registerForm.controls.email.hasError('required')">
-                        Please enter a valid email address
+                        {{'validator.email' | translate}}
                     </mat-error>
                     <mat-error *ngIf="registerForm.controls.email.hasError('required')">
-                        Email is <strong>required</strong>
+                        {{'validator.required.email' | translate}}
                     </mat-error>
                 </mat-form-field>
             </td>
@@ -62,15 +62,15 @@
 
     <p>
         <mat-form-field class="example-full-width">
-            <mat-label>Address</mat-label>
+            <mat-label>{{'actor.address' | translate}}</mat-label>
             <textarea matInput formControlName="adress" [errorStateMatcher]="matcher" placeholder="Ex. 100 Main St"></textarea>
             <mat-error *ngIf="registerForm.controls.adress.hasError('required')">
-                Address is <strong>required</strong>
+                {{'validator.required.address' | translate}}
             </mat-error>
         </mat-form-field>
     </p>
 
     <p>
-        <button mat-stroked-button type="submit" [disabled]="!registerForm.valid">Submit</button>
+        <button mat-stroked-button type="submit" [disabled]="!registerForm.valid">{{'button.submit' | translate}}</button>
     </p>
 </form>
