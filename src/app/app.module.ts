@@ -2,17 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuth } from '@angular/fire/auth';
+// import { AngularFireAuth } from '@angular/fire/auth';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+import { environment } from 'src/environments/environment';
 
 import { AppComponent } from './app.component';
 import { TripListComponent } from './components/trip/trip-list/trip-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslatableComponent } from './components/shared/translatable/translatable.component';
-import { environment } from 'src/environments/environment';
+import { RegisterComponent } from './components/security/register/register.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -22,16 +28,21 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TripListComponent,
-    TranslatableComponent
+    TranslatableComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatInputModule,
+    MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuth,
+    // AngularFireAuth,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -42,6 +53,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
