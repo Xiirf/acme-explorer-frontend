@@ -20,6 +20,7 @@
         "password": "Le mot de passe doit faire entre 8 et 12 caractères"
     },
     "button": {
-        "submit": "Envoyer"
+        "submit": "Envoyer",
+        "register": "S'inscrire"
     }
 }

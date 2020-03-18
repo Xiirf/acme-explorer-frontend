@@ -11,4 +11,8 @@ export class Actor extends Entity {
     banned: boolean;
     createdAt: Date;
     customToken: string;
+
+    constructor() {
+        super();
+    }
 }

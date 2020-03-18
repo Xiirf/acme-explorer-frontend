@@ -20,6 +20,7 @@
         "password": "Password must have between 8 and 12 letters"
     },
     "button": {
-        "submit": "Submit"
+        "submit": "Submit",
+        "register": "Register"
     }
 }

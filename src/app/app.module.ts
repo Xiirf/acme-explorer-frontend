@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { environment } from 'src/environments/environment';
 
@@ -19,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslatableComponent } from './components/shared/translatable/translatable.component';
 import { RegisterComponent } from './components/security/register/register.component';
+import { HeaderComponent } from './components/master/header/header.component';
+import { AppRoutingModule } from './app-routing.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -28,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     TripListComponent,
+    HeaderComponent,
     TranslatableComponent,
     RegisterComponent
   ],
@@ -41,6 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginatorModule,
+    FontAwesomeModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     // AngularFireAuth,
     TranslateModule.forRoot({

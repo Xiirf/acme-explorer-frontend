@@ -20,6 +20,7 @@
         "password": "La contraseña debe tener entre 8 y 12 caracteres"
     },
     "button": {
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "register": "Registrarse"
     }
 }
