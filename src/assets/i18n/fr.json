@@ -21,6 +21,13 @@
     },
     "button": {
         "submit": "Envoyer",
-        "register": "S'inscrire"
+        "register": "S'inscrire",
+        "login": "Se connecter",
+        "search": "Rechercher",
+        "logout": "déconnexion"
+    },
+    "message": {
+        "connected": "Connecté",
+        "disconnected": "Déconnecté"
     }
 }
