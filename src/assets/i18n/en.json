@@ -21,6 +21,13 @@
     },
     "button": {
         "submit": "Submit",
-        "register": "Register"
+        "register": "Register",
+        "login": "Login",
+        "search": "Search",
+        "logout": "Logout"
+    },
+    "message": {
+        "connected": "Connected",
+        "disconnected": "Disconnected"
     }
 }

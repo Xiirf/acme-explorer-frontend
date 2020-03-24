@@ -11,3 +11,13 @@
 td {
     padding-right: 8px;
 }
+
+div.center {
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    width: 50%;
+    height: 50%;
+}

@@ -22,6 +22,10 @@ export class TranslatableComponent implements OnInit {
     localStorage.setItem('language', language);
   }
 
+  getLanguage() {
+    return localStorage.getItem('language');
+  }
+
   ngOnInit(): void {
   }
 
