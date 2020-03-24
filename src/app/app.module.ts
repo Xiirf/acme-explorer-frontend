@@ -24,20 +24,12 @@ import { HeaderComponent } from './components/master/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/security/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { TripService } from './services/trip.service';
+import { environment } from 'src/environments/environment';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
-
-export const firebaseConfig = {
-  apiKey: 'AIzaSyC2Qa9uZIjnTJBFYES4BPA5WRj2DMETdHs',
-  authDomain: 'acme-explorer-e1ea6.firebaseapp.com',
-  databaseURL: 'https://acme-explorer-e1ea6.firebaseio.com',
-  projectId: 'acme-explorer-e1ea6',
-  storageBucket: 'acme-explorer-e1ea6.appspot.com',
-  messagingSenderId: '653865132618',
-  appId: '1:653865132618:web:8c9edb6c13ef531f5f3cb3'
-};
 
 @NgModule({
   declarations: [
@@ -62,7 +54,7 @@ export const firebaseConfig = {
     FontAwesomeModule,
     AppRoutingModule,
     MatToolbarModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFireAuth,
     TranslateModule.forRoot({
       loader: {
@@ -73,7 +65,7 @@ export const firebaseConfig = {
     }),
     ToastrModule.forRoot()
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth, TripService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
