@@ -10,9 +10,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterModule, Routes } from '@angular/router';
-import { TripListComponent } from '../../trip/trip-list/trip-list.component';
-import { LoginComponent } from '../login/login.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -77,5 +74,10 @@ describe('RegisterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render form', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.example-form')).toBeTruthy();
   });
 });
