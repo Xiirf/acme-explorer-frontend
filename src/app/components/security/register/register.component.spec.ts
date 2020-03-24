@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -39,6 +42,8 @@ describe('RegisterComponent', () => {
             deps: [HttpClient]
           }
         }),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
         ToastrModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
@@ -56,7 +61,8 @@ describe('RegisterComponent', () => {
         AuthService,
         { provide: AuthService, useClass: AuthServiceMock },
         ToastrService,
-        FormBuilder
+        FormBuilder,
+        AngularFireAuth
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
