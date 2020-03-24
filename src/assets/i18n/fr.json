@@ -29,6 +29,7 @@
     "message": {
         "connected": "Connecté",
         "disconnected": "Déconnecté",
-        "registered": "Inscrit"
+        "registered": "Inscrit",
+        "errorConnect": "Mauvaise combinaison email  / mot de passe"
     }
 }
