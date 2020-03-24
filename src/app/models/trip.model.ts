@@ -10,6 +10,7 @@ export class Trip extends Entity {
     pictures: string[];
     stages: Stage[];
     managerId: string;
+    price: number;
 
     constructor() {
         super();

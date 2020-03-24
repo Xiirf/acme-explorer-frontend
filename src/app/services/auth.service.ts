@@ -27,8 +27,7 @@ export class AuthService {
             .catch(err => reject(err));
         })
         .catch(err => reject(err));
-    })
-    return 
+    });
   }
 
   login(email: string, password: string) {
