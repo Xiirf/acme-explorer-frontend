@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendApiBaseUrl: 'https://localhost:8080/v1'
+  backendApiBaseUrl: 'https://s4-acme-explorer-backend.herokuapp.com/v1'
 };
 
 /*
