@@ -7,6 +7,8 @@ import { TranslatableComponent } from '../../shared/translatable/translatable.co
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { StorageService } from 'src/app/services/storage.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -30,7 +32,9 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
     private fb: FormBuilder,
     private translateService: TranslateService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private fireAuth: AngularFireAuth,
+    private storageService: StorageService
   ) {
     super(translateService);
     this.createForm();
@@ -54,11 +58,14 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
   onRegister(): void {
     this.authService.register(this.registerForm.value)
       .then(_ => {
-        this.toastr.success(this.translateService.instant('message.registered'));
+        this.fireAuth.auth.currentUser.getIdToken()
+          .then((token: string) => {
+              this.storageService.setItem('token', token);
+              this.toastr.success(this.translateService.instant('message.registered'));
+            });
         this.registerForm.reset();
-        this.router.navigate(['login']);
+        this.router.navigate(['']);
       })
       .catch((err) => console.log(err));
   }
-
 }
