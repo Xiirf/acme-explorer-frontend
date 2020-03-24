@@ -28,6 +28,7 @@
     },
     "message": {
         "connected": "Connecté",
-        "disconnected": "Déconnecté"
+        "disconnected": "Déconnecté",
+        "registered": "Inscrit"
     }
 }
