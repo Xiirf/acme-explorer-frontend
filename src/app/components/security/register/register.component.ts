@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Actor } from 'src/app/models/actor.model';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,7 +25,13 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private translateService: TranslateService) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private translateService: TranslateService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {
     super(translateService);
     this.createForm();
   }
@@ -45,14 +53,12 @@ export class RegisterComponent extends TranslatableComponent implements OnInit {
 
   onRegister(): void {
     this.authService.register(this.registerForm.value)
-      .then((res) => {
-        console.log(res);
+      .then(_ => {
+        this.toastr.success(this.translateService.instant('message.registered'));
+        this.registerForm.reset();
+        this.router.navigate(['login']);
       })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    this.registerForm.reset();
+      .catch((err) => console.log(err));
   }
 
 }
