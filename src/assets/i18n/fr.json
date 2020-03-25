@@ -24,7 +24,7 @@
         "register": "S'inscrire",
         "login": "Se connecter",
         "search": "Rechercher",
-        "logout": "déconnexion"
+        "logout": "Déconnexion"
     },
     "message": {
         "connected": "Connecté",
