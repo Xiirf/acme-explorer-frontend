@@ -10,9 +10,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterModule, Routes } from '@angular/router';
-import { TripListComponent } from '../../trip/trip-list/trip-list.component';
-import { LoginComponent } from '../login/login.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -39,6 +39,8 @@ describe('RegisterComponent', () => {
             deps: [HttpClient]
           }
         }),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
         ToastrModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([]),
@@ -56,7 +58,8 @@ describe('RegisterComponent', () => {
         AuthService,
         { provide: AuthService, useClass: AuthServiceMock },
         ToastrService,
-        FormBuilder
+        FormBuilder,
+        AngularFireAuth
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -71,5 +74,10 @@ describe('RegisterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render form', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.example-form')).toBeTruthy();
   });
 });

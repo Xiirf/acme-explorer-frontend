@@ -51,14 +51,15 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
             (token: string) => {
               this.storageService.setItem('token', token);
               this.toastr.success(this.translateService.instant('message.connected'));
+              this.loginForm.reset();
+              this.router.navigate(['']);
             }
           );
       })
       .catch((err) => {
-        console.log(err);
+        this.loginForm.reset();
+        this.toastr.error(this.translateService.instant('message.errorConnect'));
       });
-    this.loginForm.reset();
-    this.router.navigate(['']);
   }
 
 }

@@ -24,11 +24,12 @@
         "register": "Registrarse",
         "login": "Conectarse",
         "search": "Buscar",
-        "logout": "desconexión"
+        "logout": "Desconexión"
     },
     "message": {
         "connected": "Conectado",
         "disconnected": "Desconectado",
-        "registered": "Registrado"
+        "registered": "Registrado",
+        "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña"
     }
 }
