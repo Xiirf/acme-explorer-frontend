@@ -31,5 +31,10 @@
         "disconnected": "Disconnected",
         "registered": "Registered",
         "errorConnect": "Wrong email / password combination"
+    },
+    "footer": {
+        "terms": "Terms and conditions",
+        "visitors": "Visitor num.",
+        "register": "Register for free"
     }
 }

@@ -31,5 +31,10 @@
         "disconnected": "Déconnecté",
         "registered": "Inscrit",
         "errorConnect": "Mauvaise combinaison email  / mot de passe"
+    },
+    "footer": {
+        "terms": "Termes et conditions",
+        "visitors": "Visiteur num.",
+        "register": "S'inscrire gratuitement"
     }
 }
