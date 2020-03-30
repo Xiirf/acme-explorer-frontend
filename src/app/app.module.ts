@@ -5,6 +5,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import localeFr from '@angular/common/locales/fr';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -26,6 +29,12 @@ import { LoginComponent } from './components/security/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { TripService } from './services/trip.service';
 import { environment } from 'src/environments/environment';
+import { FooterComponent } from './components/master/footer/footer.component';
+import { LocalizedDatePipe } from './components/shared/localized-date.pipe';
+import { LocalizedDecimalPipe } from './components/shared/localized-decimal.pipe';
+
+registerLocaleData(localeEs, 'es');
+registerLocaleData(localeFr, 'fr');
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,7 +47,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     TranslatableComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
+    LocalizedDatePipe,
+    LocalizedDecimalPipe
   ],
   imports: [
     BrowserModule,

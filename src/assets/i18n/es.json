@@ -31,5 +31,10 @@
         "disconnected": "Desconectado",
         "registered": "Registrado",
         "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña"
+    },
+    "footer": {
+        "terms": "Términos y condiciones",
+        "visitors": "Visitante núm.",
+        "register": "Regístrate gratis"
     }
 }
