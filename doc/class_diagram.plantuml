@@ -184,6 +184,7 @@ Class Sponsorship {
 Class GlobalVars {
     cacheTimeOutFinderResults: Integer {NotBlank}
     maxNumberFinderResults: Integer {NotBlank}
+    VatTaxe: Integer {NotBlank}
 }
 
 Class SurvivalClasses {
