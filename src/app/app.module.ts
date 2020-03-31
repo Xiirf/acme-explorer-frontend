@@ -32,6 +32,8 @@ import { environment } from 'src/environments/environment';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { LocalizedDatePipe } from './components/shared/localized-date.pipe';
 import { LocalizedDecimalPipe } from './components/shared/localized-decimal.pipe';
+import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
+import { MessageComponent } from './components/master/message/message.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -50,7 +52,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     FooterComponent,
     LocalizedDatePipe,
-    LocalizedDecimalPipe
+    LocalizedDecimalPipe,
+    NotFoundPageComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
