@@ -18,13 +18,16 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth, private http: HttpClient) { }
 
-  register(actor: Actor): Promise<Actor> {
-    return new Promise<Actor>((resolve, reject) => {
+  register(actor: Actor) {
+    return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.createUserWithEmailAndPassword(actor.email, actor.password)
         .then(_ => {
           this.http.post<Actor>(`${environment.backendApiBaseUrl}/actors`, actor, httpOptions).toPromise()
-            .then(res => resolve(res))
-            .catch(err => reject(err));
+            .then(_ => resolve())
+            .catch(err => {
+              this.fireAuth.auth.currentUser.delete();
+              reject(err);
+            });
         })
         .catch(err => reject(err));
     });

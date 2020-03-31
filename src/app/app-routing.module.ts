@@ -7,6 +7,7 @@ import { LoginComponent } from './components/security/login/login.component';
 
 const appRoutes: Routes = [
   { path: 'tripList', component: TripListComponent },
+  { path: '', redirectTo: '/tripList', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
 ];

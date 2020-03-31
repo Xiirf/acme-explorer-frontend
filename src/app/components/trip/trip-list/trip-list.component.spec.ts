@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
 import { TripListComponent } from './trip-list.component';
 import { TripService } from 'src/app/services/trip.service';

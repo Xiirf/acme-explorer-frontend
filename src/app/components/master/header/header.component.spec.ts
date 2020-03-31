@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AuthServiceMock } from 'src/app/services/mocks/auth.services.mock';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
@@ -29,7 +30,8 @@ describe('HeaderComponent', () => {
                     }
                 }),
                 ToastrModule.forRoot(),
-                HttpClientTestingModule
+                HttpClientTestingModule,
+                BrowserAnimationsModule
             ],
             providers: [
                 { provide: AuthService, useClass: AuthServiceMock },
