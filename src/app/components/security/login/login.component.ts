@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -25,10 +25,16 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
   loginForm: FormGroup;
 
   matcher = new MyErrorStateMatcher();
+  private returnUrl: string;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private translateService: TranslateService,
-              private fireAuth: AngularFireAuth, private router: Router, private storageService: StorageService,
-              private toastr: ToastrService) {
+  constructor(private authService: AuthService,
+              private fb: FormBuilder,
+              private translateService: TranslateService,
+              private fireAuth: AngularFireAuth,
+              private storageService: StorageService,
+              private toastr: ToastrService,
+              private route: ActivatedRoute,
+              private router: Router) {
     super(translateService);
     this.createForm();
   }
@@ -41,6 +47,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   onLogin(): void {
@@ -52,7 +59,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
               this.storageService.setItem('token', token);
               this.toastr.success(this.translateService.instant('message.connected'));
               this.loginForm.reset();
-              this.router.navigate(['']);
+              this.router.navigateByUrl(this.returnUrl);
             }
           );
       })

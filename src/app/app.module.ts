@@ -32,6 +32,8 @@ import { environment } from 'src/environments/environment';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { LocalizedDatePipe } from './components/shared/localized-date.pipe';
 import { LocalizedDecimalPipe } from './components/shared/localized-decimal.pipe';
+import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
+import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -50,7 +52,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     FooterComponent,
     LocalizedDatePipe,
-    LocalizedDecimalPipe
+    LocalizedDecimalPipe,
+    DeniedAccessComponent,
+    TripDatatableComponent
   ],
   imports: [
     BrowserModule,

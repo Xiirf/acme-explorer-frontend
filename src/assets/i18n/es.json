@@ -32,6 +32,11 @@
         "registered": "Registrado",
         "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña"
     },
+    "denied-access": {
+        "title": "Acceso denegado",
+        "message-start": "No tiene permiso para acceder a",
+        "message-end": "en este servidor"
+    },
     "footer": {
         "terms": "Términos y condiciones",
         "visitors": "Visitante núm.",
