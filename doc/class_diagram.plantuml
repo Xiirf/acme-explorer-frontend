@@ -1,0 +1,238 @@
+@startuml Class Diagram
+Enum Status {
+  REJECTED,
+  PENDING,
+  DUE,
+  ACCEPTED,
+  CANCELLED
+}
+
+Enum Priority {
+    HIGH,
+    NEUTRAL,
+    LOW
+}
+
+Enum Mode {
+    DRAFT,
+    FINAL
+}
+
+Abstract Actor {
+  name: String {NotBlank}
+  surname: String {NotBlank}
+  email: String {NotBlank}
+  password: String {NotBlank}
+  phone: String
+  address: String
+  banned: Boolean = false {NotBlank}
+}
+
+Class Administrator
+
+Class Manager
+
+Class Ranger
+
+Class Explorer
+
+Class Auditor
+
+Class Sponsor
+
+Class SocialIdentity {
+    nickname: String {NotBlank}
+    name_network: String {NotBlank}
+    link: String {NotBlank}
+    photo: Image
+}
+
+Class EmergencyContact {
+    name: String {NotBlank}
+    email: String
+    phone: String
+}
+
+Class Message {
+    date: Date {NotBlank}
+    subject: String {NotBlank}
+    body: String {NotBlank}
+    priority: Priority
+}
+
+Class Folder {
+    name: String {NotBlank}
+}
+
+Class Trip {
+  ticker: String {NotBlank}
+  title: String {NotBlank}
+  description: String {NotBlank}
+  price: Float {NotBlank}
+  requirements: Array[String] {NotBlank}
+  publicationDate: Date {NotBlank}
+  start: Date {NotBlank}
+  end: Date {NotBlank}
+  cancelled: Boolean = False
+  reasonCancelling: String
+}
+
+Class LegalText {
+    title: String {NotBlank}
+    body: String {NotBlank}
+    numberApplicableLaws: Number {NotBlank}
+    createdAt: Date {NotBlank}
+    mode: Mode
+}
+
+Class Stage {
+  title: String {NotBlank}
+  description: String {NotBlank}
+  price: Float
+}
+
+Class Category {
+    name: String {NotBlank}
+}
+
+Class Application {
+  status: Status = Status.PENDING
+  payedAt: Date {NotBlank}
+  comments: String
+  reasonRejected: String
+  createdAt: Date {NotBlank}
+}
+
+Class CreditCard {
+    holderName: String {NotBlank}
+    brandName: String {NotBlank}
+    number: Number {NotBlank}
+    ExpirationMonth: Number {NotBlank}
+    ExpirationYear: Number {NotBlank}
+    CVV: Number {NotBlank}
+}
+
+Class Curriculum {
+    ticker: String {NotBlank}
+}
+
+Class PersonalRecord {
+    name: String {NotBlank}
+    photo: Image {NotBlank}
+    email: String {NotBlank}
+    LinkedIn: String {NotBlank}
+}
+
+Class EducationRecord {
+    diplomaTitle: String {NotBlank}
+    studiyingPeriod: String {NotBlank}
+    institution: String {NotBlank}
+    attachmentLink: String
+    comments: Array[String]
+}
+
+Class ProfessionalRecord {
+    companyName: String {NotBlank}
+    timePeriod: String {NotBlank}
+    role: String {NotBlank}
+    attachmentLink: String
+    comments: Array[String]
+}
+
+Class EndorserRecord {
+    endorserName: String {NotBlank}
+    email: String {NotBlank}
+    phone: String {NotBlank}
+    LinkedIn: String {NotBlank}
+    comments: Array[String]
+}
+
+Class MiscellaneousRecord {
+    title: String {NotBlank}
+    attachmentLink: String {NotBlank}
+    comments: Array[String]
+}
+
+Class Finder {
+    keyWord: String
+    priceMin: Float
+    priceMax: Float
+    dateMin: Date
+    dateMax: Date
+}
+
+Class Note {
+    createdAt: Date {NotBlank}
+    remark: String {NotBlank}
+    reply: String
+    repliedAt: Date
+}
+
+Class Audit {
+    createdAt: Date {NotBlank}
+    title: String {NotBlank}
+    description: String {NotBlank}
+    attachments: Array[String]
+    mode: Mode {NotBlank}
+}
+
+Class Sponsorship {
+    banner: String {NotBlank}
+    link: String {NotBlank}
+}
+
+Class GlobalVars {
+    cacheTimeOutFinderResults: Integer {NotBlank}
+    maxNumberFinderResults: Integer {NotBlank}
+    VatTaxe: Integer {NotBlank}
+}
+
+Class SurvivalClasses {
+    title: String {NotBlank}
+    description: String {NotBlank}
+    date: Date {NotBlank}
+    locationName: String {NotBlank}
+    locationCoordinates: String {NotBlank}
+}
+
+Class Story {
+    title: String {NotBlank}
+    text: String {NotBlank}
+    attachmentsLinks: Array[String] {NotBlank}
+}
+
+Actor <|-- Administrator
+Actor <|-- Manager
+Actor <|-- Explorer
+Actor <|-- Ranger
+Actor <|-- Auditor
+Trip *-- "1..*" Stage
+Manager *--> "*" Trip: Organize
+Explorer "*" --> "*" Trip: Apply/Write
+(Explorer, Trip).. Application
+Explorer *-- "1" Finder
+Actor "1" --> "1" Message: Send
+Actor "1" --> "1" Message: Receive
+Actor *-- "1..*" SocialIdentity
+Explorer *-- "1..*" EmergencyContact
+Ranger *-- "1..*" Trip: Guide
+LegalText *--> "*" Trip
+Category *--> "*" Category: Parent
+Folder *--> "*" Message
+Actor *--> "5..*" Folder
+Ranger "1" --> "1" Curriculum
+Curriculum *--> "1..*" PersonalRecord
+Curriculum *--> "1..*" EducationRecord
+Curriculum *--> "1..*" ProfessionalRecord
+Curriculum *--> "1..*" EndorserRecord
+Curriculum *--> "1..*" MiscellaneousRecord
+Auditor "*" --> "*" Trip
+(Auditor, Trip).. Note
+(Auditor, Trip).. Audit
+Sponsor "*" --> "*" Trip: Sponsor
+(Sponsor , Trip) .. Sponsorship
+CreditCard *--> "*" Sponsorship
+Trip *--> "*" SurvivalClasses
+(Explorer, Trip).. Story
+
+@enduml
