@@ -11,7 +11,6 @@ export class ActorService {
   constructor(private http: HttpClient) { }
 
   getActorByEmail(email: string): Promise<Actor[]> {
-    const params = new HttpParams().set('email', email);
-    return this.http.get<Actor[]>(`${environment.backendApiBaseUrl}/actor`, { params }).toPromise();
+    return this.http.get<Actor[]>(`${environment.backendApiBaseUrl}/actors/email/${email}`).toPromise();
   }
 }

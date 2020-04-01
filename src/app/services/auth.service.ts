@@ -49,9 +49,8 @@ export class AuthService {
             resolve(this.currentActor);
           }).catch(error => {
             // Message co failed
-            reject(error)
-          })
-          resolve();
+            reject(error);
+          });
         }).catch(error => {
           reject(error);
         });

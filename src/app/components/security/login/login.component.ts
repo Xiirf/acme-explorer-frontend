@@ -52,7 +52,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
 
   onLogin(): void {
     this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
-      .then(_ => {
+      .then(actor => {
         this.fireAuth.auth.currentUser.getIdToken()
           .then(
             (token: string) => {
