@@ -34,6 +34,7 @@ import { LocalizedDatePipe } from './components/shared/localized-date.pipe';
 import { LocalizedDecimalPipe } from './components/shared/localized-decimal.pipe';
 import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
 import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
+import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -54,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LocalizedDatePipe,
     LocalizedDecimalPipe,
     DeniedAccessComponent,
-    TripDatatableComponent
+    TripDatatableComponent,
+    TermsAndConditionsComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [AngularFireAuth, TripService],
   bootstrap: [AppComponent],

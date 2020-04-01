@@ -5,13 +5,15 @@ import { TripListComponent } from './components/trip/trip-list/trip-list.compone
 import { RegisterComponent } from './components/security/register/register.component';
 import { LoginComponent } from './components/security/login/login.component';
 import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
+import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
 
 const appRoutes: Routes = [
   { path: 'tripList', component: TripListComponent },
   { path: '', redirectTo: '/tripList', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'denied-access', component: DeniedAccessComponent}
+  { path: 'denied-access', component: DeniedAccessComponent},
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent}
 ];
 
 @NgModule({
