@@ -32,6 +32,11 @@
         "registered": "Registered",
         "errorConnect": "Wrong email / password combination"
     },
+    "denied-access": {
+        "title": "Denied access",
+        "message-start": "You don't have permission to access",
+        "message-end": "on this server"
+    },
     "footer": {
         "terms": "Terms and conditions",
         "visitors": "Visitor num.",
