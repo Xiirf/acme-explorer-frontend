@@ -1,58 +1,60 @@
-<footer class="footer card-footer text-muted">
-    <div class="container text-center text-md-left">
+<footer class="footer-distributed">
 
-        <!-- Grid row -->
-        <div class="row">
+    <div class="footer-left col-md-4">
 
-            <!-- Grid column -->
-            <div class="col-md-4 mx-auto">
+        <h3>Acme<span>Explorer</span></h3>
+        <p>
+            <a href="/terms-and-conditions">{{ 'footer.terms' | translate }}</a>
+        </p>
+        <p>Acme-Explorer &copy; {{ today | localizedDate }}</p>
+        <span class="text-muted">
+            <b> {{'footer.visitors' | translate }}:</b> {{ numClients | localizedDecimal }}
+        </span>
 
-                <!-- Content -->
-                <h3>Acme<span>Explorer</span></h3>
-                <p>
-                    <a href="/terms-and-conditions">{{ 'footer.terms' | translate }}</a>
-                </p>
-                <p>Acme-Explorer &copy; {{ today | localizedDate }}</p>
-                <span class="text-muted">
-                    <b> {{'footer.visitors' | translate }}:</b> {{ numClients | localizedDecimal }}
-                </span>
+    </div>
 
-            </div>
+    <div class="footer-center col-md-4"></div>
 
-            <div class="col-md-4 mx-auto">
+    <div class="footer-right col-md-4">
 
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-fb mx-1">
-                            <fa-icon [icon]="faFacebook"></fa-icon>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-tw mx-1">
-                            <fa-icon [icon]="faTwitter"></fa-icon>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-gplus mx-1">
-                            <fa-icon [icon]="faGooglePlusG"></fa-icon>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-li mx-1">
-                            <fa-icon [icon]="faLinkedinIn"></fa-icon>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-dribbble mx-1">
-                            <fa-icon [icon]="faDribbble"></fa-icon>
-                        </a>
-                    </li>
-                </ul>
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a class="btn-floating btn-fb mx-1">
+                    <fa-icon [icon]="faFacebook"></fa-icon>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1">
+                    <fa-icon [icon]="faTwitter"></fa-icon>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-gplus mx-1">
+                    <fa-icon [icon]="faGooglePlusG"></fa-icon>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-li mx-1">
+                    <fa-icon [icon]="faLinkedinIn"></fa-icon>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-dribbble mx-1">
+                    <fa-icon [icon]="faDribbble"></fa-icon>
+                </a>
+            </li>
+        </ul>
 
-                <p>Falvien Coçu: flavien.cocu@insa-rouen.fr</p>
-                <p>Quentin Enjalbert: quentin.enjalbert@insa-roun.fr</p>
+        <p>
+            <a href="mailto:flavien.cocu@insa-rouen.fr">
+                Falvien Coçu: flavien.cocu@insa-rouen.fr
+            </a>
+        </p>
+        <p>
+            <a href="mailto:quentin.enjalbert@insa-rouen.fr">
+                Quentin Enjalbert: quentin.enjalbert@insa-rouen.fr
+            </a>
+        </p>
 
-            </div>
-        </div>
     </div>
 </footer>
