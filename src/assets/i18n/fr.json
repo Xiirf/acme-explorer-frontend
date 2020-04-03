@@ -32,6 +32,11 @@
         "registered": "Inscrit",
         "errorConnect": "Mauvaise combinaison email  / mot de passe"
     },
+    "denied-access": {
+        "title": "Accès refusé",
+        "message-start": "Vous n'avez pas les permissions pour accéder",
+        "message-end": "à ce serveur"
+    },
     "footer": {
         "terms": "Termes et conditions",
         "visitors": "Visiteur num.",

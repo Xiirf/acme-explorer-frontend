@@ -32,6 +32,9 @@ import { environment } from 'src/environments/environment';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { LocalizedDatePipe } from './components/shared/localized-date.pipe';
 import { LocalizedDecimalPipe } from './components/shared/localized-decimal.pipe';
+import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
+import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
+import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 import { MessageComponent } from './components/master/message/message.component';
 
@@ -53,6 +56,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     LocalizedDatePipe,
     LocalizedDecimalPipe,
+    DeniedAccessComponent,
+    TripDatatableComponent,
+    TermsAndConditionsComponent,
     NotFoundPageComponent,
     MessageComponent
   ],
@@ -79,7 +85,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [AngularFireAuth, TripService],
   bootstrap: [AppComponent],

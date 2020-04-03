@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Actor } from '../models/actor.model';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ActorService } from './actor.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +17,11 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private fireAuth: AngularFireAuth, private http: HttpClient) { }
+  private currentActor: Actor;
+
+  constructor(private fireAuth: AngularFireAuth,
+              private http: HttpClient,
+              private actorService: ActorService) { }
 
   register(actor: Actor) {
     return new Promise<any>((resolve, reject) => {
@@ -37,7 +42,15 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signInWithEmailAndPassword(email, password)
         .then(_ => {
-          resolve();
+          this.actorService.getActorByEmail(email)
+          .then((actor: Actor[]) => {
+            this.currentActor = actor[0];
+            // Message co effectuée
+            resolve(this.currentActor);
+          }).catch(error => {
+            // Message co failed
+            reject(error);
+          });
         }).catch(error => {
           reject(error);
         });
@@ -53,5 +66,9 @@ export class AuthService {
           reject(error);
         });
     });
+  }
+
+  getCurrentActor() {
+    return this.currentActor;
   }
 }
