@@ -61,6 +61,7 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signOut()
         .then(_ => {
+          this.currentActor = null;
           resolve();
         }).catch(error => {
           reject(error);
