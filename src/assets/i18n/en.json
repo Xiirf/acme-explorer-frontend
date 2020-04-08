@@ -7,6 +7,18 @@
         "phone": "Phone",
         "address": "Address"
     },
+    "trip": {
+        "title": "Title",
+        "ticker": "Ticker",
+        "description":  "Description",
+        "requirements": "Requirements",
+        "start": "Start date",
+        "end": "End date",
+        "pictures": "Pictures",
+        "stages": "Stages",
+        "managerId": "Manager ID",
+        "price": "Price"
+    },
     "validator": {
         "required": {
             "name": "The first name is required",
@@ -42,6 +54,12 @@
         "visitors": "Visitor num.",
         "register": "Register for free"
     },
+    "header": {
+        "trips": "Trips",
+        "tripsList": "Trips list",
+        "manageTrip": "Manage trips",
+        "newTrip": "New trip"
+    },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
         "auth.logout": "The user has logged out from the app",
@@ -65,6 +83,7 @@
         "denied.access.title": "Denied access",
         "denied.access.message": "You don't have permission to access {{ressource}} on this server",
         "add.category.failed": "Category could not be added",
-        "no.items.found": "No items found for this category"
+        "no.items.found": "No items found for this category",
+        "trip.not.found": "There is no trip corresponding to this ID"
     }
 }

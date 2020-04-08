@@ -19,4 +19,8 @@ export class TripService {
     const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.get<Trip[]>(`${environment.backendApiBaseUrl}/trips`, {headers}).toPromise();
   }
+
+  getTrip(idTrip: string): Promise<Trip> {
+    return this.http.get<Trip>(`${environment.backendApiBaseUrl}/trips/${idTrip}`).toPromise();
+  }
 }

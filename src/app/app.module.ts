@@ -37,6 +37,7 @@ import { TripDatatableComponent } from './components/trip/trip-datatable/trip-da
 import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 import { MessageComponent } from './components/master/message/message.component';
+import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -60,7 +61,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TripDatatableComponent,
     TermsAndConditionsComponent,
     NotFoundPageComponent,
-    MessageComponent
+    MessageComponent,
+    TripDisplayComponent
   ],
   imports: [
     BrowserModule,

@@ -11,23 +11,23 @@
             <li class="nav-item dropdown">
                 <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown" 
                     role="button" data-toggle="dropdown" aria-haspopup="true" 
-                    aria-expanded="false"> Trips
+                    aria-expanded="false"> {{'header.trips' | translate}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <div>
-                    <a class="dropdown-item" routerLink="/trips">List trips</a>
+                    <a class="dropdown-item" routerLink="/trips">{{'header.tripsList' | translate}}</a>
                 </div>
                 <div *ngIf="currenActor && activeRole=='Manager'">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/trips/manage">Manage trips</a>
-                    <a class="dropdown-item" href="#">New Trip</a>
+                    <a class="dropdown-item" routerLink="/trips/manage">{{'header.manageTrip' | translate}}</a>
+                    <a class="dropdown-item" href="#">{{'header.newTrip' | translate}}</a>
                 </div>
                 </div>
             </li>
         </ul>
 
         <form class="form-inline mx-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="..." aria-label="Search">
             <button mat-stroked-button type="submit">{{'button.search' | translate}}</button>
             <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
         </form>

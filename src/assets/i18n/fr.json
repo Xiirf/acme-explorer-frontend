@@ -7,6 +7,18 @@
         "phone": "Téléphone",
         "address": "Adresse"
     },
+    "trip": {
+        "title": "Titre",
+        "ticker": "Ticker",
+        "description":  "Description",
+        "requirements": "Conditions requises",
+        "start": "Date de début",
+        "end": "Date de fin",
+        "pictures": "Photos",
+        "stages": "Étapes",
+        "managerId": "Manager ID",
+        "price": "Prix"
+    },
     "validator": {
         "required": {
             "name": "Le prénom est requis",
@@ -42,6 +54,12 @@
         "visitors": "Visiteur num.",
         "register": "S'inscrire gratuitement"
     },
+    "header": {
+        "trips": "Voyages",
+        "tripsList": "Liste des voyages",
+        "manageTrip": "Gérer les voyages",
+        "newTrip": "Créer un voyage"
+    },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
         "auth.logout": "L'utilisateur s'est déconnecté de l'application",
@@ -65,6 +83,7 @@
         "denied.access.title": "Accès refusé",
         "denied.access.message": "Vous n'avez pas l'autorisation d'accéder à {{ressource}} sur ce serveur",
         "add.category.failed": "La catégorie n'a pas pu être ajoutée",
-        "no.items.found": "Aucun article trouvé pour cette catégorie"
+        "no.items.found": "Aucun article trouvé pour cette catégorie",
+        "trip.not.found": "Il n'y a pas de voyage correspondant à cette identification"
     }
 }

@@ -9,12 +9,14 @@ import { TermsAndConditionsComponent } from './components/master/terms-and-condi
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
 import { ActorRoleGuard } from './guards/actor-role.guard';
+import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
     { path: '', component: TripListComponent },
     { path: 'manage', component: TripDatatableComponent,
-      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}}
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
+    { path: ':idTrip', component: TripDisplayComponent}
   ]},
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
