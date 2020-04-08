@@ -24,6 +24,15 @@
                 </div>
                 </div>
             </li>
+            <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Sponsor'">
+                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown2" 
+                    role="button" data-toggle="dropdown" aria-haspopup="true" 
+                    aria-expanded="false"> {{'header.sponsorships' | translate}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" routerLink="/sponsorships">{{'header.sponsorshipsList' | translate}}</a>
+                </div>
+            </li>
         </ul>
 
         <form class="form-inline mx-auto">

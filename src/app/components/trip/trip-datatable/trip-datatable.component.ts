@@ -3,6 +3,7 @@ import { Trip } from 'src/app/models/trip.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { TripService } from 'src/app/services/trip.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-trip-datatable',
@@ -17,7 +18,8 @@ export class TripDatatableComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private tripService: TripService) {
+  constructor(private tripService: TripService,
+              private translateService: TranslateService) {
     this.initialize();
   }
 

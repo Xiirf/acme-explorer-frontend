@@ -19,6 +19,14 @@
         "managerId": "Manager ID",
         "price": "Price"
     },
+    "sponsorship": {
+        "banner": "Banner",
+        "link": "Link",
+        "price": "Price",
+        "payed": "Payed",
+        "Trip": "Trip",
+        "createdAt": "Created at"    
+    },
     "validator": {
         "required": {
             "name": "The first name is required",
@@ -58,7 +66,9 @@
         "trips": "Trips",
         "tripsList": "Trips list",
         "manageTrip": "Manage trips",
-        "newTrip": "New trip"
+        "newTrip": "New trip",
+        "sponsorships": "Sponsorships",
+        "sponsorshipsList": "Sponsorships list"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
@@ -84,6 +94,7 @@
         "denied.access.message": "You don't have permission to access {{ressource}} on this server",
         "add.category.failed": "Category could not be added",
         "no.items.found": "No items found for this category",
-        "trip.not.found": "There is no trip corresponding to this ID"
+        "trip.not.found": "There is no trip corresponding to this ID",
+        "sponsorship.not.found": "You do not have any sponsorship"
     }
 }

@@ -19,6 +19,14 @@
         "managerId": "Manager ID",
         "price": "Prix"
     },
+    "sponsorship": {
+        "banner": "Bannière",
+        "link": "Lien",
+        "price": "Prix",
+        "payed": "Payé",
+        "Trip": "Voyage",
+        "createdAt": "Créé le"    
+    },
     "validator": {
         "required": {
             "name": "Le prénom est requis",
@@ -58,7 +66,9 @@
         "trips": "Voyages",
         "tripsList": "Liste des voyages",
         "manageTrip": "Gérer les voyages",
-        "newTrip": "Créer un voyage"
+        "newTrip": "Créer un voyage",
+        "sponsorships": "Parrainages",
+        "sponsorshipsList": "Liste de parrainages"
     },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
@@ -84,6 +94,7 @@
         "denied.access.message": "Vous n'avez pas l'autorisation d'accéder à {{ressource}} sur ce serveur",
         "add.category.failed": "La catégorie n'a pas pu être ajoutée",
         "no.items.found": "Aucun article trouvé pour cette catégorie",
-        "trip.not.found": "Il n'y a pas de voyage correspondant à cette identification"
+        "trip.not.found": "Il n'y a pas de voyage correspondant à cette identification",
+        "sponsorship.not.found": "Vous n'avez aucun parrainage"
     }
 }

@@ -19,6 +19,14 @@
         "managerId": "Gerente ID",
         "price": "Precio"
     },
+    "sponsorship": {
+        "banner": "Bandera",
+        "link": "Enlace",
+        "price": "Precio",
+        "payed": "Pagado",
+        "Trip": "Viaje",
+        "createdAt": "Creado el"    
+    },
     "validator": {
         "required": {
             "name": "El nombre es requerido",
@@ -58,7 +66,9 @@
         "trips": "Viajes",
         "tripsList": "Lista de viaje",
         "manageTrip": "Manejar viaje",
-        "newTrip": "Crear viaje"
+        "newTrip": "Crear viaje",
+        "sponsorships": "Patrocinios",
+        "sponsorshipsList": "Lista de patrocinios"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
@@ -84,6 +94,7 @@
         "denied.access.message": "No tienes permiso para acceder a {{ressource}} en este servidor.",
         "add.category.failed": "No se pudo añadir la categoría",
         "no.items.found": "No se han encontrado artículos para esta categoría",
-        "trip.not.found": "No hay ningún viaje que corresponda a esta identificación"
+        "trip.not.found": "No hay ningún viaje que corresponda a esta identificación",
+        "sponsorship.not.found": "No tienes ningún patrocinio"
     }
 }

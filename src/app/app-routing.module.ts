@@ -10,6 +10,7 @@ import { NotFoundPageComponent } from './components/shared/not-found-page/not-fo
 import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
 import { ActorRoleGuard } from './guards/actor-role.guard';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
+import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -18,13 +19,17 @@ const appRoutes: Routes = [
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
     { path: ':idTrip', component: TripDisplayComponent}
   ]},
+  { path: 'sponsorships', children: [
+    { path: '', component: SponsorshipListComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}}
+  ]},
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'denied-access', component: DeniedAccessComponent},
   { path: 'not-found', component: NotFoundPageComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
-  { path: '**', redirectTo: '/not-found' }
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 @NgModule({

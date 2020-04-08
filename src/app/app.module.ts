@@ -38,6 +38,7 @@ import { TermsAndConditionsComponent } from './components/master/terms-and-condi
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 import { MessageComponent } from './components/master/message/message.component';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
+import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -62,7 +63,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TermsAndConditionsComponent,
     NotFoundPageComponent,
     MessageComponent,
-    TripDisplayComponent
+    TripDisplayComponent,
+    SponsorshipListComponent
   ],
   imports: [
     BrowserModule,
