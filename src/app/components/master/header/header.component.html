@@ -14,10 +14,14 @@
                     aria-expanded="false"> Trips
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item nav-link" routerLink="/tripList">List trips</a>
-                <a class="dropdown-item" href="#">Load trips</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">New Trip</a>
+                <div>
+                    <a class="dropdown-item" routerLink="/trips">List trips</a>
+                </div>
+                <div *ngIf="currenActor && activeRole=='Manager'">
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" routerLink="/trips/manage">Manage trips</a>
+                    <a class="dropdown-item" href="#">New Trip</a>
+                </div>
                 </div>
             </li>
         </ul>

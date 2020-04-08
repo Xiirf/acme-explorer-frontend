@@ -7,10 +7,16 @@ import { LoginComponent } from './components/security/login/login.component';
 import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
 import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
+import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
+import { ActorRoleGuard } from './guards/actor-role.guard';
 
 const appRoutes: Routes = [
-  { path: 'tripList', component: TripListComponent },
-  { path: '', redirectTo: '/tripList', pathMatch: 'full' },
+  { path: 'trips', children: [
+    { path: '', component: TripListComponent },
+    { path: 'manage', component: TripDatatableComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}}
+  ]},
+  { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'denied-access', component: DeniedAccessComponent},

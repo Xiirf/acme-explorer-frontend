@@ -20,7 +20,7 @@ export class ActorRoleGuard implements CanActivate {
       let result = false;
       if (currentActor) {
         const activeRole = new RegExp(currentActor.role.toString(), 'i');
-        if (expectedRole.search(activeRole) !== -1){
+        if (expectedRole.search(activeRole) !== -1) {
           result = true;
         } else {
           this.router.navigate(['denied-access'], { queryParams: { previousURL: state.url}});

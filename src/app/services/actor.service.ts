@@ -10,7 +10,7 @@ export class ActorService {
 
   constructor(private http: HttpClient) { }
 
-  getActorByEmail(email: string): Promise<Actor[]> {
-    return this.http.get<Actor[]>(`${environment.backendApiBaseUrl}/actors/email/${email}`).toPromise();
+  getActorByEmail(email: string): Promise<Actor> {
+    return this.http.get<Actor>(`${environment.backendApiBaseUrl}/actors/email/${email}`).toPromise();
   }
 }
