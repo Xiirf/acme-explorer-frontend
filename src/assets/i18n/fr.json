@@ -41,5 +41,30 @@
         "terms": "Termes et conditions",
         "visitors": "Visiteur num.",
         "register": "S'inscrire gratuitement"
+    },
+    "messages": {
+        "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
+        "auth.logout": "L'utilisateur s'est déconnecté de l'application",
+        "auth.login.correct": "L'utilisateur est correctement connecté",
+        "already.registered": "Déjà inscrit ?",
+        "item.deleted": "Article supprimé avec succès",
+        "back": "Retour",
+        "save": "Sauvegarder",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "placeHolder": "Valider"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
+        "auth.wrong.password": "Le mot de passe n'est pas valide ou l'utilisateur n'a pas de mot de passe.",
+        "auth.argument.error": "signInWithEmailAndPassword a echoué: Le premier argument 'email' doit être une chaîne de caractères valide.",
+        "auth.invalid.email": "L'adresse électronique est mal formée",
+        "auth.weak.password": "Le mot de passe doit comporter au moins 6 caractères",
+        "auth.registration.failed": "L'inscription a échoué",
+        "auth.logout.failed": "La déconnexion a échoué",
+        "denied.access.title": "Accès refusé",
+        "denied.access.message": "Vous n'avez pas l'autorisation d'accéder à {{ressource}} sur ce serveur",
+        "add.category.failed": "La catégorie n'a pas pu être ajoutée",
+        "no.items.found": "Aucun article trouvé pour cette catégorie"
     }
 }

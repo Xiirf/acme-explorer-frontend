@@ -41,5 +41,30 @@
         "terms": "Términos y condiciones",
         "visitors": "Visitante núm.",
         "register": "Regístrate gratis"
+    },
+    "messages": {
+        "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
+        "auth.logout": "El usuario se ha desconectado de la aplicación",
+        "auth.login.correct": "El usuario ha entrado correctamente",
+        "already.registered": "¿Ya esta registrado?",
+        "item.deleted": "Elemento eliminado con éxito",
+        "back": "Atras",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "placeHolder": "Entrar"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
+        "auth.wrong.password": "La contraseña es inválida o el usuario no tiene contraseña.",
+        "auth.argument.error": "signInWithEmailAndPassword fallido: El primer argumento 'email' debe ser una cadena válida.",
+        "auth.invalid.email": "La dirección de correo electrónico está mal formateada",
+        "auth.weak.password": "La contraseña debe tener al menos 6 caracteres de longitud",
+        "auth.registration.failed": "El registro falló",
+        "auth.logout.failed": "El cierre de sesión falló",
+        "denied.access.title": "Denegado el acceso",
+        "denied.access.message": "No tienes permiso para acceder a {{ressource}} en este servidor.",
+        "add.category.failed": "No se pudo añadir la categoría",
+        "no.items.found": "No se han encontrado artículos para esta categoría"
     }
 }

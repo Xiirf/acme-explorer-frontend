@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/security/register/register.compo
 import { LoginComponent } from './components/security/login/login.component';
 import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
 import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
+import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 
 const appRoutes: Routes = [
   { path: 'tripList', component: TripListComponent },
@@ -13,7 +14,9 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'denied-access', component: DeniedAccessComponent},
-  { path: 'terms-and-conditions', component: TermsAndConditionsComponent}
+  { path: 'not-found', component: NotFoundPageComponent },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
