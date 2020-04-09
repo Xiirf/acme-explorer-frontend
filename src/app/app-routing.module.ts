@@ -9,8 +9,8 @@ import { TermsAndConditionsComponent } from './components/master/terms-and-condi
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 
 const appRoutes: Routes = [
-  { path: 'tripList', component: TripListComponent },
-  { path: '', redirectTo: '/tripList', pathMatch: 'full' },
+  { path: 'trips', component: TripListComponent },
+  { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'denied-access', component: DeniedAccessComponent},
