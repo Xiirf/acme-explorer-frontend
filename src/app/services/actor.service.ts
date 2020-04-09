@@ -13,4 +13,8 @@ export class ActorService {
   getActorByEmail(email: string): Promise<Actor> {
     return this.http.get<Actor>(`${environment.backendApiBaseUrl}/actors/email/${email}`).toPromise();
   }
+
+  getActorById(actorId: string): Promise<Actor> {
+    return this.http.get<Actor>(`${environment.backendApiBaseUrl}/actors/${actorId}`).toPromise();
+  }
 }

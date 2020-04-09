@@ -27,6 +27,14 @@
         "Trip": "Trip",
         "createdAt": "Created at"    
     },
+    "audit": {
+        "auditor": "Auditor",
+        "trip": "Trip",
+        "createdAt": "Created at",
+        "title": "Title",
+        "description": "Description",
+        "optionalAttachments": "Optional attachments"
+    },
     "validator": {
         "required": {
             "name": "The first name is required",
@@ -68,7 +76,9 @@
         "manageTrip": "Manage trips",
         "newTrip": "New trip",
         "sponsorships": "Sponsorships",
-        "sponsorshipsList": "Sponsorships list"
+        "sponsorshipsList": "Sponsorships list",
+        "audits": "Audits",
+        "auditsList": "My audits"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
@@ -95,6 +105,8 @@
         "add.category.failed": "Category could not be added",
         "no.items.found": "No items found for this category",
         "trip.not.found": "There is no trip corresponding to this ID",
-        "sponsorship.not.found": "You do not have any sponsorship"
+        "sponsorship.not.found": "You do not have any sponsorship",
+        "audit.empty": "You do not have any sponsorship",
+        "audit.not.found": "There is no audit corresponding to this ID"
     }
 }

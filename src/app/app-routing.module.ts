@@ -11,6 +11,8 @@ import { TripDatatableComponent } from './components/trip/trip-datatable/trip-da
 import { ActorRoleGuard } from './guards/actor-role.guard';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
+import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
+import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -22,6 +24,11 @@ const appRoutes: Routes = [
   { path: 'sponsorships', children: [
     { path: '', component: SponsorshipListComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}}
+  ]},
+  { path: 'audits', children: [
+    { path: '', component: AuditsListComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
+    { path: ':idAudit', component: AuditsDisplayComponent}
   ]},
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },

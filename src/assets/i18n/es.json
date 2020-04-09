@@ -27,6 +27,14 @@
         "Trip": "Viaje",
         "createdAt": "Creado el"    
     },
+    "audit": {
+        "auditor": "Auditor",
+        "trip": "Viaje",
+        "createdAt": "Creado el",
+        "title": "Título",
+        "description": "Descripción",
+        "optionalAttachments": "Archivos adjuntos"
+    },
     "validator": {
         "required": {
             "name": "El nombre es requerido",
@@ -68,7 +76,9 @@
         "manageTrip": "Manejar viaje",
         "newTrip": "Crear viaje",
         "sponsorships": "Patrocinios",
-        "sponsorshipsList": "Lista de patrocinios"
+        "sponsorshipsList": "Lista de patrocinios",
+        "audits": "Auditorías",
+        "auditsList": "Mis auditorías"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
@@ -95,6 +105,8 @@
         "add.category.failed": "No se pudo añadir la categoría",
         "no.items.found": "No se han encontrado artículos para esta categoría",
         "trip.not.found": "No hay ningún viaje que corresponda a esta identificación",
-        "sponsorship.not.found": "No tienes ningún patrocinio"
+        "sponsorship.not.found": "No tienes ningún patrocinio",
+        "audit.empty": "No tienes ningúna auditoría",
+        "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación"
     }
 }

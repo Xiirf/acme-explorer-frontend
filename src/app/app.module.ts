@@ -39,6 +39,8 @@ import { NotFoundPageComponent } from './components/shared/not-found-page/not-fo
 import { MessageComponent } from './components/master/message/message.component';
 import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
 import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
+import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
+import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -64,7 +66,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundPageComponent,
     MessageComponent,
     TripDisplayComponent,
-    SponsorshipListComponent
+    SponsorshipListComponent,
+    AuditsListComponent,
+    AuditsDisplayComponent
   ],
   imports: [
     BrowserModule,
