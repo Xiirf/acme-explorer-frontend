@@ -22,4 +22,12 @@ describe('TripDatatableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have 2 trips', (done) => {
+    component.initialize()
+      .then(() => {
+        expect(component.trips.length).toEqual(2);
+        done();
+      });
+  });
 });
