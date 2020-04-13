@@ -37,14 +37,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <a *ngIf="this.authService.checkRole('admin')"
-                routerLink="/trips/{{trip.id}}"
-                class="btn btn-primary pull-left">
-                <span class="" aria-hidden="true"></span>
-                {{ 'trip.edit' | translate }}
-            </a>
-            <a *ngIf="!this.authService.checkRole('admin')"
-                routerLink="/trips/display/{{trip.id}}"
+            <a routerLink="/trips/{{trip.id}}"
                 class="btn btn-primary pull-left">
                 <span class="" aria-hidden="true"></span>
                 {{ 'trip.edit' | translate }}
@@ -52,8 +45,3 @@
         </div>
     </div>
 </div>
-
-<button *ngIf="this.authService.checkRole('admin')" type="button"
-    class="btn btn-primary" (click)="newTrip();">
-    {{ 'trip.new' | translate }}
-</button>
