@@ -27,6 +27,9 @@
         "Trip": "Trip",
         "createdAt": "Created at"    
     },
+    "application": {
+        "comments": "Comments"
+    },
     "audit": {
         "auditor": "Auditor",
         "trip": "Trip",
@@ -78,7 +81,8 @@
         "sponsorships": "Sponsorships",
         "sponsorshipsList": "Sponsorships list",
         "audits": "Audits",
-        "auditsList": "My audits"
+        "auditsList": "My audits",
+        "applications": "Applications"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
@@ -107,6 +111,7 @@
         "trip.not.found": "There is no trip corresponding to this ID",
         "sponsorship.not.found": "You do not have any sponsorship",
         "audit.empty": "You do not have any sponsorship",
-        "audit.not.found": "There is no audit corresponding to this ID"
+        "audit.not.found": "There is no audit corresponding to this ID",
+        "comments.not.found": "There is no comment corresponding to this ID"
     }
 }

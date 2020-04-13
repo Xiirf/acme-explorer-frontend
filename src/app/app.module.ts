@@ -14,6 +14,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -77,10 +79,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatTabsModule,
+    MatExpansionModule,
     FontAwesomeModule,
     AppRoutingModule,
     MatToolbarModule,

@@ -27,6 +27,9 @@
         "Trip": "Viaje",
         "createdAt": "Creado el"    
     },
+    "application": {
+        "comments": "Comentarios"
+    },
     "audit": {
         "auditor": "Auditor",
         "trip": "Viaje",
@@ -78,7 +81,8 @@
         "sponsorships": "Patrocinios",
         "sponsorshipsList": "Lista de patrocinios",
         "audits": "Auditorías",
-        "auditsList": "Mis auditorías"
+        "auditsList": "Mis auditorías",
+        "applications": "Solicitudes"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
@@ -107,6 +111,7 @@
         "trip.not.found": "No hay ningún viaje que corresponda a esta identificación",
         "sponsorship.not.found": "No tienes ningún patrocinio",
         "audit.empty": "No tienes ningúna auditoría",
-        "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación"
+        "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación",
+        "comments.not.found": "No hay ningún comentario que corresponda a esta identificación"
     }
 }
