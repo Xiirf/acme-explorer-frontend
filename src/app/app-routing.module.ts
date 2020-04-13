@@ -13,6 +13,9 @@ import { TripDisplayComponent } from './components/trip/trip-display/trip-displa
 import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
 import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
 import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
+import { ApplicationListComponent } from './components/application/application-list/application-list.component';
+import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
+import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -30,13 +33,21 @@ const appRoutes: Routes = [
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
     { path: ':idAudit', component: AuditsDisplayComponent}
   ]},
+  { path: 'applications', children: [
+    { path: '', component: ApplicationListComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer'}},
+    { path: ':idApplication', component: ApplicationDisplayComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer'}}
+  ]},
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'denied-access', component: DeniedAccessComponent},
+  { path: 'denied-access', component: DeniedAccessComponent },
   { path: 'not-found', component: NotFoundPageComponent },
-  { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
-  { path: '**', redirectTo: '/not-found' },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: 'dashboard', component: DashboardDisplayComponent,
+    canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}},
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({

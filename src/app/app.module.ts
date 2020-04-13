@@ -43,6 +43,9 @@ import { TripDisplayComponent } from './components/trip/trip-display/trip-displa
 import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
 import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
 import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
+import { ApplicationListComponent } from './components/application/application-list/application-list.component';
+import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
+import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -70,7 +73,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     TripDisplayComponent,
     SponsorshipListComponent,
     AuditsListComponent,
-    AuditsDisplayComponent
+    AuditsDisplayComponent,
+    ApplicationListComponent,
+    DashboardDisplayComponent,
+    ApplicationDisplayComponent
   ],
   imports: [
     BrowserModule,
