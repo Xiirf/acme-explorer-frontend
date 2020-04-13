@@ -17,8 +17,7 @@
         "pictures": "Pictures",
         "stages": "Stages",
         "managerId": "Manager ID",
-        "price": "Price",
-        "details": "Details"
+        "price": "Price"
     },
     "sponsorship": {
         "banner": "Banner",
@@ -29,7 +28,10 @@
         "createdAt": "Created at"    
     },
     "application": {
-        "comments": "Comments"
+        "createdAt": "Creation date",
+        "status": "Status",
+        "comments": "Comments",
+        "reasonRejected": "Reason for rejection"
     },
     "audit": {
         "auditor": "Auditor",
@@ -56,7 +58,8 @@
         "register": "Register",
         "login": "Login",
         "search": "Search",
-        "logout": "Logout"
+        "logout": "Logout",
+        "details": "Details"
     },
     "message": {
         "connected": "Connected",
@@ -68,6 +71,10 @@
         "title": "Denied access",
         "message-start": "You don't have permission to access",
         "message-end": "on this server"
+    },
+    "not-found": {
+        "title": "Page not found",
+        "message": "The page you are looking for cannot be found"
     },
     "footer": {
         "terms": "Terms and conditions",

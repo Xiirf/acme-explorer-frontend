@@ -5,7 +5,7 @@
 </div>
 
 <div *ngIf="trips == undefined || trips.length == 0">
-    {{ 'errorMessage.no.trips.found' | translate }}
+    {{ 'errorMessages.no.trips.found' | translate }}
 </div>
 
 <div *ngIf="trips != undefined && trips.length > 0" class="card-deck">
@@ -40,7 +40,7 @@
             <a routerLink="/trips/{{trip.id}}"
                 class="btn btn-primary pull-left">
                 <span class="" aria-hidden="true"></span>
-                {{ 'trip.details' | translate }}
+                {{ 'tripbutton.details' | translate }}
             </a>
         </div>
     </div>

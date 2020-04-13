@@ -17,8 +17,7 @@
         "pictures": "Imágenes",
         "stages": "Etapas",
         "managerId": "Gerente ID",
-        "price": "Precio",
-        "details": "Detalles"
+        "price": "Precio"
     },
     "sponsorship": {
         "banner": "Bandera",
@@ -29,7 +28,10 @@
         "createdAt": "Creado el"    
     },
     "application": {
-        "comments": "Comentarios"
+        "createdAt": "Fecha de creación",
+        "status": "Estado",
+        "comments": "Comentarios",
+        "reasonRejected": "Razón del rechazo"
     },
     "audit": {
         "auditor": "Auditor",
@@ -56,7 +58,8 @@
         "register": "Registrarse",
         "login": "Conectarse",
         "search": "Buscar",
-        "logout": "Desconexión"
+        "logout": "Desconexión",
+        "details": "Detalles"
     },
     "message": {
         "connected": "Conectado",
@@ -68,6 +71,10 @@
         "title": "Acceso denegado",
         "message-start": "No tiene permiso para acceder a",
         "message-end": "en este servidor"
+    },
+    "not-found": {
+        "title": "Página no encontrada",
+        "message": "La página que está buscando no se puede encontrar"
     },
     "footer": {
         "terms": "Términos y condiciones",

@@ -29,11 +29,14 @@
         "createdAt": "Créé le"    
     },
     "application": {
-        "comments": "Commentaires"
+        "createdAt": "Date de création",
+        "status": "Statut",
+        "comments": "Commentaires",
+        "reasonRejected": "Motif du rejet"
     },
     "audit": {
         "auditor": "Auditeur",
-        "trip": "Voayge",
+        "trip": "Voyage",
         "createdAt": "Créé le",
         "title": "Titre",
         "description": "Description",
@@ -56,7 +59,8 @@
         "register": "S'inscrire",
         "login": "Se connecter",
         "search": "Rechercher",
-        "logout": "Déconnexion"
+        "logout": "Déconnexion",
+        "details": "Détails"
     },
     "message": {
         "connected": "Connecté",
@@ -68,6 +72,10 @@
         "title": "Accès refusé",
         "message-start": "Vous n'avez pas les permissions pour accéder",
         "message-end": "à ce serveur"
+    },
+    "not-found": {
+        "title": "Page non trouvée",
+        "message": "La page que vous cherchez est introuvable"
     },
     "footer": {
         "terms": "Termes et conditions",

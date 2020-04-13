@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Dashboard } from '../models/dashboard.model';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +11,7 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   getDashboard(): Promise<Dashboard> {
-    return this.http.get<Dashboard>(`${environment.backendApiBaseUrl}/dataWareHouse/latest`).toPromise();
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.get<Dashboard>(`${environment.backendApiBaseUrl}/dataWareHouse/latest`, {headers}).toPromise();
   }
 }

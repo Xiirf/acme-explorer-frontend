@@ -4,6 +4,7 @@ import { Application } from 'src/app/models/application.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApplicationService } from 'src/app/services/application.service';
+import { TripService } from 'src/app/services/trip.service';
 
 @Component({
   selector: 'app-application-display',
@@ -18,14 +19,20 @@ export class ApplicationDisplayComponent extends TranslatableComponent implement
   constructor(private route: ActivatedRoute,
               private translateService: TranslateService,
               private router: Router,
-              private applicationService: ApplicationService) {
+              private applicationService: ApplicationService,
+              private tripService: TripService) {
     super(translateService);
   }
 
   ngOnInit(): void {
     this.idApplication = this.route.snapshot.params.idApplication;
     this.applicationService.getApplication(this.idApplication)
-      .then((val) => this.application = val)
+      .then((data) => {
+        this.application = data;
+        this.tripService.getTrip(this.application.idTrip)
+          .then((trip) => this.application.nameTrip = trip.title)
+          .catch((err) => console.error(err.message));
+      })
       .catch((err) => console.error(err.message));
   }
 

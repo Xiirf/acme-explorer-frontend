@@ -8,6 +8,8 @@ export class Application extends Entity {
     status: string;
     comments: string[];
     reasonRejected: string;
+    nameExplo: string;
+    nameTrip: string;
 
     constructor() {
         super();
