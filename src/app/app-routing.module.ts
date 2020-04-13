@@ -9,6 +9,10 @@ import { TermsAndConditionsComponent } from './components/master/terms-and-condi
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
 import { ActorRoleGuard } from './guards/actor-role.guard';
+import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
+import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
+import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
+import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
 import { ApplicationListComponent } from './components/application/application-list/application-list.component';
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
@@ -17,7 +21,17 @@ const appRoutes: Routes = [
   { path: 'trips', children: [
     { path: '', component: TripListComponent },
     { path: 'manage', component: TripDatatableComponent,
-      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}}
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
+    { path: ':idTrip', component: TripDisplayComponent}
+  ]},
+  { path: 'sponsorships', children: [
+    { path: '', component: SponsorshipListComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}}
+  ]},
+  { path: 'audits', children: [
+    { path: '', component: AuditsListComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
+    { path: ':idAudit', component: AuditsDisplayComponent}
   ]},
   { path: 'applications', children: [
     { path: '', component: ApplicationListComponent,

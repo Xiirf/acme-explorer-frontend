@@ -21,14 +21,22 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth,
               private http: HttpClient,
-              private actorService: ActorService) { }
+              private actorService: ActorService) {
+                if (localStorage.getItem('currentActor')) {
+                  this.currentActor = JSON.parse(localStorage.getItem('currentActor'));
+                }
+              }
 
   register(actor: Actor) {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.createUserWithEmailAndPassword(actor.email, actor.password)
         .then(_ => {
           this.http.post<Actor>(`${environment.backendApiBaseUrl}/actors`, actor, httpOptions).toPromise()
-            .then(_ => resolve())
+            .then(newActor => {
+              this.currentActor = newActor;
+              localStorage.setItem('currentActor', JSON.stringify(this.currentActor));
+              resolve();
+            })
             .catch(err => {
               this.fireAuth.auth.currentUser.delete();
               reject(err);
@@ -43,8 +51,9 @@ export class AuthService {
       this.fireAuth.auth.signInWithEmailAndPassword(email, password)
         .then(_ => {
           this.actorService.getActorByEmail(email)
-          .then((actor: Actor[]) => {
-            this.currentActor = actor[0];
+          .then((actor: Actor) => {
+            this.currentActor = actor;
+            localStorage.setItem('currentActor', JSON.stringify(this.currentActor));
             // Message co effectuée
             resolve(this.currentActor);
           }).catch(error => {
@@ -61,6 +70,7 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signOut()
         .then(_ => {
+          this.currentActor = null;
           resolve();
         }).catch(error => {
           reject(error);

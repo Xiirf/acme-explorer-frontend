@@ -17,4 +17,8 @@ export class ApplicationService {
   getApplication(idApplication: string): Promise<Application> {
     return this.http.get<Application>(`${environment.backendApiBaseUrl}/applications/${idApplication}`).toPromise();
   }
+
+  getApplicationByIdTrip(tripId: string): Promise<Application[]> {
+    return this.http.get<Application[]>(`${environment.backendApiBaseUrl}/applications/trip/${tripId}`).toPromise();
+  }
 }

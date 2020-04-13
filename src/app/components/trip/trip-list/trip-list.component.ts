@@ -3,7 +3,6 @@ import { Trip } from 'src/app/models/trip.model';
 import { TripService } from 'src/app/services/trip.service';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
-import { Actor } from 'src/app/models/actor.model';
 import { Router } from '@angular/router';
 
 const MAX_STARS = 5;

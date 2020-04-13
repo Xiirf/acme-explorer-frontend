@@ -1,0 +1,112 @@
+<ng-container *ngIf="(asyncTabs | async) === null && !error">
+    Loading tabs...
+</ng-container>
+
+<ng-container *ngIf="error">
+    <h1>
+        {{'errorMessages.trip.not.found' | translate}}
+    </h1>
+</ng-container>
+  
+<mat-tab-group>
+    <mat-tab *ngFor="let tab of asyncTabs | async">
+        <ng-template mat-tab-label>{{tab.title}}</ng-template>
+        <ng-container *ngIf="tab.label === 'trip'">
+            <div class="card">
+                <div class="card-header">
+                    {{trip.title}}
+                </div>
+                <img class="card-img-top" src="{{trip.pictures[0]}}" alt="Image trip">
+                <div class="card-body">
+                    <h3 class="card-title">{{'trip.ticker' | translate}}</h3>
+                    <h5 class="card-subtitle text-muted">{{trip.ticker}}</h5>
+        
+                    <h3 class="card-title">{{'trip.start' | translate}} - {{'trip.end' | translate}}</h3>
+                    <h5 class="card-subtitle text-muted">{{trip.start | date: 'dd/MM/yyyy'}} - {{trip.end | date: 'dd/MM/yyyy'}}</h5>
+                    
+                    <h3 class="card-title">{{'trip.stages' | translate}}</h3>
+                    <div *ngFor="let stage of trip.stages">
+                        <h5 class="card-subtitle text-muted">{{stage.title}}: {{stage.description}}</h5>
+                        <h5 class="card-subtitle text-muted">{{'trip.price' | translate}}: {{stage.price}}€</h5>
+                    </div>
+        
+                    <h3 class="card-title">{{'trip.requirements' | translate}}</h3>
+                    <ul *ngFor="let requirement of trip.requirements">
+                        <li><h5 class="card-subtitle text-muted">{{requirement}}</h5></li>
+                    </ul>
+        
+                    <h3 class="card-title">{{'trip.price' | translate}}</h3>
+                    <h5 class="card-subtitle text-muted">{{trip.price}} €</h5>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="tab.label === 'comments'" >
+            <ng-container *ngIf="applications.length > 0; else noDataFoundComment">
+                <div class="card">
+                    <div class="card-header">
+                        {{trip.title}}
+                    </div>
+                    <div *ngFor="let application of applications">
+                        <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        {{application.nameExplo}} - {{application.createdAt | date: 'dd/MM/yyyy'}}
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{getStartComment(application.comments[0])}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <h5>{{application.comments[0]}}</h5>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noDataFoundComment>
+                <h1>
+                    {{'errorMessages.comments.not.found' | translate}}
+                </h1>
+            </ng-template>
+        </ng-container>
+        
+        <ng-container *ngIf="tab.label === 'audits'" >
+            <ng-container *ngIf="audits.length > 0; else noDataFoundAudit" >
+                <div class="card">
+                    <div class="card-header">
+                        {{trip.title}}
+                    </div>
+                    <div *ngFor="let audit of audits">
+                        <mat-accordion>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        {{audit.title}}
+                                    </mat-panel-title>
+                                    <mat-panel-description>
+                                        {{audit.nameAuditor}} - {{audit.createdAt | date: 'dd/MM/yyyy'}}
+                                    </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                
+                                <h3 class="card-title">{{'audit.description' | translate}}</h3>
+                                <h5>{{audit.description}}</h5>
+    
+                                <h3 class="card-title">{{'audit.optionalAttachments' | translate}}</h3>
+                                <ul *ngFor="let attachement of audit.optionalAttachments">
+                                    <li><h5>{{attachement}}</h5></li>
+                                </ul>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noDataFoundAudit>
+                <h1>
+                    {{'errorMessages.audit.not.found' | translate}}
+                </h1>
+            </ng-template>
+        </ng-container>
+    </mat-tab>
+</mat-tab-group>
+
