@@ -7,7 +7,7 @@ export class TripServiceMock {
     end = new Date(this.start.getDate() + 20);
 
     trips: Trip[] = [{
-        id: '507f1f77bcf86cd799439012',
+        _id: '507f1f77bcf86cd799439012',
         version: 0,
         title: 'titleTrip1',
         ticker: '20/03/24-AAAA',
@@ -25,7 +25,7 @@ export class TripServiceMock {
         price: 250
     },
     {
-        id: '507f1f77bcf86cd799439013',
+        _id: '507f1f77bcf86cd799439013',
         version: 0,
         title: 'titleTrip1',
         ticker: '20/03/24-AAAA',
