@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     { path: '', component: ApplicationListComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}},
     { path: ':idApplication', component: ApplicationDisplayComponent,
-      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer'}}
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}}
   ]},
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
