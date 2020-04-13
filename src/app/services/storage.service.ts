@@ -19,6 +19,9 @@ export class StorageService {
 
   removeItem(key) {
     localStorage.removeItem(key);
+    if (key === 'token') {
+      localStorage.removeItem('currentActor');
+    }
     this.storageSub.next('changed');
   }
 }

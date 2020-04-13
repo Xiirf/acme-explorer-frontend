@@ -14,6 +14,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -37,6 +39,10 @@ import { TripDatatableComponent } from './components/trip/trip-datatable/trip-da
 import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
 import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
 import { MessageComponent } from './components/master/message/message.component';
+import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
+import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
+import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
+import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -60,7 +66,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     TripDatatableComponent,
     TermsAndConditionsComponent,
     NotFoundPageComponent,
-    MessageComponent
+    MessageComponent,
+    TripDisplayComponent,
+    SponsorshipListComponent,
+    AuditsListComponent,
+    AuditsDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -69,10 +79,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatTabsModule,
+    MatExpansionModule,
     FontAwesomeModule,
     AppRoutingModule,
     MatToolbarModule,
