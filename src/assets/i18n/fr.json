@@ -17,7 +17,8 @@
         "pictures": "Photos",
         "stages": "Étapes",
         "managerId": "Manager ID",
-        "price": "Prix"
+        "price": "Prix",
+        "details": "Détails"
     },
     "sponsorship": {
         "banner": "Bannière",
@@ -82,7 +83,9 @@
         "sponsorshipsList": "Liste de parrainages",
         "audits": "Audits",
         "auditsList": "Mes audits",
-        "applications": "Candidatures"
+        "applications": "Candidatures",
+        "applicationsList": "Liste des candidatures",
+        "dashboard": "Tableau de bord"
     },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
@@ -108,6 +111,7 @@
         "denied.access.message": "Vous n'avez pas l'autorisation d'accéder à {{ressource}} sur ce serveur",
         "add.category.failed": "La catégorie n'a pas pu être ajoutée",
         "no.items.found": "Aucun article trouvé pour cette catégorie",
+        "no.trips.found": "Il n'y a pas de voyages",
         "trip.not.found": "Il n'y a pas de voyage correspondant à cet identifiant",
         "sponsorship.not.found": "Vous n'avez aucun parrainage",
         "audit.empty": "Vous n'avez aucun audit",

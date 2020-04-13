@@ -1,46 +1,55 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <fa-icon [icon]="faPlane"></fa-icon>
+        <fa-icon [icon]="faPlane"></fa-icon>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown" 
-                    role="button" data-toggle="dropdown" aria-haspopup="true" 
-                    aria-expanded="false"> {{'header.trips' | translate}}
+                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> {{'header.trips' | translate}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <div>
-                    <a class="dropdown-item" routerLink="/trips">{{'header.tripsList' | translate}}</a>
+                    <div>
+                        <a class="dropdown-item" routerLink="/trips">{{'header.tripsList' | translate}}</a>
+                    </div>
+                    <div *ngIf="currenActor && activeRole=='Manager'">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/trips/manage">{{'header.manageTrip' | translate}}</a>
+                        <a class="dropdown-item" href="#">{{'header.newTrip' | translate}}</a>
+                    </div>
                 </div>
-                <div *ngIf="currenActor && activeRole=='Manager'">
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/trips/manage">{{'header.manageTrip' | translate}}</a>
-                    <a class="dropdown-item" href="#">{{'header.newTrip' | translate}}</a>
-                </div>
+            </li>
+            <li class="nav-item dropdown" *ngIf="currenActor && (activeRole=='Explorer' || activeRole=='Manager')">
+                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> {{'header.applications' | translate}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" routerLink="/applications">{{'header.applicationsList' | translate}}</a>
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Sponsor'">
-                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown2" 
-                    role="button" data-toggle="dropdown" aria-haspopup="true" 
-                    aria-expanded="false"> {{'header.sponsorships' | translate}}
+                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> {{'header.sponsorships' | translate}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <a class="dropdown-item" routerLink="/sponsorships">{{'header.sponsorshipsList' | translate}}</a>
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Auditor'">
-                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown2" 
-                    role="button" data-toggle="dropdown" aria-haspopup="true" 
-                    aria-expanded="false"> {{'header.audits' | translate}}
+                <a mat-button class="dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> {{'header.audits' | translate}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <a class="dropdown-item" routerLink="/audits">{{'header.auditsList' | translate}}</a>
                 </div>
+            </li>
+            <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Administrator'">
+                <a mat-button routerLink="/dashboard">{{'header.dashboard' | translate}}</a>
             </li>
         </ul>
 
@@ -52,16 +61,19 @@
 
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <button mat-stroked-button [ngClass]="{'buttonLang' : this.lang==='en'}" (click)="changeLanguage('en')">EN</button>
-                <button mat-stroked-button [ngClass]="{'buttonLang' : this.lang==='es'}" (click)="changeLanguage('es')">ES</button>
-                <button mat-stroked-button [ngClass]="{'buttonLang' : this.lang==='fr'}" (click)="changeLanguage('fr')">FR</button>
+                <button mat-stroked-button [ngClass]="{'buttonLang' : this.lang==='en'}"
+                    (click)="changeLanguage('en')">EN</button>
+                <button mat-stroked-button [ngClass]="{'buttonLang' : this.lang==='es'}"
+                    (click)="changeLanguage('es')">ES</button>
+                <button mat-stroked-button [ngClass]="{'buttonLang' : this.lang==='fr'}"
+                    (click)="changeLanguage('fr')">FR</button>
             </li>
-            <ng-container *ngIf="!token; else logout" >
+            <ng-container *ngIf="!token; else logout">
                 <li class="nav-item">
-                    <a mat-button  routerLink="/register">{{'button.register' | translate}}</a>
+                    <a mat-button routerLink="/register">{{'button.register' | translate}}</a>
                 </li>
                 <li class="nav-item">
-                    <a mat-button  routerLink="/login">{{'button.login' | translate}}</a>
+                    <a mat-button routerLink="/login">{{'button.login' | translate}}</a>
                 </li>
             </ng-container>
             <ng-template #logout>
