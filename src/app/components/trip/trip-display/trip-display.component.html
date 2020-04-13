@@ -1,17 +1,12 @@
-<ng-container *ngIf="(asyncTabs | async) === null && !error">
-    Loading tabs...
-</ng-container>
-
-<ng-container *ngIf="error">
+<ng-container *ngIf="!trip; else display">
     <h1>
         {{'errorMessages.trip.not.found' | translate}}
     </h1>
 </ng-container>
-  
-<mat-tab-group>
-    <mat-tab *ngFor="let tab of asyncTabs | async">
-        <ng-template mat-tab-label>{{tab.title}}</ng-template>
-        <ng-container *ngIf="tab.label === 'trip'">
+
+<ng-template #display>
+    <mat-tab-group>
+        <mat-tab label="{{'audit.trip' | translate}}">
             <div class="card">
                 <div class="card-header">
                     {{trip.title}}
@@ -39,23 +34,23 @@
                     <h5 class="card-subtitle text-muted">{{trip.price}} €</h5>
                 </div>
             </div>
-        </ng-container>
-
-        <ng-container *ngIf="tab.label === 'comments'" >
+        </mat-tab>
+    
+        <mat-tab label="{{'application.comments' | translate}}">
             <ng-container *ngIf="applications.length > 0; else noDataFoundComment">
                 <div class="card">
                     <div class="card-header">
                         {{trip.title}}
                     </div>
                     <div *ngFor="let application of applications">
-                        <mat-accordion>
+                        <mat-accordion class="example-headers-align">
                             <mat-expansion-panel>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>
                                         {{application.nameExplo}} - {{application.createdAt | date: 'dd/MM/yyyy'}}
                                     </mat-panel-title>
                                     <mat-panel-description>
-                                        {{getStartComment(application.comments[0])}}
+                                        {{getStartComment(application.comments[0])}}...
                                     </mat-panel-description>
                                 </mat-expansion-panel-header>
                                 <h5>{{application.comments[0]}}</h5>
@@ -69,17 +64,17 @@
                     {{'errorMessages.comments.not.found' | translate}}
                 </h1>
             </ng-template>
-        </ng-container>
-        
-        <ng-container *ngIf="tab.label === 'audits'" >
+        </mat-tab>
+    
+        <mat-tab label="{{'header.audits' | translate}}">
             <ng-container *ngIf="audits.length > 0; else noDataFoundAudit" >
                 <div class="card">
                     <div class="card-header">
                         {{trip.title}}
                     </div>
-                    <div *ngFor="let audit of audits">
-                        <mat-accordion>
-                            <mat-expansion-panel>
+                    <div>
+                        <mat-accordion class="example-headers-align">
+                            <mat-expansion-panel *ngFor="let audit of audits">
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>
                                         {{audit.title}}
@@ -106,7 +101,6 @@
                     {{'errorMessages.audit.not.found' | translate}}
                 </h1>
             </ng-template>
-        </ng-container>
-    </mat-tab>
-</mat-tab-group>
-
+        </mat-tab>
+    </mat-tab-group>    
+</ng-template>

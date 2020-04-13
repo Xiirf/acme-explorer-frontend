@@ -1,0 +1,13 @@
+:host {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
