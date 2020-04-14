@@ -17,7 +17,8 @@
         "pictures": "Photos",
         "stages": "Étapes",
         "managerId": "Manager ID",
-        "price": "Prix"
+        "price": "Prix",
+        "details": "Détails"
     },
     "sponsorship": {
         "banner": "Bannière",
@@ -28,11 +29,14 @@
         "createdAt": "Créé le"    
     },
     "application": {
-        "comments": "Commentaires"
+        "createdAt": "Date de création",
+        "status": "Statut",
+        "comments": "Commentaires",
+        "reasonRejected": "Motif du rejet"
     },
     "audit": {
         "auditor": "Auditeur",
-        "trip": "Voayge",
+        "trip": "Voyage",
         "createdAt": "Créé le",
         "title": "Titre",
         "description": "Description",
@@ -55,7 +59,8 @@
         "register": "S'inscrire",
         "login": "Se connecter",
         "search": "Rechercher",
-        "logout": "Déconnexion"
+        "logout": "Déconnexion",
+        "details": "Détails"
     },
     "message": {
         "connected": "Connecté",
@@ -67,6 +72,10 @@
         "title": "Accès refusé",
         "message-start": "Vous n'avez pas les permissions pour accéder",
         "message-end": "à ce serveur"
+    },
+    "not-found": {
+        "title": "Page non trouvée",
+        "message": "La page que vous cherchez est introuvable"
     },
     "footer": {
         "terms": "Termes et conditions",
@@ -82,7 +91,9 @@
         "sponsorshipsList": "Liste de parrainages",
         "audits": "Audits",
         "auditsList": "Mes audits",
-        "applications": "Candidatures"
+        "applications": "Candidatures",
+        "applicationsList": "Liste des candidatures",
+        "dashboard": "Tableau de bord"
     },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
@@ -108,6 +119,7 @@
         "denied.access.message": "Vous n'avez pas l'autorisation d'accéder à {{ressource}} sur ce serveur",
         "add.category.failed": "La catégorie n'a pas pu être ajoutée",
         "no.items.found": "Aucun article trouvé pour cette catégorie",
+        "no.trips.found": "Il n'y a pas de voyages",
         "trip.not.found": "Il n'y a pas de voyage correspondant à cet identifiant",
         "sponsorship.not.found": "Vous n'avez aucun parrainage",
         "audit.empty": "Vous n'avez aucun audit",

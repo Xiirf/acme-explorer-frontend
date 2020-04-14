@@ -28,7 +28,10 @@
         "createdAt": "Created at"    
     },
     "application": {
-        "comments": "Comments"
+        "createdAt": "Creation date",
+        "status": "Status",
+        "comments": "Comments",
+        "reasonRejected": "Reason for rejection"
     },
     "audit": {
         "auditor": "Auditor",
@@ -55,7 +58,8 @@
         "register": "Register",
         "login": "Login",
         "search": "Search",
-        "logout": "Logout"
+        "logout": "Logout",
+        "details": "Details"
     },
     "message": {
         "connected": "Connected",
@@ -67,6 +71,10 @@
         "title": "Denied access",
         "message-start": "You don't have permission to access",
         "message-end": "on this server"
+    },
+    "not-found": {
+        "title": "Page not found",
+        "message": "The page you are looking for cannot be found"
     },
     "footer": {
         "terms": "Terms and conditions",
@@ -82,7 +90,9 @@
         "sponsorshipsList": "Sponsorships list",
         "audits": "Audits",
         "auditsList": "My audits",
-        "applications": "Applications"
+        "applications": "Applications",
+        "applicationsList": "Applications List",
+        "dashboard": "Dashboard"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
@@ -108,6 +118,7 @@
         "denied.access.message": "You don't have permission to access {{ressource}} on this server",
         "add.category.failed": "Category could not be added",
         "no.items.found": "No items found for this category",
+        "no.trips.found": "There are no trips",
         "trip.not.found": "There is no trip corresponding to this ID",
         "sponsorship.not.found": "You do not have any sponsorship",
         "audit.empty": "You do not have any sponsorship",

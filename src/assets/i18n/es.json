@@ -28,7 +28,10 @@
         "createdAt": "Creado el"    
     },
     "application": {
-        "comments": "Comentarios"
+        "createdAt": "Fecha de creación",
+        "status": "Estado",
+        "comments": "Comentarios",
+        "reasonRejected": "Razón del rechazo"
     },
     "audit": {
         "auditor": "Auditor",
@@ -55,7 +58,8 @@
         "register": "Registrarse",
         "login": "Conectarse",
         "search": "Buscar",
-        "logout": "Desconexión"
+        "logout": "Desconexión",
+        "details": "Detalles"
     },
     "message": {
         "connected": "Conectado",
@@ -67,6 +71,10 @@
         "title": "Acceso denegado",
         "message-start": "No tiene permiso para acceder a",
         "message-end": "en este servidor"
+    },
+    "not-found": {
+        "title": "Página no encontrada",
+        "message": "La página que está buscando no se puede encontrar"
     },
     "footer": {
         "terms": "Términos y condiciones",
@@ -82,7 +90,9 @@
         "sponsorshipsList": "Lista de patrocinios",
         "audits": "Auditorías",
         "auditsList": "Mis auditorías",
-        "applications": "Solicitudes"
+        "applications": "Solicitudes",
+        "applicationsList": "Lista de solicitudes",
+        "dashboard": "Tablero de mandos"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
@@ -108,6 +118,7 @@
         "denied.access.message": "No tienes permiso para acceder a {{ressource}} en este servidor.",
         "add.category.failed": "No se pudo añadir la categoría",
         "no.items.found": "No se han encontrado artículos para esta categoría",
+        "no.trips.found": "No hay viajes",
         "trip.not.found": "No hay ningún viaje que corresponda a esta identificación",
         "sponsorship.not.found": "No tienes ningún patrocinio",
         "audit.empty": "No tienes ningúna auditoría",
