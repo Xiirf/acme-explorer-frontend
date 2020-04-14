@@ -9,6 +9,12 @@ import { HttpLoaderFactory } from 'src/app/app.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 describe('TripDatatableComponent', () => {
   let component: TripDatatableComponent;
@@ -25,7 +31,13 @@ describe('TripDatatableComponent', () => {
             deps: [HttpClient]
         }}),
         RouterTestingModule.withRoutes([]),
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatInputModule,
+        MatButtonModule,
+        BrowserAnimationsModule,
+        BrowserModule,
       ],
       providers: [ { provide: TripService, useClass: TripServiceMock } ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

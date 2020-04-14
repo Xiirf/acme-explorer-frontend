@@ -9,10 +9,6 @@ import { TripService } from 'src/app/services/trip.service';
 import { TripServiceMock } from 'src/app/services/mocks/trip.service.mock';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 
 describe('TripDisplayComponent', () => {
   let component: TripDisplayComponent;
@@ -30,11 +26,7 @@ describe('TripDisplayComponent', () => {
             deps: [HttpClient]
           }
         }),
-        HttpClientTestingModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatInputModule,
-        MatButtonModule
+        HttpClientTestingModule
       ],
       providers: [ { provide: TripService, useClass: TripServiceMock } ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
