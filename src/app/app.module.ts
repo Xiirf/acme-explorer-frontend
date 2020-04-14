@@ -47,6 +47,7 @@ import { ApplicationListComponent } from './components/application/application-l
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
 import { ErrorInterceptor } from './services/interceptor/errorInterceptor';
+import { TripComponent } from './components/trip/trip/trip.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -77,7 +78,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuditsDisplayComponent,
     ApplicationListComponent,
     DashboardDisplayComponent,
-    ApplicationDisplayComponent
+    ApplicationDisplayComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
