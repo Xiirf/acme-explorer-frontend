@@ -6,6 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TripService } from 'src/app/services/trip.service';
 import { ActorService } from 'src/app/services/actor.service';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-audits-display',
@@ -16,6 +17,7 @@ export class AuditsDisplayComponent extends TranslatableComponent implements OnI
 
   private idAudit: string;
   audit: Audit;
+  faFile = faFile;
 
   constructor(private route: ActivatedRoute,
               private auditService: AuditService,
@@ -42,5 +44,4 @@ export class AuditsDisplayComponent extends TranslatableComponent implements OnI
       .catch((err) => console.error(err));
     });
   }
-
 }

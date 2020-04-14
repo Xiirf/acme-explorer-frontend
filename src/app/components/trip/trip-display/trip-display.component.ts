@@ -10,6 +10,7 @@ import { Application } from 'src/app/models/application.model';
 import { AuditService } from 'src/app/services/audit.service';
 import { Audit } from 'src/app/models/audit.model';
 import { ActorService } from 'src/app/services/actor.service';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-trip-display',
@@ -22,6 +23,7 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
   trip: Trip;
   applications: Application[];
   audits: Audit[];
+  faFile = faFile;
 
   constructor(private route: ActivatedRoute,
               private tripService: TripService,

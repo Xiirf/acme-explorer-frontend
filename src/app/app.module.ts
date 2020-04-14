@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -46,6 +46,7 @@ import { AuditsDisplayComponent } from './components/audits/audits-display/audit
 import { ApplicationListComponent } from './components/application/application-list/application-list.component';
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
+import { ErrorInterceptor } from './services/interceptor/errorInterceptor';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -105,7 +106,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [AngularFireAuth, TripService],
+  providers: [AngularFireAuth,
+              TripService,
+              { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

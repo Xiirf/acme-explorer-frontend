@@ -89,7 +89,9 @@
     
                                 <h3 class="card-title">{{'audit.optionalAttachments' | translate}}</h3>
                                 <ul *ngFor="let attachement of audit.optionalAttachments">
-                                    <li><h5>{{attachement}}</h5></li>
+                                    <li><h5><a href="{{attachement}}" target="_blank">
+                                        <fa-icon [icon]="faFile"></fa-icon>
+                                    </a></h5></li>
                                 </ul>
                             </mat-expansion-panel>
                         </mat-accordion>
