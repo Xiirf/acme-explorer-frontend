@@ -4,7 +4,6 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip.model';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Observer } from 'rxjs';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Application } from 'src/app/models/application.model';
 import { AuditService } from 'src/app/services/audit.service';

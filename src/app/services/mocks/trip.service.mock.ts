@@ -13,7 +13,8 @@ export class TripServiceMock {
     pictures = ['https://i.imgur.com/W9LJEYw.jpg', 'https://i.imgur.com/Za6WIAx.jpg', 'https://i.imgur.com/zqeiTar.jpg'];
 
     constructor() {
-        this.nbTrip = faker.random.numer(40) + 10; // Generate between 10 and 50 trip;
+        this.trips = [];
+        this.nbTrip = faker.random.number(40) + 10; // Generate between 10 and 50 trip;
         for (let i = 0; i < this.nbTrip; i++ ) {
             // Date
             const start = faker.date.future();
@@ -29,20 +30,20 @@ export class TripServiceMock {
             }
 
             // Requirements
-            const nbRandomRequirement = faker.random.numer(4);
+            const nbRandomRequirement = faker.random.number(4);
             const requirements = [];
             for (let y = 0; y < nbRandomRequirement; y++) {
                 requirements.push(faker.lorem.word());
             }
 
             // Stages
-            const nbRandomStage = faker.random.numer(8);
+            const nbRandomStage = faker.random.number(8);
             const stages = [];
             for (let y = 0; y < nbRandomStage; y++) {
                 stages.push({
                     title: faker.lorem.sentence(),
                     description: faker.lorem.paragraph(),
-                    price: faker.random.numer(800) + 100
+                    price: faker.random.number(800) + 100
                 });
             }
 
@@ -71,5 +72,13 @@ export class TripServiceMock {
 
     public getTrips(): Promise<Trip[]> {
         return Promise.resolve(this.trips);
+    }
+
+    public getTripsManager(): Promise<Trip[]> {
+        return Promise.resolve(this.trips);
+    }
+
+    public getTrip(): Promise<Trip> {
+        return Promise.resolve(this.trips[0]);
     }
 }

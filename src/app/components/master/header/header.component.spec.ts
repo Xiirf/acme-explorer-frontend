@@ -1,9 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
-import { TranslateService, TranslateStore, TranslateLoader,
-            TranslateCompiler, TranslateParser, MissingTranslationHandler, TranslateModule } from '@ngx-translate/core';
-import { LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from 'src/app/app.module';
 import { AuthService } from 'src/app/services/auth.service';
@@ -59,12 +57,6 @@ describe('HeaderComponent', () => {
     it('should update lang', () => {
         component.changeLanguage('fr');
         expect(component.lang).toBe('fr');
-    });
-
-    it('should update token', async () => {
-        component.token = 'test';
-        await component.onLogout();
-        expect(component.token).toBeNull();
     });
 });
 

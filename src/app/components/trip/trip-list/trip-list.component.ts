@@ -16,16 +16,20 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
 
   trips: Trip[];
 
-  constructor(private tripService: TripService,
+  constructor(public tripService: TripService,
               private translateService: TranslateService,
               private router: Router) {
     super(translateService);
+    this.initialize();
+  }
+
+  initialize() {
+    return this.tripService.getTrips()
+      .then((val) => this.trips = val)
+      .catch((err) => console.error(err.message));
   }
 
   ngOnInit(): void {
-    this.tripService.getTrips()
-      .then((val) => this.trips = val)
-      .catch((err) => console.error(err.message));
   }
 
   newTrip() {
