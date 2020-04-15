@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
-import { ValidateDataEndIsLaterThanStart } from 'src/app/validator/validateDataEndIsLaterThanStart.validator';
 
 @Component({
   selector: 'app-trip',
