@@ -56,7 +56,7 @@ export class TripServiceMock {
             this.trips.push({
                 _id: faker.random.uuid(),
                 version: 0,
-                title: faker.lorem.sentence(),
+                title: faker.address.city(),
                 ticker,
                 description: faker.lorem.paragraph(),
                 requirements,
