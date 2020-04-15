@@ -54,16 +54,17 @@ describe('TripDisplayComponent', () => {
   it('array should be sort', () => {
     const arrayTest = [
       {
-        label: 1, createdAt: '22/04/2020'
+        label: 1, createdAt: new Date('04/22/2020')
       },
       {
-        label: 2, createdAt: '14/04/2020'
+        label: 2, createdAt:  new Date('04/14/2020')
       },
       {
-        label: 3, createdAt: '20/04/2020'
+        label: 3, createdAt:  new Date('04/20/2020')
       }
     ];
     arrayTest.sort(component.sortByDate);
+    console.log(arrayTest);
     expect(arrayTest[0].label).toEqual(2);
     expect(arrayTest[1].label).toEqual(3);
     expect(arrayTest[2].label).toEqual(1);
