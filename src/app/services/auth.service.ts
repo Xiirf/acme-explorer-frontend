@@ -7,6 +7,7 @@ import { Actor } from '../models/actor.model';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ActorService } from './actor.service';
+import { StorageService } from './storage.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,7 +22,8 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth,
               private http: HttpClient,
-              private actorService: ActorService) {
+              private actorService: ActorService,
+              private storageService: StorageService) {
                 if (localStorage.getItem('currentActor')) {
                   this.currentActor = JSON.parse(localStorage.getItem('currentActor'));
                 }
@@ -68,6 +70,7 @@ export class AuthService {
 
   logout() {
     return new Promise<any>((resolve, reject) => {
+      this.storageService.removeItem('token');
       this.fireAuth.auth.signOut()
         .then(_ => {
           this.currentActor = null;
