@@ -4,12 +4,12 @@ import { TripService } from 'src/app/services/trip.service';
 import { Trip } from 'src/app/models/trip.model';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Observer } from 'rxjs';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Application } from 'src/app/models/application.model';
 import { AuditService } from 'src/app/services/audit.service';
 import { Audit } from 'src/app/models/audit.model';
 import { ActorService } from 'src/app/services/actor.service';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-trip-display',
@@ -22,6 +22,7 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
   trip: Trip;
   applications: Application[];
   audits: Audit[];
+  faFile = faFile;
 
   constructor(private route: ActivatedRoute,
               private tripService: TripService,
@@ -77,7 +78,11 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
     let returnComment = '';
     if (commentSplit.length > 3) {
       for (let i = 0; i < 3; i++) {
-        returnComment = returnComment + ' ' + commentSplit[i];
+        if (returnComment === '') {
+          returnComment = commentSplit[i];
+        } else {
+          returnComment = returnComment + ' ' + commentSplit[i];
+        }
       }
     } else {
       returnComment = comment;

@@ -53,7 +53,6 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
     this.authService.logout()
       .then(
         () => {
-          this.storageService.removeItem('token');
           this.toastr.success(this.translateService.instant('message.disconnected'));
         }
       );

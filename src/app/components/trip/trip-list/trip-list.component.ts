@@ -17,7 +17,7 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
   trips: Trip[];
   numObjects = MAX_TRIPS;
 
-  constructor(private tripService: TripService,
+  constructor(public tripService: TripService,
               private translateService: TranslateService,
               private router: Router) {
     super(translateService);
