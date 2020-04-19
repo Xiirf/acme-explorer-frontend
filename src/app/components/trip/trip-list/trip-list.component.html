@@ -9,7 +9,7 @@
 </div>
 
 <div *ngIf="trips != undefined && trips.length > 0" class="card-deck">
-    <div *ngFor="let trip of trips" class="card mb-3">
+    <div *ngFor="let trip of trips" class="card mb-3" infiniteScroll (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp()">
         <div class="card-header">
             <h4 class="card-title">{{ trip.title }}</h4>
         </div>

@@ -5,7 +5,7 @@ import { TranslatableComponent } from '../../shared/translatable/translatable.co
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 
-const MAX_STARS = 5;
+const MAX_TRIPS = 5;
 
 @Component({
   selector: 'app-trip-list',
@@ -15,25 +15,39 @@ const MAX_STARS = 5;
 export class TripListComponent extends TranslatableComponent implements OnInit {
 
   trips: Trip[];
+  numObjects = MAX_TRIPS;
 
   constructor(public tripService: TripService,
               private translateService: TranslateService,
               private router: Router) {
     super(translateService);
-    this.initialize();
-  }
-
-  initialize() {
-    return this.tripService.getTrips()
-      .then((val) => this.trips = val)
-      .catch((err) => console.error(err.message));
   }
 
   ngOnInit(): void {
+    this.tripService.getTripsPage(0, MAX_TRIPS)
+      .then((val) => this.trips = val)
+      .catch((err) => console.error(err.message));
   }
 
   newTrip() {
     this.router.navigate(['/trips/new']);
   }
 
+  onScrollDown() {
+    const start = this.numObjects;
+    this.numObjects += MAX_TRIPS;
+    this.addTrips(start);
+  }
+
+  onScrollUp() {
+    const start = this.numObjects;
+    this.numObjects += MAX_TRIPS;
+    this.addTrips(start);
+  }
+
+  addTrips(startIndex) {
+    this.tripService.getTripsPage(startIndex, MAX_TRIPS)
+      .then((val) => this.trips = this.trips.concat(val))
+      .catch((err) => console.error(err));
+  }
 }
