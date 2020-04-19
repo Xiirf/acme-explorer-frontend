@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendApiBaseUrl: /*'https://s4-acme-explorer-backend.herokuapp.com/v2'*/'http://localhost:8080/v2',
+  backendApiBaseUrl: 'https://s4-acme-explorer-backend.herokuapp.com/v2',
   firebaseConfig: {
     apiKey: 'AIzaSyC2Qa9uZIjnTJBFYES4BPA5WRj2DMETdHs',
     authDomain: 'acme-explorer-e1ea6.firebaseapp.com',
