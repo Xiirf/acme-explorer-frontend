@@ -7,9 +7,9 @@ export class Application extends Entity {
     createdAt: Date;
     status: string;
     comments: string[];
-    reasonRejected: string;
-    nameExplo: string;
-    nameTrip: string;
+    reasonRejected?: string;
+    nameExplo?: string;
+    nameTrip?: string;
 
     constructor() {
         super();

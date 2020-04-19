@@ -1,47 +1,46 @@
 <ng-container *ngIf="dashboard; else noDataFound" >
     <div class="card">
         <div class="card-header">
-            {{'dashboard.title' | translate}}
-        </div><!--
+            {{'header.dashboard' | translate}}
+        </div>
         <div class="card-body">
             <h3 class="card-title">{{'dashboard.statsNumberTripsByManager' | translate}}</h3>
             <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsNumberTripsByManager.avg}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsNumberTripsByManager.min}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsNumberTripsByManager.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.stdDeviation' | translate}} {{dashboard.statsNumberTripsByManager.stdDeviation}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsNumberTripsByManager.std}}</h5>
 
             <h3 class="card-title">{{'dashboard.statsNumberApplicationByTrips' | translate}}</h3>
             <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsNumberApplicationByTrips.avg}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsNumberApplicationByTrips.min}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsNumberApplicationByTrips.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.stdDeviation' | translate}} {{dashboard.statsNumberApplicationByTrips.stdDeviation}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsNumberApplicationByTrips.std}}</h5>
 
             <h3 class="card-title">{{'dashboard.statsPriceByTrips' | translate}}</h3>
             <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsPriceByTrips.avg}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsPriceByTrips.min}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsPriceByTrips.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.stdDeviation' | translate}} {{dashboard.statsPriceByTrips.stdDeviation}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsPriceByTrips.std}}</h5>
 
             <h3 class="card-title">{{'dashboard.ratioApplicationsByStatus' | translate}}</h3>
-            <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.ratioApplicationsByStatus.avg}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.ratioApplicationsByStatus.min}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.ratioApplicationsByStatus.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.stdDeviation' | translate}} {{dashboard.ratioApplicationsByStatus.stdDeviation}}</h5>
-
+            <div *ngFor="let rabs of dashboard.ratioApplicationsByStatus">
+                <h5 class="card-subtitle text-muted">
+                    {{'dashboard.status' | translate}}: {{rabs.status}}
+                    {{'dashboard.ratio' | translate}} {{rabs.ratio}}
+                </h5>
+            </div>
+            
             <h3 class="card-title">{{'dashboard.statsAveragePriceInFinders' | translate}}</h3>
-            <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsAveragePriceInFinders.avg}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsAveragePriceInFinders.min}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsAveragePriceInFinders.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.stdDeviation' | translate}} {{dashboard.statsAveragePriceInFinders.stdDeviation}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.minAvg' | translate}} {{dashboard.statsAveragePriceInFinders.minAvg}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.maxAvg' | translate}} {{dashboard.statsAveragePriceInFinders.maxAvg}}</h5>
 
             <h3 class="card-title">{{'dashboard.statsTopKeyWords' | translate}}</h3>
-            <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsTopKeyWords.avg}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsTopKeyWords.min}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsTopKeyWords.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.stdDeviation' | translate}} {{dashboard.statsTopKeyWords.stdDeviation}}</h5>
-
-            
-        </div>-->
+            <h5 class="card-subtitle text-muted">{{'dashboard.keywords' | translate}}</h5>
+            <div *ngFor="let keyword of dashboard.statsTopKeyWords">
+                <h5 class="card-subtitle text-muted">{{keyword}}
+                </h5>
+            </div>
+        </div>
     </div>
 </ng-container>
 <ng-template #noDataFound>

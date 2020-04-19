@@ -3,11 +3,12 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import localeFr from '@angular/common/locales/fr';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -103,7 +104,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [AngularFireAuth, TripService],
   bootstrap: [AppComponent],
