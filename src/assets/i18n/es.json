@@ -7,6 +7,59 @@
         "phone": "Teléfono",
         "address": "Dirección"
     },
+    "trip": {
+        "title": "Título",
+        "ticker": "Ticker",
+        "description":  "Descripción",
+        "requirements": "Requisitos",
+        "start": "Fecha de inicio",
+        "end": "Fecha de fin",
+        "pictures": "Imágenes",
+        "stages": "Etapas",
+        "managerId": "Gerente ID",
+        "price": "Precio"
+    },
+    "sponsorship": {
+        "banner": "Bandera",
+        "link": "Enlace",
+        "price": "Precio",
+        "payed": "Pagado",
+        "Trip": "Viaje",
+        "createdAt": "Creado el"    
+    },
+    "application": {
+        "createdAt": "Fecha de creación",
+        "status": "Estado",
+        "comments": "Comentarios",
+        "reasonRejected": "Razón del rechazo",
+        "trip": "Viaje",
+        "detail": "Detalles"
+    },
+    "audit": {
+        "auditor": "Auditor",
+        "trip": "Viaje",
+        "createdAt": "Creado el",
+        "title": "Título",
+        "description": "Descripción",
+        "optionalAttachments": "Archivos adjuntos"
+    },
+    "dashboard": {
+        "statsNumberTripsByManager": "Número de viajes gestionados por gestor",
+        "statsNumberApplicationByTrips": "Número de solicitudes por viaje",
+        "statsPriceByTrips": "Precio de los viajes",
+        "ratioApplicationsByStatus": "La proporción de aplicaciones",
+        "statsAveragePriceInFinders": "Rango de precios promedio",
+        "statsTopKeyWords": "Las 10 palabras clave más importantes",
+        "avg": "Media",
+        "min": "Minimum",
+        "max": "Maximum",
+        "std": "Desviación estándar",
+        "status": "Estado",
+        "ratio": "Ratio",
+        "minAvg": "Promedio mínimo",
+        "maxAvg": "Promedio máximo",
+        "keywords": "Palabras clave"
+    },
     "validator": {
         "required": {
             "name": "El nombre es requerido",
@@ -24,7 +77,8 @@
         "register": "Registrarse",
         "login": "Conectarse",
         "search": "Buscar",
-        "logout": "Desconexión"
+        "logout": "Desconexión",
+        "details": "Detalles"
     },
     "message": {
         "connected": "Conectado",
@@ -32,9 +86,64 @@
         "registered": "Registrado",
         "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña"
     },
+    "denied-access": {
+        "title": "Acceso denegado",
+        "message-start": "No tiene permiso para acceder a",
+        "message-end": "en este servidor"
+    },
+    "not-found": {
+        "title": "Página no encontrada",
+        "message": "La página que está buscando no se puede encontrar"
+    },
     "footer": {
         "terms": "Términos y condiciones",
         "visitors": "Visitante núm.",
         "register": "Regístrate gratis"
+    },
+    "header": {
+        "trips": "Viajes",
+        "tripsList": "Lista de viaje",
+        "manageTrip": "Manejar viaje",
+        "newTrip": "Crear viaje",
+        "sponsorships": "Patrocinios",
+        "sponsorshipsList": "Lista de patrocinios",
+        "audits": "Auditorías",
+        "auditsList": "Mis auditorías",
+        "applications": "Solicitudes",
+        "applicationsList": "Lista de solicitudes",
+        "dashboard": "Tablero de mandos"
+    },
+    "messages": {
+        "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
+        "auth.logout": "El usuario se ha desconectado de la aplicación",
+        "auth.login.correct": "El usuario ha entrado correctamente",
+        "already.registered": "¿Ya esta registrado?",
+        "item.deleted": "Elemento eliminado con éxito",
+        "back": "Atras",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "placeHolder": "Entrar"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
+        "auth.wrong.password": "La contraseña es inválida o el usuario no tiene contraseña.",
+        "auth.argument.error": "signInWithEmailAndPassword fallido: El primer argumento 'email' debe ser una cadena válida.",
+        "auth.invalid.email": "La dirección de correo electrónico está mal formateada",
+        "auth.weak.password": "La contraseña debe tener al menos 6 caracteres de longitud",
+        "auth.registration.failed": "El registro falló",
+        "auth.logout.failed": "El cierre de sesión falló",
+        "denied.access.title": "Denegado el acceso",
+        "denied.access.message": "No tienes permiso para acceder a {{ressource}} en este servidor.",
+        "add.category.failed": "No se pudo añadir la categoría",
+        "no.items.found": "No se han encontrado artículos para esta categoría",
+        "no.trips.found": "No hay viajes",
+        "trip.not.found": "No hay ningún viaje que corresponda a esta identificación",
+        "sponsorship.not.found": "No tienes ningún patrocinio",
+        "audit.empty": "No tienes ningúna auditoría",
+        "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación",
+        "comments.not.found": "No hay ningún comentario que corresponda a esta identificación",
+        "application.not.found": "No hay ningún solicitude que corresponda a esta identificación",
+        "dashboard.not.found": "No hay un tablero de mandos"
     }
 }

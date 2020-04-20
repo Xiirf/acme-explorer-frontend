@@ -7,6 +7,59 @@
         "phone": "Phone",
         "address": "Address"
     },
+    "trip": {
+        "title": "Title",
+        "ticker": "Ticker",
+        "description":  "Description",
+        "requirements": "Requirements",
+        "start": "Start date",
+        "end": "End date",
+        "pictures": "Pictures",
+        "stages": "Stages",
+        "managerId": "Manager ID",
+        "price": "Price"
+    },
+    "sponsorship": {
+        "banner": "Banner",
+        "link": "Link",
+        "price": "Price",
+        "payed": "Payed",
+        "Trip": "Trip",
+        "createdAt": "Created at"    
+    },
+    "application": {
+        "createdAt": "Creation date",
+        "status": "Status",
+        "comments": "Comments",
+        "reasonRejected": "Reason for rejection",
+        "trip": "Trip",
+        "detail": "Details"
+    },
+    "audit": {
+        "auditor": "Auditor",
+        "trip": "Trip",
+        "createdAt": "Created at",
+        "title": "Title",
+        "description": "Description",
+        "optionalAttachments": "Optional attachments"
+    },
+    "dashboard": {
+        "statsNumberTripsByManager": "Number of trips managed per manager",
+        "statsNumberApplicationByTrips": "Number of applications per trip",
+        "statsPriceByTrips": "Price of the trips",
+        "ratioApplicationsByStatus": "The ratio of applications",
+        "statsAveragePriceInFinders": "Average price range",
+        "statsTopKeyWords": "Top 10 key words",
+        "avg": "Average",
+        "min": "Minimum",
+        "max": "Maximum",
+        "std": "Standart Deviation",
+        "status": "Status",
+        "ratio": "Ratio",
+        "minAvg": "Minimum average",
+        "maxAvg": "Maximum average",
+        "keywords": "Keywords"
+    },
     "validator": {
         "required": {
             "name": "The first name is required",
@@ -24,7 +77,8 @@
         "register": "Register",
         "login": "Login",
         "search": "Search",
-        "logout": "Logout"
+        "logout": "Logout",
+        "details": "Details"
     },
     "message": {
         "connected": "Connected",
@@ -32,9 +86,64 @@
         "registered": "Registered",
         "errorConnect": "Wrong email / password combination"
     },
+    "denied-access": {
+        "title": "Denied access",
+        "message-start": "You don't have permission to access",
+        "message-end": "on this server"
+    },
+    "not-found": {
+        "title": "Page not found",
+        "message": "The page you are looking for cannot be found"
+    },
     "footer": {
         "terms": "Terms and conditions",
         "visitors": "Visitor num.",
         "register": "Register for free"
+    },
+    "header": {
+        "trips": "Trips",
+        "tripsList": "Trips list",
+        "manageTrip": "Manage trips",
+        "newTrip": "New trip",
+        "sponsorships": "Sponsorships",
+        "sponsorshipsList": "Sponsorships list",
+        "audits": "Audits",
+        "auditsList": "My audits",
+        "applications": "Applications",
+        "applicationsList": "Applications List",
+        "dashboard": "Dashboard"
+    },
+    "messages": {
+        "auth.registration.correct": "The user {{username}} has been correctly registered",
+        "auth.logout": "The user has logged out from the app",
+        "auth.login.correct": "The user has been correctly logged in",
+        "already.registered": "Already registered?",
+        "item.deleted": "Item successfully deleted",
+        "back": "Back",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "placeHolder": "Enter"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
+        "auth.wrong.password": "The password is invalid or the user does not have a password.",
+        "auth.argument.error": "signInWithEmailAndPassword failed: First argument 'email' must be a valid string.",
+        "auth.invalid.email": "The email address is badly formatted",
+        "auth.weak.password": "Password should be at least 6 characters long",
+        "auth.registration.failed": "Registration failed",
+        "auth.logout.failed": "Logout failed",
+        "denied.access.title": "Denied access",
+        "denied.access.message": "You don't have permission to access {{ressource}} on this server",
+        "add.category.failed": "Category could not be added",
+        "no.items.found": "No items found for this category",
+        "no.trips.found": "There are no trips",
+        "trip.not.found": "There is no trip corresponding to this ID",
+        "sponsorship.not.found": "You do not have any sponsorship",
+        "audit.empty": "You do not have any sponsorship",
+        "audit.not.found": "There is no audit corresponding to this ID",
+        "comments.not.found": "There is no comment corresponding to this ID",
+        "application.not.found": "There is no application corresponding to this ID",
+        "dashboard.not.found": "No dashboard found"
     }
 }

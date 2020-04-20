@@ -1,0 +1,32 @@
+<ng-container *ngIf="audit; else noDataFound" >
+    <div class="card">
+        <div class="card-header">
+            {{audit.title}}
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">{{'audit.auditor' | translate}}</h3>
+            <h5 class="card-subtitle text-muted">{{audit.nameAuditor}}</h5>
+
+            <h3 class="card-title">{{'audit.trip' | translate}}</h3>
+            <h5 class="card-subtitle text-muted"><a mat-button routerLink="/trips/{{audit.idTrip}}">{{audit.nameTrip}}</a></h5>
+
+            <h3 class="card-title">{{'audit.createdAt' | translate}}</h3>
+            <h5 class="card-subtitle text-muted">{{audit.createdAt | date: 'dd/MM/yyyy'}}</h5>
+
+            <h3 class="card-title">{{'audit.description' | translate}}</h3>
+            <h5 class="card-subtitle text-muted">{{audit.description}}</h5>
+
+            <h3 class="card-title">{{'audit.optionalAttachments' | translate}}</h3>
+            <ul *ngFor="let attachement of audit.optionalAttachments">
+                <li><h5 class="card-subtitle text-muted"><a href="{{attachement}}" target="_blank">
+                    <fa-icon [icon]="faFile"></fa-icon>
+                </a></h5></li>
+            </ul>
+        </div>
+    </div>
+</ng-container>
+<ng-template #noDataFound>
+    <h1>
+        {{'errorMessages.audit.not.found' | translate}}
+    </h1>
+</ng-template>

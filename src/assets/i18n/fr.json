@@ -7,6 +7,60 @@
         "phone": "Téléphone",
         "address": "Adresse"
     },
+    "trip": {
+        "title": "Titre",
+        "ticker": "Ticker",
+        "description":  "Description",
+        "requirements": "Conditions requises",
+        "start": "Date de début",
+        "end": "Date de fin",
+        "pictures": "Photos",
+        "stages": "Étapes",
+        "managerId": "Manager ID",
+        "price": "Prix",
+        "details": "Détails"
+    },
+    "sponsorship": {
+        "banner": "Bannière",
+        "link": "Lien",
+        "price": "Prix",
+        "payed": "Payé",
+        "Trip": "Voyage",
+        "createdAt": "Créé le"    
+    },
+    "application": {
+        "createdAt": "Date de création",
+        "status": "Statut",
+        "comments": "Commentaires",
+        "reasonRejected": "Motif du rejet",
+        "trip": "Voyage",
+        "detail": "Détails"
+    },
+    "audit": {
+        "auditor": "Auditeur",
+        "trip": "Voyage",
+        "createdAt": "Créé le",
+        "title": "Titre",
+        "description": "Description",
+        "optionalAttachments": "Pièces jointes"
+    },
+    "dashboard": {
+        "statsNumberTripsByManager": "Nombre de voyages gérés par gestionnaire",
+        "statsNumberApplicationByTrips": "Nombre de demandes par voyage",
+        "statsPriceByTrips": "Prix des voyages",
+        "ratioApplicationsByStatus": "Le ratio des demandes",
+        "statsAveragePriceInFinders": "Fourchette de prix moyenne",
+        "statsTopKeyWords": "Top 10 des mots clés",
+        "avg": "Moyenne",
+        "min": "Minimum",
+        "max": "Maximum",
+        "std": "Écart type",
+        "status": "État",
+        "ratio": "Ratio",
+        "minAvg": "Moyenne minimale",
+        "maxAvg": "Moyenne maximale",
+        "keywords": "Mots clés"
+    },
     "validator": {
         "required": {
             "name": "Le prénom est requis",
@@ -24,7 +78,8 @@
         "register": "S'inscrire",
         "login": "Se connecter",
         "search": "Rechercher",
-        "logout": "Déconnexion"
+        "logout": "Déconnexion",
+        "details": "Détails"
     },
     "message": {
         "connected": "Connecté",
@@ -32,9 +87,64 @@
         "registered": "Inscrit",
         "errorConnect": "Mauvaise combinaison email  / mot de passe"
     },
+    "denied-access": {
+        "title": "Accès refusé",
+        "message-start": "Vous n'avez pas les permissions pour accéder",
+        "message-end": "à ce serveur"
+    },
+    "not-found": {
+        "title": "Page non trouvée",
+        "message": "La page que vous cherchez est introuvable"
+    },
     "footer": {
         "terms": "Termes et conditions",
         "visitors": "Visiteur num.",
         "register": "S'inscrire gratuitement"
+    },
+    "header": {
+        "trips": "Voyages",
+        "tripsList": "Liste des voyages",
+        "manageTrip": "Gérer les voyages",
+        "newTrip": "Créer un voyage",
+        "sponsorships": "Parrainages",
+        "sponsorshipsList": "Liste de parrainages",
+        "audits": "Audits",
+        "auditsList": "Mes audits",
+        "applications": "Candidatures",
+        "applicationsList": "Liste des candidatures",
+        "dashboard": "Tableau de bord"
+    },
+    "messages": {
+        "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
+        "auth.logout": "L'utilisateur s'est déconnecté de l'application",
+        "auth.login.correct": "L'utilisateur est correctement connecté",
+        "already.registered": "Déjà inscrit ?",
+        "item.deleted": "Article supprimé avec succès",
+        "back": "Retour",
+        "save": "Sauvegarder",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "placeHolder": "Valider"
+    },
+    "errorMessages": {
+        "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
+        "auth.wrong.password": "Le mot de passe n'est pas valide ou l'utilisateur n'a pas de mot de passe.",
+        "auth.argument.error": "signInWithEmailAndPassword a echoué: Le premier argument 'email' doit être une chaîne de caractères valide.",
+        "auth.invalid.email": "L'adresse électronique est mal formée",
+        "auth.weak.password": "Le mot de passe doit comporter au moins 6 caractères",
+        "auth.registration.failed": "L'inscription a échoué",
+        "auth.logout.failed": "La déconnexion a échoué",
+        "denied.access.title": "Accès refusé",
+        "denied.access.message": "Vous n'avez pas l'autorisation d'accéder à {{ressource}} sur ce serveur",
+        "add.category.failed": "La catégorie n'a pas pu être ajoutée",
+        "no.items.found": "Aucun article trouvé pour cette catégorie",
+        "no.trips.found": "Il n'y a pas de voyages",
+        "trip.not.found": "Il n'y a pas de voyage correspondant à cet identifiant",
+        "sponsorship.not.found": "Vous n'avez aucun parrainage",
+        "audit.empty": "Vous n'avez aucun audit",
+        "audit.not.found": "Il n'y a pas d'audit correspondant à cet identifiant",
+        "comments.not.found": "Il n'y a pas de commentaire correspondant à cet identifiant",
+        "application.not.found": "Il n'y a pas de candidature correspondant à cet identifiant",
+        "dashboard.not.found": "Il n'y a pas de tableau de bord"
     }
 }

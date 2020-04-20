@@ -1,0 +1,29 @@
+<ng-container *ngIf="application; else noDataFound" >
+    <div class="card">
+        <div class="card-header">
+            {{application.nameTrip}}
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">{{'application.createdAt' | translate}}</h3>
+            <h5 class="card-subtitle text-muted">{{application.createdAt | date: 'dd/MM/yyyy'}}</h5>
+
+            <h3 class="card-title">{{'application.status' | translate}}</h3>
+            <h5 class="card-subtitle text-muted">{{application.status}}</h5>
+
+            <div *ngIf="application.status=='REJECTED'">
+                <h3 class="card-title">{{'application.reasonRejected' | translate}}</h3>
+                <h5 class="card-subtitle text-muted">{{application.reasonRejected}}</h5>
+            </div>
+
+            <h3 class="card-title">{{'application.comments' | translate}}</h3>
+            <ul *ngFor="let comment of application.comments">
+                <li><h5 class="card-subtitle text-muted">{{comment}}</h5></li>
+            </ul>
+        </div>
+    </div>
+</ng-container>
+<ng-template #noDataFound>
+    <h1>
+        {{'errorMessages.application.not.found' | translate}}
+    </h1>
+</ng-template>

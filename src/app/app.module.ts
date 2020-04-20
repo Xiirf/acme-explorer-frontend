@@ -1,19 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import localeFr from '@angular/common/locales/fr';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -32,6 +35,19 @@ import { environment } from 'src/environments/environment';
 import { FooterComponent } from './components/master/footer/footer.component';
 import { LocalizedDatePipe } from './components/shared/localized-date.pipe';
 import { LocalizedDecimalPipe } from './components/shared/localized-decimal.pipe';
+import { DeniedAccessComponent } from './components/security/denied-access/denied-access.component';
+import { TripDatatableComponent } from './components/trip/trip-datatable/trip-datatable.component';
+import { TermsAndConditionsComponent } from './components/master/terms-and-conditions/terms-and-conditions.component';
+import { NotFoundPageComponent } from './components/shared/not-found-page/not-found-page.component';
+import { MessageComponent } from './components/master/message/message.component';
+import { TripDisplayComponent } from './components/trip/trip-display/trip-display.component';
+import { SponsorshipListComponent } from './components/sponsorship/sponsorship-list/sponsorship-list.component';
+import { AuditsListComponent } from './components/audits/audits-list/audits-list.component';
+import { AuditsDisplayComponent } from './components/audits/audits-display/audits-display.component';
+import { ApplicationListComponent } from './components/application/application-list/application-list.component';
+import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
+import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
+import { ErrorInterceptor } from './services/interceptor/errorInterceptor';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -50,7 +66,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     FooterComponent,
     LocalizedDatePipe,
-    LocalizedDecimalPipe
+    LocalizedDecimalPipe,
+    DeniedAccessComponent,
+    TripDatatableComponent,
+    TermsAndConditionsComponent,
+    NotFoundPageComponent,
+    MessageComponent,
+    TripDisplayComponent,
+    SponsorshipListComponent,
+    AuditsListComponent,
+    AuditsDisplayComponent,
+    ApplicationListComponent,
+    DashboardDisplayComponent,
+    ApplicationDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -59,10 +87,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatTabsModule,
+    MatExpansionModule,
     FontAwesomeModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -75,9 +104,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    InfiniteScrollModule
   ],
-  providers: [AngularFireAuth, TripService],
+  providers: [AngularFireAuth,
+              TripService,
+              { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

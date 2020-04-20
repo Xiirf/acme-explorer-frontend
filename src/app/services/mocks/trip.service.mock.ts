@@ -1,56 +1,88 @@
 import { Trip } from 'src/app/models/trip.model';
 import { Injectable } from '@angular/core';
+import * as faker from 'faker/locale/en_US';
+import { formatDate } from '@angular/common';
+import { customAlphabet  } from 'nanoid';
 
 @Injectable({ providedIn: 'root' })
 export class TripServiceMock {
-    start = new Date();
-    end = new Date(this.start.getDate() + 20);
 
-    trips: Trip[] = [{
-        id: '507f1f77bcf86cd799439012',
-        version: 0,
-        title: 'titleTrip1',
-        ticker: '20/03/24-AAAA',
-        description: 'descTrip1',
-        requirements: ['req1Trip1', 'req2Trip1'],
-        start: this.start,
-        end: this.end,
-        pictures: ['pictureTrip1'],
-        stages: [{
-            title: 'stage1',
-            description: 'descStage1',
-            price: 250
-        }],
-        managerId: '507f1f77bcf86cd799439011',
-        price: 250
-    },
-    {
-        id: '507f1f77bcf86cd799439013',
-        version: 0,
-        title: 'titleTrip1',
-        ticker: '20/03/24-AAAA',
-        description: 'descTrip1',
-        requirements: ['req1Trip1', 'req2Trip1'],
-        start: this.start,
-        end: this.end,
-        pictures: ['pictureTrip1'],
-        stages: [{
-            title: 'stage1',
-            description: 'descStage1',
-            price: 250
-        },
-        {
-            title: 'stage2',
-            description: 'descStage2',
-            price: 300
-        }],
-        managerId: '507f1f77bcf86cd799439010',
-        price: 550
-    }];
+    trips: Trip[];
+    nbTrip: number;
 
-    constructor() { }
+    pictures = ['https://i.imgur.com/W9LJEYw.jpg', 'https://i.imgur.com/Za6WIAx.jpg', 'https://i.imgur.com/zqeiTar.jpg'];
+
+    constructor() {
+        this.trips = [];
+        this.nbTrip = faker.random.number(40) + 10; // Generate between 10 and 50 trip;
+        for (let i = 0; i < this.nbTrip; i++ ) {
+            // Date
+            const start = faker.date.future();
+            const end = new Date(start.getDate() + 20);
+
+            // Ticker
+            const date = formatDate(new Date(), 'yymmdd', 'en');
+            const nanoid = customAlphabet('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4);
+            let ticker = [date, nanoid()].join('-');
+            // Check ticker is unique
+            while (this.trips.find(trip => trip.ticker === ticker)) {
+                ticker = [date, nanoid()].join('-');
+            }
+
+            // Requirements
+            const nbRandomRequirement = faker.random.number(4);
+            const requirements = [];
+            for (let y = 0; y < nbRandomRequirement; y++) {
+                requirements.push(faker.lorem.word());
+            }
+
+            // Stages
+            const nbRandomStage = faker.random.number(8);
+            const stages = [];
+            for (let y = 0; y < nbRandomStage; y++) {
+                stages.push({
+                    title: faker.lorem.sentence(),
+                    description: faker.lorem.paragraph(),
+                    price: faker.random.number(800) + 100
+                });
+            }
+
+            // Price
+            let price: number;
+            for (const stage of stages) {
+                price += stage.price;
+            }
+
+            this.trips.push({
+                _id: faker.random.uuid(),
+                version: 0,
+                title: faker.address.city(),
+                ticker,
+                description: faker.lorem.paragraph(),
+                requirements,
+                start,
+                end,
+                pictures: faker.random.arrayElement(this.pictures),
+                stages,
+                managerId: faker.random.uuid(),
+                price
+            });
+        }
+    }
 
     public getTrips(): Promise<Trip[]> {
         return Promise.resolve(this.trips);
+    }
+
+    public getTripsManager(): Promise<Trip[]> {
+        return Promise.resolve(this.trips);
+    }
+
+    public getTrip(): Promise<Trip> {
+        return Promise.resolve(this.trips[0]);
+    }
+
+    public getTripsPage(start: number, psize: number): Promise<Trip[]> {
+        return Promise.resolve(this.trips.slice(start, start + psize));
     }
 }

@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Actor } from '../models/actor.model';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ActorService } from './actor.service';
+import { StorageService } from './storage.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,14 +18,27 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private fireAuth: AngularFireAuth, private http: HttpClient) { }
+  private currentActor: Actor;
+
+  constructor(private fireAuth: AngularFireAuth,
+              private http: HttpClient,
+              private actorService: ActorService,
+              private storageService: StorageService) {
+                if (localStorage.getItem('currentActor')) {
+                  this.currentActor = JSON.parse(localStorage.getItem('currentActor'));
+                }
+              }
 
   register(actor: Actor) {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.createUserWithEmailAndPassword(actor.email, actor.password)
         .then(_ => {
           this.http.post<Actor>(`${environment.backendApiBaseUrl}/actors`, actor, httpOptions).toPromise()
-            .then(_ => resolve())
+            .then(newActor => {
+              this.currentActor = newActor;
+              localStorage.setItem('currentActor', JSON.stringify(this.currentActor));
+              resolve();
+            })
             .catch(err => {
               this.fireAuth.auth.currentUser.delete();
               reject(err);
@@ -37,7 +52,16 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signInWithEmailAndPassword(email, password)
         .then(_ => {
-          resolve();
+          this.actorService.getActorByEmail(email)
+          .then((actor: Actor) => {
+            this.currentActor = actor;
+            localStorage.setItem('currentActor', JSON.stringify(this.currentActor));
+            // Message co effectuée
+            resolve(this.currentActor);
+          }).catch(error => {
+            // Message co failed
+            reject(error);
+          });
         }).catch(error => {
           reject(error);
         });
@@ -46,12 +70,39 @@ export class AuthService {
 
   logout() {
     return new Promise<any>((resolve, reject) => {
+      this.storageService.removeItem('token');
       this.fireAuth.auth.signOut()
         .then(_ => {
+          this.currentActor = null;
           resolve();
         }).catch(error => {
           reject(error);
         });
     });
+  }
+
+  getCurrentActor() {
+    return this.currentActor;
+  }
+
+  checkRole(roles: string): boolean {
+    return true;
+    /*let result = false;
+
+    if (this.currentActor) {
+      if (roles.indexOf(this.currentActor.role.toString()) !== -1) {
+        result = true;
+      } else {
+        result = false;
+      }
+    } else {
+      if (roles.indexOf('anonymous') !== -1) {
+        result = true;
+      } else {
+        result = false;
+      }
+    }
+
+    return result;*/
   }
 }
