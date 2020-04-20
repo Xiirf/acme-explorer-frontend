@@ -24,7 +24,6 @@ export class ApplicationListComponent extends TranslatableComponent implements O
               private translateService: TranslateService,
               private tripService: TripService) {
     super(translateService);
-    this.initialize();
   }
 
   ngOnInit(): void {
@@ -44,9 +43,6 @@ export class ApplicationListComponent extends TranslatableComponent implements O
         }
       })
       .catch((err) => console.error(err.message));
-  }
-
-  initialize() {
   }
 
 }

@@ -31,7 +31,9 @@
         "createdAt": "Creation date",
         "status": "Status",
         "comments": "Comments",
-        "reasonRejected": "Reason for rejection"
+        "reasonRejected": "Reason for rejection",
+        "trip": "Trip",
+        "detail": "Details"
     },
     "audit": {
         "auditor": "Auditor",
@@ -40,6 +42,23 @@
         "title": "Title",
         "description": "Description",
         "optionalAttachments": "Optional attachments"
+    },
+    "dashboard": {
+        "statsNumberTripsByManager": "Number of trips managed per manager",
+        "statsNumberApplicationByTrips": "Number of applications per trip",
+        "statsPriceByTrips": "Price of the trips",
+        "ratioApplicationsByStatus": "The ratio of applications",
+        "statsAveragePriceInFinders": "Average price range",
+        "statsTopKeyWords": "Top 10 key words",
+        "avg": "Average",
+        "min": "Minimum",
+        "max": "Maximum",
+        "std": "Standart Deviation",
+        "status": "Status",
+        "ratio": "Ratio",
+        "minAvg": "Minimum average",
+        "maxAvg": "Maximum average",
+        "keywords": "Keywords"
     },
     "validator": {
         "required": {
@@ -123,6 +142,8 @@
         "sponsorship.not.found": "You do not have any sponsorship",
         "audit.empty": "You do not have any sponsorship",
         "audit.not.found": "There is no audit corresponding to this ID",
-        "comments.not.found": "There is no comment corresponding to this ID"
+        "comments.not.found": "There is no comment corresponding to this ID",
+        "application.not.found": "There is no application corresponding to this ID",
+        "dashboard.not.found": "No dashboard found"
     }
 }

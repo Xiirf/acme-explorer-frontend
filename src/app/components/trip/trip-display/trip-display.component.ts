@@ -78,7 +78,11 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
     let returnComment = '';
     if (commentSplit.length > 3) {
       for (let i = 0; i < 3; i++) {
-        returnComment = returnComment + ' ' + commentSplit[i];
+        if (returnComment === '') {
+          returnComment = commentSplit[i];
+        } else {
+          returnComment = returnComment + ' ' + commentSplit[i];
+        }
       }
     } else {
       returnComment = comment;

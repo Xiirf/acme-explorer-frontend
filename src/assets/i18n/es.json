@@ -31,7 +31,9 @@
         "createdAt": "Fecha de creación",
         "status": "Estado",
         "comments": "Comentarios",
-        "reasonRejected": "Razón del rechazo"
+        "reasonRejected": "Razón del rechazo",
+        "trip": "Viaje",
+        "detail": "Detalles"
     },
     "audit": {
         "auditor": "Auditor",
@@ -40,6 +42,23 @@
         "title": "Título",
         "description": "Descripción",
         "optionalAttachments": "Archivos adjuntos"
+    },
+    "dashboard": {
+        "statsNumberTripsByManager": "Número de viajes gestionados por gestor",
+        "statsNumberApplicationByTrips": "Número de solicitudes por viaje",
+        "statsPriceByTrips": "Precio de los viajes",
+        "ratioApplicationsByStatus": "La proporción de aplicaciones",
+        "statsAveragePriceInFinders": "Rango de precios promedio",
+        "statsTopKeyWords": "Las 10 palabras clave más importantes",
+        "avg": "Media",
+        "min": "Minimum",
+        "max": "Maximum",
+        "std": "Desviación estándar",
+        "status": "Estado",
+        "ratio": "Ratio",
+        "minAvg": "Promedio mínimo",
+        "maxAvg": "Promedio máximo",
+        "keywords": "Palabras clave"
     },
     "validator": {
         "required": {
@@ -123,6 +142,8 @@
         "sponsorship.not.found": "No tienes ningún patrocinio",
         "audit.empty": "No tienes ningúna auditoría",
         "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación",
-        "comments.not.found": "No hay ningún comentario que corresponda a esta identificación"
+        "comments.not.found": "No hay ningún comentario que corresponda a esta identificación",
+        "application.not.found": "No hay ningún solicitude que corresponda a esta identificación",
+        "dashboard.not.found": "No hay un tablero de mandos"
     }
 }

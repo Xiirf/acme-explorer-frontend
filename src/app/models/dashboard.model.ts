@@ -5,8 +5,8 @@ export class Dashboard extends Entity {
     statsNumberApplicationByTrips: Amms;
     statsPriceByTrips: Amms;
     ratioApplicationsByStatus: RatioApplicationsByStatus[];
-    statsAveragePriceInFinders: Amms;
-    statsTopKeyWords: object;
+    statsAveragePriceInFinders: StatsAveragePriceInFinders;
+    statsTopKeyWords: string[];
 
     constructor() {
         super();
@@ -23,4 +23,9 @@ class Amms extends Entity {
 class RatioApplicationsByStatus {
     status: string;
     ratio: number;
+}
+
+class StatsAveragePriceInFinders {
+    minAvg: number;
+    maxAvg: number;
 }

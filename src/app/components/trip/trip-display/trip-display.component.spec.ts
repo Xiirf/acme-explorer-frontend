@@ -43,4 +43,37 @@ describe('TripDisplayComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('trip should be defined', async (done) => {
+    fixture.whenStable().then(() => {
+      expect(component.trip).toBeDefined();
+      done();
+    });
+  });
+
+  it('array should be sort', () => {
+    const arrayTest = [
+      {
+        label: 1, createdAt: new Date('04/22/2020')
+      },
+      {
+        label: 2, createdAt:  new Date('04/14/2020')
+      },
+      {
+        label: 3, createdAt:  new Date('04/20/2020')
+      }
+    ];
+    arrayTest.sort(component.sortByDate);
+    console.log(arrayTest);
+    expect(arrayTest[0].label).toEqual(2);
+    expect(arrayTest[1].label).toEqual(3);
+    expect(arrayTest[2].label).toEqual(1);
+  });
+
+  it('test getStartComment', () => {
+    const comment = 'Word1 Word2 Word3 Word4 Word5 Word6';
+    const comment2 = 'Word1 Word2';
+    expect(component.getStartComment(comment)).toEqual('Word1 Word2 Word3');
+    expect(component.getStartComment(comment2)).toEqual('Word1 Word2');
+  });
 });
