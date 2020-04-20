@@ -4,9 +4,9 @@ export class Dashboard extends Entity {
     statsNumberTripsByManager: Amms;
     statsNumberApplicationByTrips: Amms;
     statsPriceByTrips: Amms;
+    statsTopKeyWords: StatsTopKeyWords[];
     ratioApplicationsByStatus: RatioApplicationsByStatus[];
     statsAveragePriceInFinders: StatsAveragePriceInFinders;
-    statsTopKeyWords: string[];
 
     constructor() {
         super();
@@ -17,7 +17,7 @@ class Amms extends Entity {
     avg: number;
     min: number;
     max: number;
-    std: number;
+    stdDeviation: number;
 }
 
 class RatioApplicationsByStatus {
@@ -28,4 +28,8 @@ class RatioApplicationsByStatus {
 class StatsAveragePriceInFinders {
     minAvg: number;
     maxAvg: number;
+}
+
+class StatsTopKeyWords {
+    keyWord: string;
 }

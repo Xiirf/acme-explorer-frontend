@@ -8,19 +8,19 @@
             <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsNumberTripsByManager.avg}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsNumberTripsByManager.min}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsNumberTripsByManager.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsNumberTripsByManager.std}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsNumberTripsByManager.stdDeviation}}</h5>
 
             <h3 class="card-title">{{'dashboard.statsNumberApplicationByTrips' | translate}}</h3>
             <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsNumberApplicationByTrips.avg}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsNumberApplicationByTrips.min}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsNumberApplicationByTrips.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsNumberApplicationByTrips.std}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsNumberApplicationByTrips.stdDeviation}}</h5>
 
             <h3 class="card-title">{{'dashboard.statsPriceByTrips' | translate}}</h3>
             <h5 class="card-subtitle text-muted">{{'dashboard.avg' | translate}} {{dashboard.statsPriceByTrips.avg}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.min' | translate}} {{dashboard.statsPriceByTrips.min}}</h5>
             <h5 class="card-subtitle text-muted">{{'dashboard.max' | translate}} {{dashboard.statsPriceByTrips.max}}</h5>
-            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsPriceByTrips.std}}</h5>
+            <h5 class="card-subtitle text-muted">{{'dashboard.std' | translate}} {{dashboard.statsPriceByTrips.stdDeviation}}</h5>
 
             <h3 class="card-title">{{'dashboard.ratioApplicationsByStatus' | translate}}</h3>
             <div *ngFor="let rabs of dashboard.ratioApplicationsByStatus">
@@ -37,8 +37,7 @@
             <h3 class="card-title">{{'dashboard.statsTopKeyWords' | translate}}</h3>
             <h5 class="card-subtitle text-muted">{{'dashboard.keywords' | translate}}</h5>
             <div *ngFor="let keyword of dashboard.statsTopKeyWords">
-                <h5 class="card-subtitle text-muted">{{keyword}}
-                </h5>
+                <h5 class="card-subtitle text-muted">{{keyword.keyWord}}</h5>
             </div>
         </div>
     </div>
