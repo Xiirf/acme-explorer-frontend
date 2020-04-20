@@ -20,7 +20,10 @@ export class DashboardDisplayComponent extends TranslatableComponent implements 
 
   ngOnInit(): void {
     this.dashboardService.getDashboard()
-      .then((val) => this.dashboard = val[0])
+      .then((val) => {
+        this.dashboard = val[0];
+        this.dashboard.statsTopKeyWords = Object.values(this.dashboard.statsTopKeyWords);
+      })
       .catch((err) => console.error(err.message));
   }
 
