@@ -16,11 +16,14 @@ import { AuditsDisplayComponent } from './components/audits/audits-display/audit
 import { ApplicationListComponent } from './components/application/application-list/application-list.component';
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
+import { TripComponent } from './components/trip/trip/trip.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
     { path: '', component: TripListComponent },
     { path: 'manage', component: TripDatatableComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
+    { path: 'create', component: TripComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
     { path: ':idTrip', component: TripDisplayComponent}
   ]},

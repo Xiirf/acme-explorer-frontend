@@ -67,7 +67,11 @@
             "email": "The email is required",
             "password": "The password is required",
             "phone": "The phone is required",
-            "address": "The address is required"
+            "address": "The address is required",
+            "title": "The title is required",
+            "description": "The description is required",
+            "requirement": "The requirement is required",
+            "price": "The price is required"
         },
         "email": "Please enter a valid email address",
         "password": "Password must have between 8 and 12 letters"
@@ -123,7 +127,10 @@
         "save": "Save",
         "cancel": "Cancel",
         "delete": "Delete",
-        "placeHolder": "Enter"
+        "placeHolder": "Enter",
+        "addRequirement": "Add requirement",
+        "addStage": "Add stage",
+        "createTrip": "create the trip"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
@@ -144,6 +151,7 @@
         "audit.not.found": "There is no audit corresponding to this ID",
         "comments.not.found": "There is no comment corresponding to this ID",
         "application.not.found": "There is no application corresponding to this ID",
-        "dashboard.not.found": "No dashboard found"
+        "dashboard.not.found": "No dashboard found",
+        "requirement.needed": "You must have at least 1 prerequisite"
     }
 }

@@ -68,7 +68,11 @@
             "email": "L'email est requis",
             "password": "Le mot de passe est requis",
             "phone": "Le téléphone est requis",
-            "address": "L'adresse est requise"
+            "address": "L'adresse est requise",
+            "title": "Le titre est requis",
+            "description": "La description est requise",
+            "requirement": "Les prérequis sont obligatoire",
+            "price": "Le prix est requis"
         },
         "email": "Veuillez renseigner un email valide",
         "password": "Le mot de passe doit faire entre 8 et 12 caractères"
@@ -124,7 +128,10 @@
         "save": "Sauvegarder",
         "cancel": "Annuler",
         "delete": "Supprimer",
-        "placeHolder": "Valider"
+        "placeHolder": "Valider",
+        "addRequirement": "Ajouter un prérequis",
+        "addStage": "Ajouter une étape",
+        "createTrip": "Créer le voyage"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
@@ -145,6 +152,7 @@
         "audit.not.found": "Il n'y a pas d'audit correspondant à cet identifiant",
         "comments.not.found": "Il n'y a pas de commentaire correspondant à cet identifiant",
         "application.not.found": "Il n'y a pas de candidature correspondant à cet identifiant",
-        "dashboard.not.found": "Il n'y a pas de tableau de bord"
+        "dashboard.not.found": "Il n'y a pas de tableau de bord",
+        "requirement.needed": "Vous devez avoir au moins 1 prérequis"
     }
 }

@@ -67,7 +67,11 @@
             "email": "El correo electronico es requerido",
             "password": "La contraseña es requerida",
             "phone": "El téléfono es requerido",
-            "address": "La dirección es requerida"
+            "address": "La dirección es requerida",
+            "title": "El título es requerido",
+            "description": "La descripción es requerida",
+            "requirement": "Los requisitos son requeridos",
+            "price": "El precio es requerido"
         },
         "email": "Por favor, introduzca un correo electrónico válido",
         "password": "La contraseña debe tener entre 8 y 12 caracteres"
@@ -123,7 +127,10 @@
         "save": "Guardar",
         "cancel": "Cancelar",
         "delete": "Eliminar",
-        "placeHolder": "Entrar"
+        "placeHolder": "Entrar",
+        "addRequirement": "Añadir requisitos",
+        "addStage": "Añadir una etapa",
+        "createTrip": "crear el viaje"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
@@ -144,6 +151,7 @@
         "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación",
         "comments.not.found": "No hay ningún comentario que corresponda a esta identificación",
         "application.not.found": "No hay ningún solicitude que corresponda a esta identificación",
-        "dashboard.not.found": "No hay un tablero de mandos"
+        "dashboard.not.found": "No hay un tablero de mandos",
+        "requirement.needed": "Debe tener al menos un requisito"
     }
 }

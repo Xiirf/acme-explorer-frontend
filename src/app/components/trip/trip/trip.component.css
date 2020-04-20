@@ -1,0 +1,23 @@
+div.center {
+    display: flex;
+    justify-content: center;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.img {
+    width: 50%;
+    height: 50%;
+}
+
+legend {
+    text-align: center;
+}
