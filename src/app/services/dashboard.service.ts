@@ -10,8 +10,8 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { }
 
-  getDashboard(): Promise<Dashboard> {
+  getDashboard(): Promise<Dashboard[]> {
     const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
-    return this.http.get<Dashboard>(`${environment.backendApiBaseUrl}/dataWareHouse/latest`, {headers}).toPromise();
+    return this.http.get<Dashboard[]>(`${environment.backendApiBaseUrl}/dataWareHouse/latest`, {headers}).toPromise();
   }
 }

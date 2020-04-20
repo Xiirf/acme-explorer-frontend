@@ -81,4 +81,8 @@ export class TripServiceMock {
     public getTrip(): Promise<Trip> {
         return Promise.resolve(this.trips[0]);
     }
+
+    public getTripsPage(start: number, psize: number): Promise<Trip[]> {
+        return Promise.resolve(this.trips.slice(start, start + psize));
+    }
 }

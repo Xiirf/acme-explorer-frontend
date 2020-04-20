@@ -23,4 +23,12 @@ export class TripService {
   getTrip(idTrip: string): Promise<Trip> {
     return this.http.get<Trip>(`${environment.backendApiBaseUrl}/trips/${idTrip}`).toPromise();
   }
+
+  getTripsPage(start: number, psize: number): Promise<Trip[]> {
+    const parameters = {
+      startFrom: '' + start,
+      pageSize: '' + psize
+    };
+    return this.http.get<Trip[]>(`${environment.backendApiBaseUrl}/trips`, {params: parameters, observe: 'body'}).toPromise();
+  }
 }

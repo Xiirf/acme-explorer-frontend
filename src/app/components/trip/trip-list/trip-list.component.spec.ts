@@ -11,24 +11,31 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { TripDatatableComponent } from '../trip-datatable/trip-datatable.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TripListComponent', () => {
-  /*let component: TripListComponent;
+  let component: TripListComponent;
   let fixture: ComponentFixture<TripListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TripListComponent ],
+      declarations: [ TripDatatableComponent ],
       imports: [
-        MatTableModule,
-        MatPaginatorModule,
-        MatInputModule,
-        MatButtonModule,
-        MatPaginatorModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }}),
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule,
         BrowserAnimationsModule,
         BrowserModule,
-        FormsModule,
-        ReactiveFormsModule
       ],
       providers: [ { provide: TripService, useClass: TripServiceMock } ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -46,11 +53,27 @@ describe('TripListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have 2 trips', (done) => {
-    component.initialize()
-      .then(() => {
-        expect(component.trips.length).toEqual(2);
-        done();
-      });
-  });*/
+  it('trips should be defined', async (done) => {
+    fixture.whenStable().then(() => {
+      expect(component.trips).toBeDefined();
+      done();
+    });
+  });
+
+  it('trip should have more than 5 trips', async (done) => {
+    fixture.whenStable().then(() => {
+      expect(component.trips.length).toBeGreaterThanOrEqual(5);
+      done();
+    });
+  });
+
+  it('trip should have more than 10 trips', async (done) => {
+    fixture.whenStable().then(() => {
+      component.onScrollDown()
+        .then(() => {
+          expect(component.trips.length).toBeGreaterThanOrEqual(10);
+          done();
+        });
+    });
+  });
 });
