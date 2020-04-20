@@ -55,7 +55,14 @@ describe('ApplicationListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('applications should have more than 10 applications', async (done) => {
+  it('should have applications defined', async (done) => {
+    fixture.whenStable().then(() => {
+      expect(component.applications).toBeDefined();
+      done();
+    });
+  });
+
+  it('should have more than 10 applications', async (done) => {
     fixture.whenStable().then(() => {
       expect(component.applications.length).toBeGreaterThanOrEqual(10);
       done();

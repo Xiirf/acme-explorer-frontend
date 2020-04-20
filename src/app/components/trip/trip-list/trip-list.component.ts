@@ -33,19 +33,19 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
     this.router.navigate(['/trips/new']);
   }
 
-  onScrollDown() {
+  async onScrollDown() {
     const start = this.numObjects;
     this.numObjects += MAX_TRIPS;
     this.addTrips(start);
   }
 
-  onScrollUp() {
+  async onScrollUp() {
     const start = this.numObjects;
     this.numObjects += MAX_TRIPS;
     this.addTrips(start);
   }
 
-  addTrips(startIndex) {
+  async addTrips(startIndex) {
     this.tripService.getTripsPage(startIndex, MAX_TRIPS)
       .then((val) => this.trips = this.trips.concat(val))
       .catch((err) => console.error(err));

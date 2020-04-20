@@ -66,4 +66,14 @@ describe('TripListComponent', () => {
       done();
     });
   });
+
+  it('trip should have more than 10 trips', async (done) => {
+    fixture.whenStable().then(() => {
+      component.onScrollDown()
+        .then(() => {
+          expect(component.trips.length).toBeGreaterThanOrEqual(10);
+          done();
+        });
+    });
+  });
 });
