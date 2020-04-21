@@ -50,9 +50,10 @@
                         <mat-error *ngIf="tripForm.controls.end.hasError('required')">
                             {{'validator.required.end' | translate}}
                         </mat-error>
-                        <mat-error *ngIf="!tripForm.controls.end.hasError('required') && tripForm.get('end').errors">
+                        <mat-error *ngIf="tripForm.controls.end.hasError('matDatepickerMin')">
                             {{'validator.date.invalid' | translate}}
                         </mat-error>
+                        
                     </mat-form-field>
                 </td>
             </tr>
