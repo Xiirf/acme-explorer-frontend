@@ -54,8 +54,10 @@ export class TripComponent extends TranslatableComponent implements OnInit {
             }
             this.requirementsList.controls[i].get('requirement').setValue(trip.requirements[i]);
           }
+          this.tripForm.get('start').markAsTouched();
           this.tripForm.get('start').setValue(moment(this.trip.start.toString().slice(0, 10)).toDate());
           this.minDateEnd = trip.start;
+          this.tripForm.get('end').markAsTouched();
           this.tripForm.get('end').setValue(moment(this.trip.end.toString().slice(0, 10)).toDate());
           for (let i = 0; i < this.stagesList.controls.length; i++) {
             if (i > 0) {
