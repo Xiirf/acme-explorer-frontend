@@ -14,7 +14,7 @@
         "requirements": "Conditions requises",
         "start": "Date de début",
         "end": "Date de fin",
-        "pictures": "Photos",
+        "pictures": "Photo",
         "stages": "Étapes",
         "managerId": "Manager ID",
         "price": "Prix",
@@ -72,10 +72,14 @@
             "title": "Le titre est requis",
             "description": "La description est requise",
             "requirement": "Les prérequis sont obligatoire",
-            "price": "Le prix est requis"
+            "price": "Le prix est requis",
+            "start": "La date de début est requise",
+            "end": "La date de fin est requise"
         },
         "email": "Veuillez renseigner un email valide",
-        "password": "Le mot de passe doit faire entre 8 et 12 caractères"
+        "password": "Le mot de passe doit faire entre 8 et 12 caractères",
+        "picture.invalidURL": "Le lien doit commencer par http",
+        "date.invalid": "La date de fin doit être supérieur à la date de début."
     },
     "button": {
         "submit": "Envoyer",
@@ -128,10 +132,14 @@
         "save": "Sauvegarder",
         "cancel": "Annuler",
         "delete": "Supprimer",
+        "update": "Modifier",
         "placeHolder": "Valider",
         "addRequirement": "Ajouter un prérequis",
         "addStage": "Ajouter une étape",
-        "createTrip": "Créer le voyage"
+        "createTrip": "Créer un voyage",
+        "tripCreated": "Voyage créé",
+        "updateTrip": "Mettre à jour le voyage",
+        "tripUpdated": "Voyage mis à jour"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",

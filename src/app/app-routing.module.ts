@@ -25,6 +25,8 @@ const appRoutes: Routes = [
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
     { path: 'create', component: TripComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
+    { path: 'update/:idTrip', component: TripComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
     { path: ':idTrip', component: TripDisplayComponent}
   ]},
   { path: 'sponsorships', children: [

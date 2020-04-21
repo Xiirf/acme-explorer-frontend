@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -52,6 +53,7 @@ import { ErrorInterceptor } from './services/interceptor/errorInterceptor';
 import { TripComponent } from './components/trip/trip/trip.component';
 import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -98,6 +100,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTabsModule,
     MatExpansionModule,
     MatMomentDateModule,
+    MatIconModule,
     MatDatepickerModule,
     FontAwesomeModule,
     AppRoutingModule,
@@ -117,6 +120,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [AngularFireAuth,
               TripService,
+              DatePipe,
               { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
               { provide: DateAdapter, useClass: MomentDateAdapter }],
   bootstrap: [AppComponent],

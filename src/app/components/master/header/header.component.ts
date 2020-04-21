@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,7 +14,6 @@ import { DateAdapter } from '@angular/material/core';
 })
 export class HeaderComponent extends TranslatableComponent implements OnInit {
 
-  faPlane = faPlane;
   lang: string;
   token: string;
   currenActor: Actor;

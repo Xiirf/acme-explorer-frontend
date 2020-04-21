@@ -21,3 +21,7 @@ div.center {
 legend {
     text-align: center;
 }
+
+fieldset {
+    margin-top: 20px;
+}

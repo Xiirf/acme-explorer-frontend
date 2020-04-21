@@ -1,6 +1,6 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" class="w-100 mt-3">
-  
+
         <!-- Image Column -->
         <ng-container matColumnDef="pictures">
             <th mat-header-cell *matHeaderCellDef> {{'trip.pictures' | translate}} </th>
@@ -42,6 +42,26 @@
             <th mat-header-cell *matHeaderCellDef> {{'trip.end' | translate}} </th>
             <td mat-cell *matCellDef="let element"> {{element.end | date: 'dd/MM/yyyy'}} </td>
         </ng-container>
+
+        <!-- Edit Column -->
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> {{'messages.update' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-mini-fab color="primary" (click)="onEdit(element._id)" aria-label="Example icon button with an edit icon">
+                    <mat-icon>border_color</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <!-- Delete Column -->
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> {{'messages.delete' | translate}} </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>        
   
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

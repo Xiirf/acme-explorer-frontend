@@ -14,7 +14,7 @@
         "requirements": "Requisitos",
         "start": "Fecha de inicio",
         "end": "Fecha de fin",
-        "pictures": "Imágenes",
+        "pictures": "Imágen",
         "stages": "Etapas",
         "managerId": "Gerente ID",
         "price": "Precio"
@@ -71,10 +71,14 @@
             "title": "El título es requerido",
             "description": "La descripción es requerida",
             "requirement": "Los requisitos son requeridos",
-            "price": "El precio es requerido"
+            "price": "El precio es requerido",
+            "start": "Se requiere una fecha de inicio",
+            "end": "Se requiere una fecha de fin"
         },
         "email": "Por favor, introduzca un correo electrónico válido",
-        "password": "La contraseña debe tener entre 8 y 12 caracteres"
+        "password": "La contraseña debe tener entre 8 y 12 caracteres",
+        "picture.invalidURL": "El enlace debe comenzar con http",
+        "date.invalid": "La fecha final debe ser mayor que la fecha de inicio."
     },
     "button": {
         "submit": "Enviar",
@@ -127,10 +131,14 @@
         "save": "Guardar",
         "cancel": "Cancelar",
         "delete": "Eliminar",
+        "update": "Editar",
         "placeHolder": "Entrar",
         "addRequirement": "Añadir requisitos",
         "addStage": "Añadir una etapa",
-        "createTrip": "crear el viaje"
+        "createTrip": "Crear un viaje",
+        "tripCreated": "Viaje creado",
+        "updateTrip": "Modificar viaje",
+        "tripUpdated": "Viaje modificado"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
