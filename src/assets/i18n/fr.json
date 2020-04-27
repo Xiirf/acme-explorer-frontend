@@ -1,11 +1,20 @@
 {
+    "role": {
+        "Administrator": "Administeur",
+        "Manager": "Manager",
+        "Explorer": "Explorateur",
+        "Sponsor": "Parrain",
+        "Auditor": "Auditeur"
+    },
     "actor": {
         "name": "Prénom",
         "surname": "Nom",
         "email": "Email",
         "password": "Mot de passe",
         "phone": "Téléphone",
-        "address": "Adresse"
+        "address": "Adresse",
+        "banned": "Banni",
+        "role": "Rôle"
     },
     "trip": {
         "title": "Titre",
@@ -93,13 +102,19 @@
         "login": "Se connecter",
         "search": "Rechercher",
         "logout": "Déconnexion",
-        "details": "Détails"
+        "details": "Détails",
+        "ban": "Bannir",
+        "authorize": "Autoriser"
     },
     "message": {
         "connected": "Connecté",
         "disconnected": "Déconnecté",
         "registered": "Inscrit",
-        "errorConnect": "Mauvaise combinaison email  / mot de passe"
+        "errorConnect": "Mauvaise combinaison email  / mot de passe",
+        "role.changed": "Vous avez changé le rôle de l'utilisateur:",
+        "user.banned": "a été banni",
+        "user.un.banned": "a été autorisé",
+        "connect.user.banned": "Connexion impossible, utilisateur banni"
     },
     "denied-access": {
         "title": "Accès refusé",
@@ -126,7 +141,8 @@
         "auditsList": "Mes audits",
         "applications": "Candidatures",
         "applicationsList": "Liste des candidatures",
-        "dashboard": "Tableau de bord"
+        "dashboard": "Tableau de bord",
+        "users": "Utilisateurs"
     },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",

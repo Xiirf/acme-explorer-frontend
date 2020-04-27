@@ -17,6 +17,7 @@ import { ApplicationListComponent } from './components/application/application-l
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
 import { TripComponent } from './components/trip/trip/trip.component';
+import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -28,6 +29,10 @@ const appRoutes: Routes = [
     { path: 'update/:idTrip', component: TripComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
     { path: ':idTrip', component: TripDisplayComponent}
+  ]},
+  { path: 'users', children: [
+    { path: '', component: UserDatatableComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}}
   ]},
   { path: 'sponsorships', children: [
     { path: '', component: SponsorshipListComponent,

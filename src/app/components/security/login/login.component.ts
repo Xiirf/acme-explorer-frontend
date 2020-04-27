@@ -53,7 +53,11 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
   onLogin(): void {
     this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
       .then(actor => {
-        this.fireAuth.auth.currentUser.getIdToken()
+        if (actor.banned) {
+          this.loginForm.reset();
+          this.toastr.error(this.translateService.instant('message.connect.user.banned'));
+        } else {
+          this.fireAuth.auth.currentUser.getIdToken()
           .then(
             (token: string) => {
               this.storageService.setItem('token', token);
@@ -62,6 +66,7 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
               this.router.navigateByUrl(this.returnUrl);
             }
           );
+        }
       })
       .catch((err) => {
         this.loginForm.reset();

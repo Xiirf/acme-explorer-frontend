@@ -1,11 +1,20 @@
 {
+    "role": {
+        "Administrator": "Administrador",
+        "Manager": "Gerente",
+        "Explorer": "Explorador",
+        "Sponsor": "Patrocinador",
+        "Auditor": "Auditor"
+    },
     "actor": {
         "name": "Nombre",
         "surname": "Apellidos",
         "email": "Correo electronico",
         "password": "Contraseña",
         "phone": "Teléfono",
-        "address": "Dirección"
+        "address": "Dirección",
+        "banned": "Prohibido",
+        "role": "Papel"
     },
     "trip": {
         "title": "Título",
@@ -92,13 +101,19 @@
         "login": "Conectarse",
         "search": "Buscar",
         "logout": "Desconexión",
-        "details": "Detalles"
+        "details": "Detalles",
+        "ban": "Prohibir",
+        "authorize": "Autorizar"
     },
     "message": {
         "connected": "Conectado",
         "disconnected": "Desconectado",
         "registered": "Registrado",
-        "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña"
+        "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña",
+        "role.changed": "Has cambiado el papel del usuario:",
+        "user.banned": "ha sido prohibido",
+        "user.un.banned": "se le autorizó",
+        "connect.user.banned": "No se puede iniciar la sesión, el usuario está prohibido"
     },
     "denied-access": {
         "title": "Acceso denegado",
@@ -125,7 +140,8 @@
         "auditsList": "Mis auditorías",
         "applications": "Solicitudes",
         "applicationsList": "Lista de solicitudes",
-        "dashboard": "Tablero de mandos"
+        "dashboard": "Tablero de mandos",
+        "users": "Usuarios"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",

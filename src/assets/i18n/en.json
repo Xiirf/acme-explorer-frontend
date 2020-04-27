@@ -1,11 +1,20 @@
 {
+    "role": {
+        "Administrator": "Administrator",
+        "Manager": "Manager",
+        "Explorer": "Explorer",
+        "Sponsor": "Sponsor",
+        "Auditor": "Auditor"
+    },
     "actor": {
         "name": "First Name",
         "surname": "Last Name",
         "email": "Email",
         "password": "Password",
         "phone": "Phone",
-        "address": "Address"
+        "address": "Address",
+        "banned": "Banned",
+        "role": "Role"
     },
     "trip": {
         "title": "Title",
@@ -92,13 +101,19 @@
         "login": "Login",
         "search": "Search",
         "logout": "Logout",
-        "details": "Details"
+        "details": "Details",
+        "ban": "Ban",
+        "authorize": "Authorize"
     },
     "message": {
         "connected": "Connected",
         "disconnected": "Disconnected",
         "registered": "Registered",
-        "errorConnect": "Wrong email / password combination"
+        "errorConnect": "Wrong email / password combination",
+        "role.changed": "You have changed the role of the user:",
+        "user.banned": "has been banned",
+        "user.un.banned": "was allowed",
+        "connect.user.banned": "Cannot log in, user banned"
     },
     "denied-access": {
         "title": "Denied access",
@@ -125,7 +140,8 @@
         "auditsList": "My audits",
         "applications": "Applications",
         "applicationsList": "Applications List",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "users": "Users"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",

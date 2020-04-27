@@ -20,6 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -57,6 +58,7 @@ import { DateAdapter } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { TripModalComponent } from './components/trip/trip-datatable/trip-modal/trip-modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -89,7 +91,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardDisplayComponent,
     ApplicationDisplayComponent,
     TripComponent,
-    TripModalComponent
+    TripModalComponent,
+    UserDatatableComponent
   ],
   imports: [
     BrowserModule,
@@ -104,6 +107,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTabsModule,
     MatDialogModule,
     MatExpansionModule,
+    MatSelectModule,
     MatMomentDateModule,
     MatFormFieldModule,
     MatIconModule,
