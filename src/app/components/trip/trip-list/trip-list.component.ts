@@ -25,15 +25,24 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
               private router: Router,
               private storageService: StorageService) {
     super(translateService);
+    if (localStorage.getItem('keyword')) {
+      this.keyword = localStorage.getItem('keyword');
+      localStorage.removeItem('keyword');
+      this.tripService.searchTrip(0, MAX_TRIPS, this.keyword)
+      .then((val) => this.trips = val)
+      .catch((err) => console.error(err.message));
+    } else {
+      this.tripService.getTripsPage(0, MAX_TRIPS)
+      .then((val) => this.trips = val)
+      .catch((err) => console.error(err.message));
+    }
   }
 
   ngOnInit(): void {
-    this.tripService.getTripsPage(0, MAX_TRIPS)
-      .then((val) => this.trips = val)
-      .catch((err) => console.error(err.message));
-
     this.storageService.watchKeyWord().subscribe((keyword) => {
+      console.log('ICI');
       this.keyword = keyword;
+      this.numObjects = MAX_TRIPS;
       if (this.keyword !== '') {
         this.tripService.searchTrip(0, MAX_TRIPS, this.keyword)
         .then((val) => this.trips = val)
@@ -66,7 +75,7 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
   async addTrips(startIndex) {
     if (this.keyword) {
       this.tripService.searchTrip(startIndex, MAX_TRIPS, this.keyword)
-      .then((val) => this.trips = val)
+      .then((val) => this.trips = this.trips.concat(val))
       .catch((err) => console.error(err.message));
     } else {
       this.tripService.getTripsPage(startIndex, MAX_TRIPS)

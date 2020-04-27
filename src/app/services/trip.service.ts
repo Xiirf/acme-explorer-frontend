@@ -58,6 +58,6 @@ export class TripService {
       pageSize: '' + psize,
       keyword
     };
-    return this.http.get<Trip[]>(`${environment.backendApiBaseUrl}/trips/search`, {params}).toPromise();
+    return this.http.get<Trip[]>(`${environment.backendApiBaseUrl}/trips`, {params}).toPromise();
   }
 }
