@@ -83,7 +83,8 @@
         "password": "La contraseña debe tener entre 8 y 12 caracteres",
         "picture.invalidURL": "El enlace debe comenzar con http",
         "date.invalid": "La fecha final debe ser mayor que la fecha de inicio.",
-        "reason.invalid": "La razón debe contener al menos una letra y 10 caracteres."
+        "reason.invalid": "La razón debe contener al menos una letra y 10 caracteres.",
+        "keyword": "La búsqueda sólo acepta una palabra"
     },
     "button": {
         "submit": "Enviar",
@@ -169,6 +170,7 @@
         "dashboard.not.found": "No hay un tablero de mandos",
         "requirement.needed": "Debe tener al menos un requisito",
         "cancel.reason.need": "Debe dar la razón para la cancelación.",
-        "to.late": "¡Es demasiado tarde para cancelar este viaje!"
+        "to.late": "¡Es demasiado tarde para cancelar este viaje!",
+        "trip.keyword.not.found": "No hay ningún viaje que corresponda a esta palabra clave"
     }
 }

@@ -83,7 +83,8 @@
         "password": "Password must have between 8 and 12 letters",
         "picture.invalidURL": "The link must start with http",
         "date.invalid": "The end date must be greater than the start date.",
-        "reason.invalid": "The reason must contain at least one letter and 10 characters."
+        "reason.invalid": "The reason must contain at least one letter and 10 characters.",
+        "keyword": "The search accepts only one word"
     },
     "button": {
         "submit": "Submit",
@@ -169,6 +170,7 @@
         "dashboard.not.found": "No dashboard found",
         "requirement.needed": "You must have at least 1 prerequisite",
         "cancel.reason.need": "You must give the reason for the cancellation.",
-        "to.late": "It's too late to cancel this trip !"
+        "to.late": "It's too late to cancel this trip !",
+        "trip.keyword.not.found": "There is no trip corresponding to this keyword"
     }
 }

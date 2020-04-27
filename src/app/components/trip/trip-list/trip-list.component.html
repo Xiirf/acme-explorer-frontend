@@ -4,8 +4,12 @@
     </legend>
 </div>
 
-<div *ngIf="trips == undefined || trips.length == 0">
+<div *ngIf="(trips == undefined || trips.length == 0) && !keyword">
     {{ 'errorMessages.no.trips.found' | translate }}
+</div>
+
+<div *ngIf="(trips == undefined || trips.length == 0) && keyword">
+    {{ 'errorMessages.trip.keyword.not.found' | translate }}
 </div>
 
 <div *ngIf="trips != undefined && trips.length > 0" class="card-deck">

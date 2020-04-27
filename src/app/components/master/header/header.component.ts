@@ -6,6 +6,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { Actor } from 'src/app/models/actor.model';
 import { DateAdapter } from '@angular/material/core';
+import { Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,9 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   token: string;
   currenActor: Actor;
   activeRole = 'anonymous';
+  keyWord: string;
+
+  keyWordControl = new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z]+$')]);
 
   constructor(private translateService: TranslateService, private authService: AuthService,
               private storageService: StorageService, private toastr: ToastrService,
@@ -43,6 +47,17 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
         this.activeRole = this.currenActor.role.toString();
       }
     });
+  }
+
+  sendKeyWord() {
+    this.storageService.setKeyWord(this.keyWord);
+  }
+
+  setKeyword(keyword: string) {
+    this.keyWord = keyword;
+    if (keyword === '') {
+      this.sendKeyWord();
+    }
   }
 
   changeLanguage(lang: string) {

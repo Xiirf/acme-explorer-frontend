@@ -51,4 +51,13 @@ export class TripService {
     return this.http.patch<Trip>(`${environment.backendApiBaseUrl}/trips/${tripId}/cancel`, {reasonCancelling: reason},
                                     {headers}).toPromise();
   }
+
+  searchTrip(start: number, psize: number, keyword: string): Promise<Trip[]> {
+    const params = {
+      startFrom: '' + start,
+      pageSize: '' + psize,
+      keyword
+    };
+    return this.http.get<Trip[]>(`${environment.backendApiBaseUrl}/trips/search`, {params}).toPromise();
+  }
 }

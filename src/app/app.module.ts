@@ -56,6 +56,7 @@ import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment
 import { DateAdapter } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { TripModalComponent } from './components/trip/trip-datatable/trip-modal/trip-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -104,6 +105,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatDialogModule,
     MatExpansionModule,
     MatMomentDateModule,
+    MatFormFieldModule,
     MatIconModule,
     MatDatepickerModule,
     FontAwesomeModule,

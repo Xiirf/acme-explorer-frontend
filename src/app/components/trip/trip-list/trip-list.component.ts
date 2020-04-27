@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Trip } from 'src/app/models/trip.model';
 import { TripService } from 'src/app/services/trip.service';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 const MAX_TRIPS = 5;
 
@@ -17,9 +18,12 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
   trips: Trip[];
   numObjects = MAX_TRIPS;
 
+  keyword: string;
+
   constructor(public tripService: TripService,
               private translateService: TranslateService,
-              private router: Router) {
+              private router: Router,
+              private storageService: StorageService) {
     super(translateService);
   }
 
@@ -27,6 +31,20 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
     this.tripService.getTripsPage(0, MAX_TRIPS)
       .then((val) => this.trips = val)
       .catch((err) => console.error(err.message));
+
+    this.storageService.watchKeyWord().subscribe((keyword) => {
+      this.keyword = keyword;
+      if (this.keyword !== '') {
+        this.tripService.searchTrip(0, MAX_TRIPS, this.keyword)
+        .then((val) => this.trips = val)
+        .catch((err) => console.error(err.message));
+      } else {
+        this.keyword = null;
+        this.tripService.getTripsPage(0, MAX_TRIPS)
+        .then((val) => this.trips = val)
+        .catch((err) => console.error(err.message));
+      }
+    });
   }
 
   newTrip() {
@@ -46,8 +64,14 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
   }
 
   async addTrips(startIndex) {
-    this.tripService.getTripsPage(startIndex, MAX_TRIPS)
+    if (this.keyword) {
+      this.tripService.searchTrip(startIndex, MAX_TRIPS, this.keyword)
+      .then((val) => this.trips = val)
+      .catch((err) => console.error(err.message));
+    } else {
+      this.tripService.getTripsPage(startIndex, MAX_TRIPS)
       .then((val) => this.trips = this.trips.concat(val))
       .catch((err) => console.error(err));
+    }
   }
 }

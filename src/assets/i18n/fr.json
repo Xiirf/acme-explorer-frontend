@@ -84,7 +84,8 @@
         "password": "Le mot de passe doit faire entre 8 et 12 caractères",
         "picture.invalidURL": "Le lien doit commencer par http",
         "date.invalid": "La date de fin doit être supérieur à la date de début.",
-        "reason.invalid": "La raison doit contenir au moins une lettre et 10 caractères"
+        "reason.invalid": "La raison doit contenir au moins une lettre et 10 caractères",
+        "keyword": "La recherche n'accepte qu'un seul mot"
     },
     "button": {
         "submit": "Envoyer",
@@ -170,6 +171,7 @@
         "dashboard.not.found": "Il n'y a pas de tableau de bord",
         "requirement.needed": "Vous devez avoir au moins 1 prérequis",
         "cancel.reason.need": "Vous devez renseigner la raison de l'annulation",
-        "to.late": "Il est trop tard pour annuler ce voyage !"
+        "to.late": "Il est trop tard pour annuler ce voyage !",
+        "trip.keyword.not.found": "Il n'y a pas de voyage correspondant à ce mot clé"
     }
 }

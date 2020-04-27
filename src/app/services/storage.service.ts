@@ -8,6 +8,16 @@ export class StorageService {
 
   private storageSub = new Subject<string>();
 
+  private keyWord = new Subject<string>();
+
+  watchKeyWord(): Observable<any> {
+    return this.keyWord.asObservable();
+  }
+
+  setKeyWord(keyWord: string) {
+    this.keyWord.next(keyWord);
+  }
+
   watchStorage(): Observable<any> {
     return this.storageSub.asObservable();
   }
