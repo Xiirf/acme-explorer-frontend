@@ -45,4 +45,10 @@ export class TripService {
     const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.put<Trip>(`${environment.backendApiBaseUrl}/trips/${tripId}`, trip, {headers}).toPromise();
   }
+
+  cancelTrip(tripId: string, reason: string): Promise<Trip> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.patch<Trip>(`${environment.backendApiBaseUrl}/trips/${tripId}/cancel`, {reasonCancelling: reason},
+                                    {headers}).toPromise();
+  }
 }

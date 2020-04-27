@@ -17,7 +17,10 @@
         "pictures": "Imágen",
         "stages": "Etapas",
         "managerId": "Gerente ID",
-        "price": "Precio"
+        "price": "Precio",
+        "cancelled": "Cancelado",
+        "cancel": "Cancelar",
+        "reasonCancelling": "Razón de la cancelación"
     },
     "sponsorship": {
         "banner": "Bandera",
@@ -73,12 +76,14 @@
             "requirement": "Los requisitos son requeridos",
             "price": "El precio es requerido",
             "start": "Se requiere una fecha de inicio",
-            "end": "Se requiere una fecha de fin"
+            "end": "Se requiere una fecha de fin",
+            "reason": "La razón es requerida"
         },
         "email": "Por favor, introduzca un correo electrónico válido",
         "password": "La contraseña debe tener entre 8 y 12 caracteres",
         "picture.invalidURL": "El enlace debe comenzar con http",
-        "date.invalid": "La fecha final debe ser mayor que la fecha de inicio."
+        "date.invalid": "La fecha final debe ser mayor que la fecha de inicio.",
+        "reason.invalid": "La razón debe contener al menos una letra y 10 caracteres."
     },
     "button": {
         "submit": "Enviar",
@@ -138,7 +143,9 @@
         "createTrip": "Crear un viaje",
         "tripCreated": "Viaje creado",
         "updateTrip": "Modificar viaje",
-        "tripUpdated": "Viaje modificado"
+        "tripUpdated": "Viaje modificado",
+        "cancel.title": "Cancelación del viaje",
+        "trip.cancelled": "Viaje cancelado"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
@@ -160,6 +167,8 @@
         "comments.not.found": "No hay ningún comentario que corresponda a esta identificación",
         "application.not.found": "No hay ningún solicitude que corresponda a esta identificación",
         "dashboard.not.found": "No hay un tablero de mandos",
-        "requirement.needed": "Debe tener al menos un requisito"
+        "requirement.needed": "Debe tener al menos un requisito",
+        "cancel.reason.need": "Debe dar la razón para la cancelación.",
+        "to.late": "¡Es demasiado tarde para cancelar este viaje!"
     }
 }

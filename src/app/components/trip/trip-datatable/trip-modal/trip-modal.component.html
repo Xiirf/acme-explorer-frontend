@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{'messages.cancel.title' | translate}}</h1>
+
+<div mat-dialog-content>
+  <form>
+    <mat-form-field appearance="legacy">
+      <mat-label>{{'trip.reasonCancelling' | translate}}</mat-label>
+      <textarea matInput [formControl]="reasonControl" [(ngModel)]="data.reason"></textarea>
+      <mat-error *ngIf="reasonControl.hasError('required')">{{'validator.required.reason' | translate}}</mat-error>
+      <mat-error *ngIf="reasonControl.hasError('pattern') || reasonControl.hasError('minlength')">{{'validator.reason.invalid' | translate}}</mat-error>    
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">{{'messages.cancel' | translate}}</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial [disabled]="!reasonControl.valid">Ok</button>
+</div>

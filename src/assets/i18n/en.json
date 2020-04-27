@@ -17,7 +17,10 @@
         "pictures": "Picture",
         "stages": "Stages",
         "managerId": "Manager ID",
-        "price": "Price"
+        "price": "Price",
+        "cancelled": "Cancelled",
+        "cancel": "Cancel",
+        "reasonCancelling": "Reason for cancellation"
     },
     "sponsorship": {
         "banner": "Banner",
@@ -73,12 +76,14 @@
             "requirement": "The requirement is required",
             "price": "The price is required",
             "start": "Start date is required",
-            "end": "End date is required"
+            "end": "End date is required",
+            "reason": "The reason is required"
         },
         "email": "Please enter a valid email address",
         "password": "Password must have between 8 and 12 letters",
         "picture.invalidURL": "The link must start with http",
-        "date.invalid": "The end date must be greater than the start date."
+        "date.invalid": "The end date must be greater than the start date.",
+        "reason.invalid": "The reason must contain at least one letter and 10 characters."
     },
     "button": {
         "submit": "Submit",
@@ -138,7 +143,9 @@
         "createTrip": "Create a trip",
         "tripCreated": "Trip created",
         "updateTrip": "Update the trip",
-        "tripUpdated": "Trip updated"
+        "tripUpdated": "Trip updated",
+        "cancel.title": "Trip Cancellation",
+        "trip.cancelled": "Trip cancelled"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
@@ -160,6 +167,8 @@
         "comments.not.found": "There is no comment corresponding to this ID",
         "application.not.found": "There is no application corresponding to this ID",
         "dashboard.not.found": "No dashboard found",
-        "requirement.needed": "You must have at least 1 prerequisite"
+        "requirement.needed": "You must have at least 1 prerequisite",
+        "cancel.reason.need": "You must give the reason for the cancellation.",
+        "to.late": "It's too late to cancel this trip !"
     }
 }

@@ -18,7 +18,10 @@
         "stages": "Étapes",
         "managerId": "Manager ID",
         "price": "Prix",
-        "details": "Détails"
+        "details": "Détails",
+        "cancelled": "Annulé",
+        "cancel": "Annuler",
+        "reasonCancelling": "Raison de l'annulation"
     },
     "sponsorship": {
         "banner": "Bannière",
@@ -74,12 +77,14 @@
             "requirement": "Les prérequis sont obligatoire",
             "price": "Le prix est requis",
             "start": "La date de début est requise",
-            "end": "La date de fin est requise"
+            "end": "La date de fin est requise",
+            "reason": "La raison est requise"
         },
         "email": "Veuillez renseigner un email valide",
         "password": "Le mot de passe doit faire entre 8 et 12 caractères",
         "picture.invalidURL": "Le lien doit commencer par http",
-        "date.invalid": "La date de fin doit être supérieur à la date de début."
+        "date.invalid": "La date de fin doit être supérieur à la date de début.",
+        "reason.invalid": "La raison doit contenir au moins une lettre et 10 caractères"
     },
     "button": {
         "submit": "Envoyer",
@@ -139,7 +144,9 @@
         "createTrip": "Créer un voyage",
         "tripCreated": "Voyage créé",
         "updateTrip": "Mettre à jour le voyage",
-        "tripUpdated": "Voyage mis à jour"
+        "tripUpdated": "Voyage mis à jour",
+        "cancel.title": "Annulation du voyage",
+        "trip.cancelled": "Voyage annulé"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
@@ -161,6 +168,8 @@
         "comments.not.found": "Il n'y a pas de commentaire correspondant à cet identifiant",
         "application.not.found": "Il n'y a pas de candidature correspondant à cet identifiant",
         "dashboard.not.found": "Il n'y a pas de tableau de bord",
-        "requirement.needed": "Vous devez avoir au moins 1 prérequis"
+        "requirement.needed": "Vous devez avoir au moins 1 prérequis",
+        "cancel.reason.need": "Vous devez renseigner la raison de l'annulation",
+        "to.late": "Il est trop tard pour annuler ce voyage !"
     }
 }
