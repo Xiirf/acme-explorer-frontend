@@ -163,7 +163,11 @@
         "updateTrip": "Mettre à jour le voyage",
         "tripUpdated": "Voyage mis à jour",
         "cancel.title": "Annulation du voyage",
-        "trip.cancelled": "Voyage annulé"
+        "trip.cancelled": "Voyage annulé",
+        "createAudit": "Créer un audit",
+        "addOA": "Ajouter une pièce jointe",
+        "tripChoice": "Choisissez un voyage",
+        "auditCreated": "Audit créé"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
@@ -188,6 +192,7 @@
         "requirement.needed": "Vous devez avoir au moins 1 prérequis",
         "cancel.reason.need": "Vous devez renseigner la raison de l'annulation",
         "to.late": "Il est trop tard pour annuler ce voyage !",
-        "trip.keyword.not.found": "Il n'y a pas de voyage correspondant à ce mot clé"
+        "trip.keyword.not.found": "Il n'y a pas de voyage correspondant à ce mot clé",
+        "trip.needed": "Le choix du voyage est requis"
     }
 }

@@ -18,6 +18,7 @@ import { ApplicationDisplayComponent } from './components/application/applicatio
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
 import { TripComponent } from './components/trip/trip/trip.component';
 import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
+import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -40,6 +41,8 @@ const appRoutes: Routes = [
   ]},
   { path: 'audits', children: [
     { path: '', component: AuditsListComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
+    { path: 'create', component: AuditsFormComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
     { path: ':idAudit', component: AuditsDisplayComponent}
   ]},

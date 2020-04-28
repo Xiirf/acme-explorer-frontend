@@ -162,7 +162,11 @@
         "updateTrip": "Update the trip",
         "tripUpdated": "Trip updated",
         "cancel.title": "Trip Cancellation",
-        "trip.cancelled": "Trip cancelled"
+        "trip.cancelled": "Trip cancelled",
+        "createAudit": "Create an audit",
+        "addOA": "Add optional attachment",
+        "tripChoice": "Choose a trip",
+        "auditCreated": "Audit created"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
@@ -187,6 +191,7 @@
         "requirement.needed": "You must have at least 1 prerequisite",
         "cancel.reason.need": "You must give the reason for the cancellation.",
         "to.late": "It's too late to cancel this trip !",
-        "trip.keyword.not.found": "There is no trip corresponding to this keyword"
+        "trip.keyword.not.found": "There is no trip corresponding to this keyword",
+        "trip.needed": "The choice of the trip is required"
     }
 }

@@ -59,6 +59,7 @@ import { DatePipe } from '@angular/common';
 import { TripModalComponent } from './components/trip/trip-datatable/trip-modal/trip-modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
+import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -92,7 +93,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApplicationDisplayComponent,
     TripComponent,
     TripModalComponent,
-    UserDatatableComponent
+    UserDatatableComponent,
+    AuditsFormComponent
   ],
   imports: [
     BrowserModule,

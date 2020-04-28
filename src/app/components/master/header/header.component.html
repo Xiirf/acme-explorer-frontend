@@ -46,6 +46,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <a class="dropdown-item" routerLink="/audits">{{'header.auditsList' | translate}}</a>
+                    <a class="dropdown-item" routerLink="/audits/create">{{'messages.createAudit' | translate}}</a>
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Administrator'">
