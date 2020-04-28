@@ -60,6 +60,8 @@ import { TripModalComponent } from './components/trip/trip-datatable/trip-modal/
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
 import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -94,7 +96,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TripComponent,
     TripModalComponent,
     UserDatatableComponent,
-    AuditsFormComponent
+    AuditsFormComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatButtonModule,
     MatPaginatorModule,
+    NgxPayPalModule,
     MatTabsModule,
     MatDialogModule,
     MatExpansionModule,

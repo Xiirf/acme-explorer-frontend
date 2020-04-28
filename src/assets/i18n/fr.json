@@ -46,7 +46,8 @@
         "comments": "Commentaires",
         "reasonRejected": "Motif du rejet",
         "trip": "Voyage",
-        "detail": "Détails"
+        "detail": "Détails",
+        "payment": "Paiement"
     },
     "audit": {
         "auditor": "Auditeur",
@@ -167,7 +168,8 @@
         "createAudit": "Créer un audit",
         "addOA": "Ajouter une pièce jointe",
         "tripChoice": "Choisissez un voyage",
-        "auditCreated": "Audit créé"
+        "auditCreated": "Audit créé",
+        "paymentMade": "Paiement effectué"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",

@@ -45,7 +45,8 @@
         "comments": "Comments",
         "reasonRejected": "Reason for rejection",
         "trip": "Trip",
-        "detail": "Details"
+        "detail": "Details",
+        "payment": "Payment"
     },
     "audit": {
         "auditor": "Auditor",
@@ -166,7 +167,8 @@
         "createAudit": "Create an audit",
         "addOA": "Add optional attachment",
         "tripChoice": "Choose a trip",
-        "auditCreated": "Audit created"
+        "auditCreated": "Audit created",
+        "paymentMade": "Payment made"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",

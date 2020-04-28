@@ -19,6 +19,7 @@ import { DashboardDisplayComponent } from './components/dashboard/dashboard-disp
 import { TripComponent } from './components/trip/trip/trip.component';
 import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
 import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -52,6 +53,11 @@ const appRoutes: Routes = [
     { path: ':idApplication', component: ApplicationDisplayComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}}
   ]},
+  {
+    path: 'checkout', component: CheckoutComponent,
+    canActivate: [ActorRoleGuard],
+    data: { expectedRole: 'Explorer'}
+  },
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

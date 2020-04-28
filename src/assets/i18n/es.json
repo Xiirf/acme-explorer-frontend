@@ -45,7 +45,8 @@
         "comments": "Comentarios",
         "reasonRejected": "Razón del rechazo",
         "trip": "Viaje",
-        "detail": "Detalles"
+        "detail": "Detalles",
+        "payment": "Pago"
     },
     "audit": {
         "auditor": "Auditor",
@@ -109,7 +110,7 @@
         "connected": "Conectado",
         "disconnected": "Desconectado",
         "registered": "Registrado",
-        "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña",
+        "errorConnect": "Combinación incorrecta de correo electrónico y contraseña",
         "role.changed": "Has cambiado el papel del usuario:",
         "user.banned": "ha sido prohibido",
         "user.un.banned": "se le autorizó",
@@ -166,7 +167,8 @@
         "createAudit": "Crear una auditoría",
         "addOA": "Añadir archivos adjuntos",
         "tripChoice": "Elija un viaje",
-        "auditCreated": "Auditoría creada"
+        "auditCreated": "Auditoría creada",
+        "paymentMade": "Pago realizado"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
