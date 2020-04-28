@@ -62,6 +62,7 @@ import { UserDatatableComponent } from './components/user/user-datatable/user-da
 import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { CanDeactivateGuard } from './guards/can-deactivate.service';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -137,6 +138,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [AngularFireAuth,
               TripService,
               DatePipe,
+              CanDeactivateGuard,
               { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
               { provide: DateAdapter, useClass: MomentDateAdapter }],
   bootstrap: [AppComponent],

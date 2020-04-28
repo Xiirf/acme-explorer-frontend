@@ -168,7 +168,8 @@
         "addOA": "Add optional attachment",
         "tripChoice": "Choose a trip",
         "auditCreated": "Audit created",
-        "paymentMade": "Payment made"
+        "paymentMade": "Payment made",
+        "discard.changes": "Do you want to discard change ?"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",

@@ -168,7 +168,8 @@
         "addOA": "Añadir archivos adjuntos",
         "tripChoice": "Elija un viaje",
         "auditCreated": "Auditoría creada",
-        "paymentMade": "Pago realizado"
+        "paymentMade": "Pago realizado",
+        "discard.changes": "¿Quieres descartar el cambio?"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",

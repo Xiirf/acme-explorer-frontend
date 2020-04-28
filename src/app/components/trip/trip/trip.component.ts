@@ -11,13 +11,15 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Trip } from 'src/app/models/trip.model';
 import { DatePipe } from '@angular/common'
+import { CanComponentDeactivate } from 'src/app/guards/can-deactivate.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trip',
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.css']
 })
-export class TripComponent extends TranslatableComponent implements OnInit {
+export class TripComponent extends TranslatableComponent implements OnInit, CanComponentDeactivate {
 
   tripForm: FormGroup;
 
@@ -28,6 +30,8 @@ export class TripComponent extends TranslatableComponent implements OnInit {
   stagesList: FormArray;
 
   trip: Trip;
+
+  private updated: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -114,6 +118,7 @@ export class TripComponent extends TranslatableComponent implements OnInit {
     if (this.trip) {
       this.tripService.updateTrip(tripFromForm, this.trip._id)
       .then(_ => {
+        this.updated = true;
         this.toastr.success(this.translateService.instant('messages.tripUpdated'));
         this.router.navigate(['/trips/update/' + this.trip._id]);
       })
@@ -124,6 +129,7 @@ export class TripComponent extends TranslatableComponent implements OnInit {
     } else {
       this.tripService.createTrip(tripFromForm)
       .then(_ => {
+        this.updated = true;
         this.toastr.success(this.translateService.instant('messages.tripCreated'));
         this.router.navigate(['/']);
       })
@@ -165,6 +171,7 @@ export class TripComponent extends TranslatableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.updated = false;
   }
 
   onChangeDate(event: MatDatepickerInputEvent<Date>) {
@@ -172,6 +179,16 @@ export class TripComponent extends TranslatableComponent implements OnInit {
     if (newDate > this.minDateStart) {
       this.minDateEnd = newDate;
     }
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    let result = true;
+    const message = this.translateService.instant('messages.discard.changes');
+    if (!this.updated && this.tripForm.dirty) {
+      result = confirm(message);
+    }
+
+    return result;
   }
 
 }

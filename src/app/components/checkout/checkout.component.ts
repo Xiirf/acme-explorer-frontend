@@ -57,7 +57,6 @@ export class CheckoutComponent extends TranslatableComponent implements OnInit {
           });
       },
       onClientAuthorization: (data) => {
-        console.log('ici');
         const idApp = this.route.snapshot.queryParams.idApp;
 
         this.applicationService.updateApplicationToDue(idApp)

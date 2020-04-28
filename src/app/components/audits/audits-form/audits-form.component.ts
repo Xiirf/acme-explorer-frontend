@@ -11,19 +11,22 @@ import { ValidateUrlOptional } from 'src/app/validator/optionalUrl.validator';
 import { Trip } from 'src/app/models/trip.model';
 import { TripService } from 'src/app/services/trip.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { CanComponentDeactivate } from 'src/app/guards/can-deactivate.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-audits-form',
   templateUrl: './audits-form.component.html',
   styleUrls: ['./audits-form.component.css']
 })
-export class AuditsFormComponent extends TranslatableComponent implements OnInit {
+export class AuditsFormComponent extends TranslatableComponent implements OnInit, CanComponentDeactivate {
 
   auditForm: FormGroup;
 
   audit: Audit;
   optionalAttachmentsList: FormArray;
   trips: Trip[];
+  private updated: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -71,6 +74,7 @@ export class AuditsFormComponent extends TranslatableComponent implements OnInit
 
     this.auditService.createAudit(auditFromForm)
       .then(_ => {
+        this.updated = true;
         this.toastr.success(this.translateService.instant('messages.auditCreated'));
         this.router.navigate(['/']);
       })
@@ -95,6 +99,17 @@ export class AuditsFormComponent extends TranslatableComponent implements OnInit
   }
 
   ngOnInit(): void {
+    this.updated = false;
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    let result = true;
+    const message = this.translateService.instant('messages.discard.changes');
+    if (!this.updated && this.auditForm.dirty) {
+      result = confirm(message);
+    }
+
+    return result;
   }
 
 }

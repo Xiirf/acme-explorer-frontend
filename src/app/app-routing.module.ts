@@ -20,15 +20,16 @@ import { TripComponent } from './components/trip/trip/trip.component';
 import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
 import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CanDeactivateGuard } from './guards/can-deactivate.service';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
     { path: '', component: TripListComponent },
     { path: 'manage', component: TripDatatableComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
-    { path: 'create', component: TripComponent,
+    { path: 'create', component: TripComponent, canDeactivate: [CanDeactivateGuard],
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
-    { path: 'update/:idTrip', component: TripComponent,
+    { path: 'update/:idTrip', component: TripComponent, canDeactivate: [CanDeactivateGuard],
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Manager'}},
     { path: ':idTrip', component: TripDisplayComponent}
   ]},
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
   { path: 'audits', children: [
     { path: '', component: AuditsListComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
-    { path: 'create', component: AuditsFormComponent,
+    { path: 'create', component: AuditsFormComponent, canDeactivate: [CanDeactivateGuard],
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Auditor'}},
     { path: ':idAudit', component: AuditsDisplayComponent}
   ]},

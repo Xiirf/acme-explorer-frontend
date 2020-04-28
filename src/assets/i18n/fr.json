@@ -169,7 +169,8 @@
         "addOA": "Ajouter une pièce jointe",
         "tripChoice": "Choisissez un voyage",
         "auditCreated": "Audit créé",
-        "paymentMade": "Paiement effectué"
+        "paymentMade": "Paiement effectué",
+        "discard.changes": "Voulez-vous renoncer au changement ?"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
