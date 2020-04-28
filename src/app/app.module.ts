@@ -21,6 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -112,6 +113,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatPaginatorModule,
     NgxPayPalModule,
     MatTabsModule,
+    MatProgressSpinnerModule,
     MatDialogModule,
     MatExpansionModule,
     MatSelectModule,

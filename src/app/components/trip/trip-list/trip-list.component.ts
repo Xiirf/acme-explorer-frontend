@@ -20,37 +20,52 @@ export class TripListComponent extends TranslatableComponent implements OnInit {
 
   keyword: string;
 
+  loading: boolean;
+
   constructor(public tripService: TripService,
               private translateService: TranslateService,
               private router: Router,
               private storageService: StorageService) {
     super(translateService);
+    this.loading = true;
     if (localStorage.getItem('keyword')) {
       this.keyword = localStorage.getItem('keyword');
       localStorage.removeItem('keyword');
       this.tripService.searchTrip(0, MAX_TRIPS, this.keyword)
-      .then((val) => this.trips = val)
+      .then((val) => {
+        this.loading = false;
+        this.trips = val;
+      })
       .catch((err) => console.error(err.message));
     } else {
       this.tripService.getTripsPage(0, MAX_TRIPS)
-      .then((val) => this.trips = val)
+      .then((val) => {
+        this.loading = false;
+        this.trips = val;
+      })
       .catch((err) => console.error(err.message));
     }
   }
 
   ngOnInit(): void {
     this.storageService.watchKeyWord().subscribe((keyword) => {
-      console.log('ICI');
       this.keyword = keyword;
       this.numObjects = MAX_TRIPS;
+      this.loading = true;
       if (this.keyword !== '') {
         this.tripService.searchTrip(0, MAX_TRIPS, this.keyword)
-        .then((val) => this.trips = val)
+        .then((val) => {
+          this.loading = false;
+          this.trips = val;
+        })
         .catch((err) => console.error(err.message));
       } else {
         this.keyword = null;
         this.tripService.getTripsPage(0, MAX_TRIPS)
-        .then((val) => this.trips = val)
+        .then((val) =>  {
+          this.loading = false;
+          this.trips = val;
+        })
         .catch((err) => console.error(err.message));
       }
     });
