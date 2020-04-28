@@ -60,8 +60,8 @@ const appRoutes: Routes = [
     data: { expectedRole: 'Explorer'}
   },
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent, canDeactivate: [CanDeactivateGuard] },
+  { path: 'login', component: LoginComponent, canDeactivate: [CanDeactivateGuard] },
   { path: 'denied-access', component: DeniedAccessComponent },
   { path: 'not-found', component: NotFoundPageComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
