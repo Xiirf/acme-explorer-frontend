@@ -1,0 +1,77 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="createOrUpdateSponsorship()" [formGroup]="sponsorshipForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <h1 *ngIf="!sponsorship">{{'messages.createSponsorship' | translate}} <mat-icon>supervised_user_circle</mat-icon></h1>
+                    <h1 *ngIf="sponsorship">{{'messages.updateSponsorship' | translate}} <mat-icon>supervised_user_circle</mat-icon></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'messages.tripChoice' | translate}}</mat-label>
+                        <mat-select formControlName="idTrip" [disabled]="sponsorship" required>
+                          <mat-option *ngFor="let trip of trips" [value]="trip._id">
+                            {{ trip.title }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="sponsorshipForm.controls.idTrip.hasError('required')">
+                            {{'errorMessages.trip.needed' | translate}}
+                        </mat-error>
+                      </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'sponsorship.banner' | translate}}</mat-label>
+                        <input matInput formControlName="banner">
+                        <mat-error *ngIf="sponsorshipForm.controls.banner.hasError('required')">
+                            {{'errorMessages.trip.needed' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="!sponsorshipForm.controls.banner.hasError('required') &&
+                                            sponsorshipForm.get('banner').errors &&
+                                            sponsorshipForm.get('banner').touched &&
+                                            !sponsorshipForm.get('banner').errors.validUrl">
+                            {{'validator.picture.invalidURL' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'sponsorship.link' | translate}}</mat-label>
+                        <input matInput formControlName="link">
+                        <mat-error *ngIf="sponsorshipForm.controls.link.hasError('required')">
+                            {{'errorMessages.trip.needed' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="!sponsorshipForm.controls.link.hasError('required') &&
+                                            sponsorshipForm.get('link').errors &&
+                                            sponsorshipForm.get('link').touched &&
+                                            !sponsorshipForm.get('link').errors.validUrl">
+                            {{'validator.picture.invalidURL' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'sponsorship.price' | translate}}</mat-label>
+                        <input matInput type="number" [readonly]="sponsorship && sponsorship.payed" oninput="validity.valid||(value='');" formControlName="price" class="example-right-align" min="1">
+                        <span matPrefix>€&nbsp;</span>
+                        <mat-error *ngIf="sponsorshipForm.controls.price.hasError('required')">
+                            {{'validator.required.price' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button *ngIf="!sponsorship" mat-stroked-button type="submit" [disabled]="!sponsorshipForm.valid">{{'messages.createSponsorship' | translate}}</button>
+            <button *ngIf="sponsorship" mat-stroked-button type="submit" [disabled]="!sponsorshipForm.valid">{{'messages.updateSponsorship' | translate}}</button>
+        </p>
+    </form>
+</div>

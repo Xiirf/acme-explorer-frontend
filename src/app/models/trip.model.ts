@@ -11,6 +11,8 @@ export class Trip extends Entity {
     stages: Stage[];
     managerId: string;
     price: number;
+    cancelled: boolean;
+    reasonCancelling?: string;
 
     constructor() {
         super();

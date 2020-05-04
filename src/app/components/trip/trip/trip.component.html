@@ -1,0 +1,142 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="createOrUpdateTrip()" [formGroup]="tripForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <h1 *ngIf="!trip">{{'messages.createTrip' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
+                    <h1 *ngIf="trip">{{'messages.updateTrip' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'trip.title' | translate}}</mat-label>
+                        <input matInput formControlName="title">
+                        <mat-error *ngIf="tripForm.controls.title.hasError('required')">
+                            {{'validator.required.title' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'trip.description' | translate}}</mat-label>
+                        <textarea matInput formControlName="description"></textarea>
+                        <mat-error *ngIf="tripForm.controls.description.hasError('required')">
+                            {{'validator.required.description' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'trip.start' | translate}}</mat-label>
+                        <input matInput readonly [matDatepicker]="pickerStart" [min]="minDateStart" formControlName="start"
+                        (dateChange)="onChangeDate($event)" >
+                        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerStart disabled="false"></mat-datepicker>
+                        <mat-error *ngIf="tripForm.controls.start.hasError('required')">
+                            {{'validator.required.start' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                    -
+                    <mat-form-field>
+                        <mat-label>{{'trip.end' | translate}}</mat-label>
+                        <input matInput readonly [matDatepicker]="pickerEnd" [min]="minDateEnd" formControlName="end">
+                        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerEnd disabled="false"></mat-datepicker>
+                        <mat-error *ngIf="tripForm.controls.end.hasError('required')">
+                            {{'validator.required.end' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="tripForm.controls.end.hasError('matDatepickerMin')">
+                            {{'validator.date.invalid' | translate}}
+                        </mat-error>
+                        
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <legend>{{'trip.requirements' | translate}}</legend>
+                        <div formArrayName="requirements">
+                            <div *ngFor="let req of requirementsList.controls; let i=index">
+                                <div [formGroupName]="i">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>{{'trip.requirements' | translate}}</mat-label>
+                                        <input matInput formControlName="requirement">
+                                        <mat-error *ngIf="req.controls.requirement.hasError('required')">
+                                            {{'validator.required.requirement' | translate}}
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <button *ngIf="requirementsList.length > 1" (click)="removeObject('requirements', i)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button (click)="addObject('requirements')" type="button" class="btn btn-outline-success">{{'messages.addRequirement' | translate}}</button>
+                    </fieldset>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <fieldset>
+                            <legend>{{'trip.stages' | translate}}</legend>
+                            <div formArrayName="stages">
+                                <div *ngFor="let stage of stagesList.controls; let i=index">
+                                    <div [formGroupName]="i">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>{{'trip.title' | translate}}</mat-label>
+                                            <input matInput formControlName="title">
+                                            <mat-error *ngIf="stage.controls.title.hasError('required')">
+                                                {{'validator.required.title' | translate}}
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>{{'trip.description' | translate}}</mat-label>
+                                            <textarea matInput formControlName="description"></textarea>
+                                            <mat-error *ngIf="stage.controls.description.hasError('required')">
+                                                {{'validator.required.description' | translate}}
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>{{'trip.price' | translate}}</mat-label>
+                                            <input matInput type="number"  oninput="validity.valid||(value='');" formControlName="price" class="example-right-align" min="1">
+                                            <span matPrefix>€&nbsp;</span>
+                                            <mat-error *ngIf="stage.controls.price.hasError('required')">
+                                                {{'validator.required.price' | translate}}
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <button *ngIf="stagesList.length > 1" (click)="removeObject('stages', i)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button (click)="addObject('stages')" type="button" class="btn btn-outline-success">{{'messages.addStage' | translate}}</button>
+                        </fieldset>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'trip.pictures' | translate}}</mat-label>
+                        <input matInput formControlName="picture">
+                        <mat-error *ngIf="tripForm.get('picture').errors && tripForm.get('picture').touched && !tripForm.get('picture').errors.validUrl">
+                            {{'validator.picture.invalidURL' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button *ngIf="!trip" mat-stroked-button type="submit" [disabled]="!tripForm.valid">{{'messages.createTrip' | translate}}</button>
+            <button *ngIf="trip" mat-stroked-button type="submit" [disabled]="!tripForm.valid">{{'messages.updateTrip' | translate}}</button>
+        </p>
+    </form>
+</div>

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { ToastrService } from 'ngx-toastr';
 import { Actor } from 'src/app/models/actor.model';
+import { DateAdapter } from '@angular/material/core';
+import { Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,16 +16,23 @@ import { Actor } from 'src/app/models/actor.model';
 })
 export class HeaderComponent extends TranslatableComponent implements OnInit {
 
-  faPlane = faPlane;
   lang: string;
   token: string;
   currenActor: Actor;
   activeRole = 'anonymous';
+  keyWord: string;
 
-  constructor(private translateService: TranslateService, private authService: AuthService,
-              private storageService: StorageService, private toastr: ToastrService) {
+  keyWordControl = new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z]+$')]);
+
+  constructor(private translateService: TranslateService,
+              private authService: AuthService,
+              private storageService: StorageService,
+              private toastr: ToastrService,
+              private dateAdapter: DateAdapter<any>,
+              private router: Router) {
     super(translateService);
     this.lang = super.getLanguage();
+    this.dateAdapter.setLocale(this.lang);
     this.token = localStorage.getItem('token');
     this.currenActor = this.authService.getCurrentActor();
     if (this.currenActor) {
@@ -44,9 +53,27 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
     });
   }
 
+  sendKeyWord() {
+    if (this.router.url !== '/trips' && this.router.url !== '/') {
+      localStorage.setItem('keyword', this.keyWord);
+      this.router.navigateByUrl('/');
+    }
+    this.storageService.setKeyWord(this.keyWord);
+  }
+
+  setKeyword(keyword: string) {
+    this.keyWord = keyword;
+    if (keyword === '') {
+      this.sendKeyWord();
+    }
+  }
+
   changeLanguage(lang: string) {
     super.changeLanguage(lang);
     this.lang = super.getLanguage();
+    if (this.dateAdapter) {
+      this.dateAdapter.setLocale(this.lang);
+    }
   }
 
   onLogout() {

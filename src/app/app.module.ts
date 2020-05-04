@@ -17,6 +17,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -48,6 +53,20 @@ import { ApplicationListComponent } from './components/application/application-l
 import { DashboardDisplayComponent } from './components/dashboard/dashboard-display/dashboard-display.component';
 import { ApplicationDisplayComponent } from './components/application/application-display/application-display.component';
 import { ErrorInterceptor } from './services/interceptor/errorInterceptor';
+import { TripComponent } from './components/trip/trip/trip.component';
+import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
+import { TripModalComponent } from './components/trip/trip-datatable/trip-modal/trip-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { UserDatatableComponent } from './components/user/user-datatable/user-datatable.component';
+import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { CanDeactivateGuard } from './guards/can-deactivate.service';
+import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
+import { SponsorshipModalComponent } from './components/sponsorship/sponsorship-list/sponsorship-modal/sponsorship-modal.component';
+import { SponsorshipService } from './services/sponsorship.service';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -78,7 +97,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuditsDisplayComponent,
     ApplicationListComponent,
     DashboardDisplayComponent,
-    ApplicationDisplayComponent
+    ApplicationDisplayComponent,
+    TripComponent,
+    TripModalComponent,
+    UserDatatableComponent,
+    AuditsFormComponent,
+    CheckoutComponent,
+    SponsorshipFormComponent,
+    SponsorshipModalComponent
   ],
   imports: [
     BrowserModule,
@@ -90,8 +116,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatButtonModule,
     MatPaginatorModule,
+    NgxPayPalModule,
     MatTabsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
     MatExpansionModule,
+    MatSelectModule,
+    MatMomentDateModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatDatepickerModule,
     FontAwesomeModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -110,7 +144,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [AngularFireAuth,
               TripService,
-              { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+              DatePipe,
+              SponsorshipService,
+              CanDeactivateGuard,
+              { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+              { provide: DateAdapter, useClass: MomentDateAdapter }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

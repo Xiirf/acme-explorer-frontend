@@ -4,11 +4,19 @@
     </legend>
 </div>
 
-<div *ngIf="trips == undefined || trips.length == 0">
+<div *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="(trips == undefined || trips.length == 0) && !keyword && !loading">
     {{ 'errorMessages.no.trips.found' | translate }}
 </div>
 
-<div *ngIf="trips != undefined && trips.length > 0" class="card-deck">
+<div *ngIf="(trips == undefined || trips.length == 0) && keyword && !loading">
+    {{ 'errorMessages.trip.keyword.not.found' | translate }}
+</div>
+
+<div *ngIf="trips != undefined && trips.length > 0 && !loading" class="card-deck">
     <div *ngFor="let trip of trips" class="card mb-3" infiniteScroll (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp()">
         <div class="card-header">
             <h4 class="card-title">{{ trip.title }}</h4>

@@ -24,4 +24,11 @@ export class ApplicationService {
     const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.get<Application[]>(`${environment.backendApiBaseUrl}/applications/trip/${tripId}`, {headers}).toPromise();
   }
+
+  updateApplicationToDue(idApp: string): Promise<Application> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.patch<Application>(`${environment.backendApiBaseUrl}/applications/${idApp}/status`,
+                                        {status: 'ACCEPTED'}, {headers}).toPromise();
+  }
+
 }
