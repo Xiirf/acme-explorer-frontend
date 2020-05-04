@@ -21,6 +21,7 @@ import { UserDatatableComponent } from './components/user/user-datatable/user-da
 import { AuditsFormComponent } from './components/audits/audits-form/audits-form.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CanDeactivateGuard } from './guards/can-deactivate.service';
+import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -39,7 +40,11 @@ const appRoutes: Routes = [
   ]},
   { path: 'sponsorships', children: [
     { path: '', component: SponsorshipListComponent,
-      canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}}
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}},
+    { path: 'create', component: SponsorshipFormComponent, canDeactivate: [CanDeactivateGuard],
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}},
+    { path: 'update/:idSponsorship', component: SponsorshipFormComponent, canDeactivate: [CanDeactivateGuard],
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Sponsor'}},
   ]},
   { path: 'audits', children: [
     { path: '', component: AuditsListComponent,

@@ -64,6 +64,7 @@ import { AuditsFormComponent } from './components/audits/audits-form/audits-form
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CanDeactivateGuard } from './guards/can-deactivate.service';
+import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -99,7 +100,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TripModalComponent,
     UserDatatableComponent,
     AuditsFormComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    SponsorshipFormComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@
                     <div *ngIf="currenActor && activeRole=='Manager'">
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" routerLink="/trips/manage">{{'header.manageTrip' | translate}}</a>
-                        <a class="dropdown-item" href="/trips/create">{{'header.newTrip' | translate}}</a>
+                        <a class="dropdown-item" routerLink="/trips/create">{{'header.newTrip' | translate}}</a>
                     </div>
                 </div>
             </li>
@@ -38,6 +38,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                     <a class="dropdown-item" routerLink="/sponsorships">{{'header.sponsorshipsList' | translate}}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" routerLink="/sponsorships/create">{{'messages.createSponsorship' | translate}}</a>
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Auditor'">

@@ -16,4 +16,9 @@ export class SponsorshipService {
                                     .set('payed', 'true');
     return this.http.get<Sponsorship[]>(`${environment.backendApiBaseUrl}/sponsorships`, {params}).toPromise();
   }
+
+  createSponsorship(sponsorship: any): Promise<Sponsorship> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.post<Sponsorship>(`${environment.backendApiBaseUrl}/sponsorships`, sponsorship, {headers}).toPromise();
+  }
 }
