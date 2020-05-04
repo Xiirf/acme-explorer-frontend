@@ -22,6 +22,7 @@ import { AuditsFormComponent } from './components/audits/audits-form/audits-form
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CanDeactivateGuard } from './guards/can-deactivate.service';
 import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
+import { ApplicationComponent } from './components/application/application/application.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -57,6 +58,10 @@ const appRoutes: Routes = [
     { path: '', component: ApplicationListComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}},
     { path: ':idApplication', component: ApplicationDisplayComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}},
+    { path: 'create/:idTrip', component: ApplicationComponent, canDeactivate: [CanDeactivateGuard],
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer'}},
+    { path: 'update/:idApplication', component: ApplicationComponent, canDeactivate: [CanDeactivateGuard],
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}}
   ]},
   {

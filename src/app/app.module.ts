@@ -64,6 +64,7 @@ import { AuditsFormComponent } from './components/audits/audits-form/audits-form
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CanDeactivateGuard } from './guards/can-deactivate.service';
+import { ApplicationComponent } from './components/application/application/application.component';
 import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
 import { SponsorshipModalComponent } from './components/sponsorship/sponsorship-list/sponsorship-modal/sponsorship-modal.component';
 import { SponsorshipService } from './services/sponsorship.service';
@@ -104,7 +105,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AuditsFormComponent,
     CheckoutComponent,
     SponsorshipFormComponent,
-    SponsorshipModalComponent
+    SponsorshipModalComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,
