@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -117,6 +118,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatButtonModule,
     MatPaginatorModule,
     NgxPayPalModule,
+    MatSortModule,
     MatTabsModule,
     MatProgressSpinnerModule,
     MatDialogModule,

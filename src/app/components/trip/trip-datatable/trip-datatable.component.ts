@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TripModalComponent } from './trip-modal/trip-modal.component';
 import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
+import { MatSort } from '@angular/material/sort';
 
 export interface DialogData {
   idTrip: string;
@@ -27,6 +28,7 @@ export class TripDatatableComponent implements OnInit {
   dataSource;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private tripService: TripService,
               private translateService: TranslateService,
@@ -42,6 +44,7 @@ export class TripDatatableComponent implements OnInit {
       this.trips = data;
       this.dataSource = new MatTableDataSource<Trip>(this.trips);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
     .catch((error) => {console.log(error); });
   }

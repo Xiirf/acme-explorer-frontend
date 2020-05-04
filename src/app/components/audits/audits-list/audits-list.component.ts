@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Audit } from 'src/app/models/audit.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { AuthService } from 'src/app/services/auth.service';
 import { TripService } from 'src/app/services/trip.service';
 import { AuditService } from 'src/app/services/audit.service';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-audits-list',
@@ -17,11 +18,13 @@ export class AuditsListComponent implements OnInit {
   displayedColumns: string[] = ['title', 'nameTrip', 'createdAt', 'description'];
   dataSource;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private auditService: AuditService,
               private authService: AuthService,
-              private tripService: TripService) {
+              private tripService: TripService,
+              private cdr: ChangeDetectorRef) {
     this.initialize();
   }
 
@@ -38,7 +41,9 @@ export class AuditsListComponent implements OnInit {
             .catch((err) => console.error(err));
         });
         this.dataSource = new MatTableDataSource<Audit>(this.audits);
+        this.cdr.detectChanges();
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     })
     .catch((error) => {console.log(error); });
