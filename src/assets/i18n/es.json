@@ -173,7 +173,9 @@
         "sponsorshipCreated": "Patrocinio creado",
         "updateSponsorship": "Modificar el patrocinio",
         "sponsorshipUpdated": "Patrocinio modificado",
-        "createSponsorship": "Crear un patrocinio"
+        "createSponsorship": "Crear un patrocinio",
+        "deleteSponsorship": "Eliminar el patrocinio",
+        "sponsorshipDeleted": "Patrocinio eliminado"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",

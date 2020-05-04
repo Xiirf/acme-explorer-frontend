@@ -49,29 +49,33 @@ export class TripComponent extends TranslatableComponent implements OnInit, CanC
 
       if (this.route.snapshot.params.idTrip) {
         this.tripService.getTrip(this.route.snapshot.params.idTrip).then(trip => {
-          this.trip = trip;
-          this.tripForm.get('title').setValue(trip.title);
-          this.tripForm.get('description').setValue(trip.description);
-          for (let i = 0; i < this.trip.requirements.length; i++) {
-            if (i > 0) {
-              this.addObject('requirements');
+          if (trip.managerId === this.authService.getCurrentActor()._id && !trip.cancelled) {
+            this.trip = trip;
+            this.tripForm.get('title').setValue(trip.title);
+            this.tripForm.get('description').setValue(trip.description);
+            for (let i = 0; i < this.trip.requirements.length; i++) {
+              if (i > 0) {
+                this.addObject('requirements');
+              }
+              this.requirementsList.controls[i].get('requirement').setValue(trip.requirements[i]);
             }
-            this.requirementsList.controls[i].get('requirement').setValue(trip.requirements[i]);
-          }
-          this.tripForm.get('start').markAsTouched();
-          this.tripForm.get('start').setValue(moment(this.trip.start.toString().slice(0, 10)).toDate());
-          this.minDateEnd = trip.start;
-          this.tripForm.get('end').markAsTouched();
-          this.tripForm.get('end').setValue(moment(this.trip.end.toString().slice(0, 10)).toDate());
-          for (let i = 0; i < this.stagesList.controls.length; i++) {
-            if (i > 0) {
-              this.addObject('stages');
+            this.tripForm.get('start').markAsTouched();
+            this.tripForm.get('start').setValue(moment(this.trip.start.toString().slice(0, 10)).toDate());
+            this.minDateEnd = trip.start;
+            this.tripForm.get('end').markAsTouched();
+            this.tripForm.get('end').setValue(moment(this.trip.end.toString().slice(0, 10)).toDate());
+            for (let i = 0; i < this.stagesList.controls.length; i++) {
+              if (i > 0) {
+                this.addObject('stages');
+              }
+              this.stagesList.controls[i].get('title').setValue(trip.stages[i].title);
+              this.stagesList.controls[i].get('description').setValue(trip.stages[i].description);
+              this.stagesList.controls[i].get('price').setValue(trip.stages[i].price);
             }
-            this.stagesList.controls[i].get('title').setValue(trip.stages[i].title);
-            this.stagesList.controls[i].get('description').setValue(trip.stages[i].description);
-            this.stagesList.controls[i].get('price').setValue(trip.stages[i].price);
+            this.tripForm.get('picture').setValue(trip.pictures[0]);
+          } else {
+            this.router.navigate(['denied-access'], { queryParams: { previousURL: this.router.url}});
           }
-          this.tripForm.get('picture').setValue(trip.pictures[0]);
         });
       }
     }

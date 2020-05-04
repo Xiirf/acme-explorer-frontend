@@ -45,33 +45,18 @@ export class SponsorshipFormComponent extends TranslatableComponent implements O
       this.createForm();
 
       if (this.route.snapshot.params.idSponsorship) {
-        // TODO vérifier si id actor = actor actuel
-        /*
-        this.tripService.getTrip(this.route.snapshot.params.idTrip).then(trip => {
-          this.trip = trip;
-          this.tripForm.get('title').setValue(trip.title);
-          this.tripForm.get('description').setValue(trip.description);
-          for (let i = 0; i < this.trip.requirements.length; i++) {
-            if (i > 0) {
-              this.addObject('requirements');
-            }
-            this.requirementsList.controls[i].get('requirement').setValue(trip.requirements[i]);
+        this.sponsorshipService.getSponsorship(this.route.snapshot.params.idSponsorship)
+        .then(sponsorship => {
+          if (sponsorship.sponsor_id === this.authService.getCurrentActor()._id) {
+            this.sponsorship = sponsorship;
+            this.sponsorshipForm.get('idTrip').setValue(this.sponsorship.trip_id);
+            this.sponsorshipForm.get('banner').setValue(this.sponsorship.banner[0]);
+            this.sponsorshipForm.get('link').setValue(this.sponsorship.link);
+            this.sponsorshipForm.get('price').setValue(this.sponsorship.price);
+          } else {
+            this.router.navigate(['denied-access'], { queryParams: { previousURL: this.router.url}});
           }
-          this.tripForm.get('start').markAsTouched();
-          this.tripForm.get('start').setValue(moment(this.trip.start.toString().slice(0, 10)).toDate());
-          this.minDateEnd = trip.start;
-          this.tripForm.get('end').markAsTouched();
-          this.tripForm.get('end').setValue(moment(this.trip.end.toString().slice(0, 10)).toDate());
-          for (let i = 0; i < this.stagesList.controls.length; i++) {
-            if (i > 0) {
-              this.addObject('stages');
-            }
-            this.stagesList.controls[i].get('title').setValue(trip.stages[i].title);
-            this.stagesList.controls[i].get('description').setValue(trip.stages[i].description);
-            this.stagesList.controls[i].get('price').setValue(trip.stages[i].price);
-          }
-          this.tripForm.get('picture').setValue(trip.pictures[0]);
-        });*/
+        });
       }
     }
 
@@ -97,16 +82,16 @@ export class SponsorshipFormComponent extends TranslatableComponent implements O
     };
 
     if (this.sponsorship) {
-      /*this.tripService.updateTrip(tripFromForm, this.trip._id)
+      this.sponsorshipService.updateSponsorship(SponsorshipFromForm, this.sponsorship._id)
       .then(_ => {
         this.updated = true;
-        this.toastr.success(this.translateService.instant('messages.tripUpdated'));
-        this.router.navigate(['/trips/update/' + this.trip._id]);
+        this.toastr.success(this.translateService.instant('messages.sponsorshipUpdated'));
+        this.router.navigate(['/sponsorships']);
       })
       .catch(error => {
-        this.tripForm.reset();
+        this.sponsorshipForm.reset();
         console.log(error);
-      });*/
+      });
     } else {
       this.sponsorshipService.createSponsorship(SponsorshipFromForm)
       .then(_ => {

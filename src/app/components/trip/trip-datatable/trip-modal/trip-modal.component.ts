@@ -24,10 +24,6 @@ export class TripModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  test() {
-    console.log(this.data.reason);
-  }
-
   ngOnInit(): void {
   }
 

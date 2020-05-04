@@ -173,7 +173,9 @@
         "sponsorshipCreated": "Sponsorship created",
         "updateSponsorship": "Update the sponsorship",
         "sponsorshipUpdated": "Sponsorship updated",
-        "createSponsorship": "Create a sponsorship"
+        "createSponsorship": "Create a sponsorship",
+        "deleteSponsorship": "Delete the sponsorship",
+        "sponsorshipDeleted": "Sponsorship deleted"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",

@@ -33,6 +33,10 @@
                     <h3 class="card-title">{{'trip.price' | translate}}</h3>
                     <h5 class="card-subtitle text-muted">{{trip.price}} €</h5>
                 </div>
+                <div *ngIf="bannerSponsor" class="card-header">
+                    {{'role.Sponsor' | translate}}
+                </div>
+                <img *ngIf="bannerSponsor" class="card-img-top" src="{{bannerSponsor}}" alt="Image Sponsor">
             </div>
         </mat-tab>
     

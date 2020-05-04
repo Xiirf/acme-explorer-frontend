@@ -65,6 +65,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CanDeactivateGuard } from './guards/can-deactivate.service';
 import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
+import { SponsorshipModalComponent } from './components/sponsorship/sponsorship-list/sponsorship-modal/sponsorship-modal.component';
+import { SponsorshipService } from './services/sponsorship.service';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -101,7 +103,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserDatatableComponent,
     AuditsFormComponent,
     CheckoutComponent,
-    SponsorshipFormComponent
+    SponsorshipFormComponent,
+    SponsorshipModalComponent
   ],
   imports: [
     BrowserModule,
@@ -142,6 +145,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [AngularFireAuth,
               TripService,
               DatePipe,
+              SponsorshipService,
               CanDeactivateGuard,
               { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
               { provide: DateAdapter, useClass: MomentDateAdapter }],

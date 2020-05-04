@@ -5,23 +5,39 @@ import { SponsorshipService } from 'src/app/services/sponsorship.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { TripService } from 'src/app/services/trip.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { SponsorshipModalComponent } from './sponsorship-modal/sponsorship-modal.component';
+import { TranslatableComponent } from '../../shared/translatable/translatable.component';
+import { TranslateService } from '@ngx-translate/core';
+
+export interface DialogData {
+  idTrip: string;
+  nameTrip: string;
+}
 
 @Component({
   selector: 'app-sponsorship-list',
   templateUrl: './sponsorship-list.component.html',
   styleUrls: ['./sponsorship-list.component.css']
 })
-export class SponsorshipListComponent implements OnInit {
+export class SponsorshipListComponent extends TranslatableComponent implements OnInit {
 
   sponsorships: Sponsorship[];
-  displayedColumns: string[] = ['banner', 'price', 'nameTrip', 'createdAt', 'link'];
+  displayedColumns: string[] = ['banner', 'price', 'nameTrip', 'createdAt', 'link', 'payed', 'edit', 'cancel'];
   dataSource;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private sponsorshipService: SponsorshipService,
               private authService: AuthService,
-              private tripService: TripService) {
+              private tripService: TripService,
+              private router: Router,
+              private translateService: TranslateService,
+              public dialog: MatDialog,
+              private toastr: ToastrService) {
+    super(translateService);
     this.initialize();
   }
 
@@ -45,6 +61,27 @@ export class SponsorshipListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onEdit(idSponsorship: string) {
+    this.router.navigate(['/sponsorships/update/' + idSponsorship]);
+  }
+
+  cancelSponsorship(idSponsorship: string, nameTrip: string) {
+    const dialogRef = this.dialog.open(SponsorshipModalComponent, {
+      width: '400px',
+      data: {idSponsorship, nameTrip}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+        this.sponsorshipService.deleteSponsorship(result.idSponsorship).then(_ => {
+          this.toastr.success(this.translateService.instant('messages.trip.cancelled'));
+          this.router.navigate(['/sponsorships']);
+        });
+      }
+    });
   }
 
 }

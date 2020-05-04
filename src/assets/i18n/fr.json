@@ -172,9 +172,11 @@
         "paymentMade": "Paiement effectué",
         "discard.changes": "Voulez-vous renoncer au changement ?",
         "sponsorshipCreated": "Parrainage créé",
-        "updateSponsorship": "Modififier le parrainage",
+        "updateSponsorship": "Modifier le parrainage",
         "sponsorshipUpdated": "Parrainage modifié",
-        "createSponsorship": "Créer un parrainage"
+        "createSponsorship": "Créer un parrainage",
+        "deleteSponsorship": "Supprimer le parrainage",
+        "sponsorshipDeleted": "Parrainage supprimé"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
