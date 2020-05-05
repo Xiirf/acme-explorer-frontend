@@ -56,18 +56,6 @@
                     </mat-form-field>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <mat-form-field class="example-full-width">
-                        <mat-label>{{'sponsorship.price' | translate}}</mat-label>
-                        <input matInput type="number" [readonly]="sponsorship && sponsorship.payed" oninput="validity.valid||(value='');" formControlName="price" class="example-right-align" min="1">
-                        <span matPrefix>€&nbsp;</span>
-                        <mat-error *ngIf="sponsorshipForm.controls.price.hasError('required')">
-                            {{'validator.required.price' | translate}}
-                        </mat-error>
-                    </mat-form-field>
-                </td>
-            </tr>
         </table>
         <p>
             <button *ngIf="!sponsorship" mat-stroked-button type="submit" [disabled]="!sponsorshipForm.valid">{{'messages.createSponsorship' | translate}}</button>

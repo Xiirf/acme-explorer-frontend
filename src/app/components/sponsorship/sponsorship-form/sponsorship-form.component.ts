@@ -52,7 +52,6 @@ export class SponsorshipFormComponent extends TranslatableComponent implements O
             this.sponsorshipForm.get('idTrip').setValue(this.sponsorship.trip_id);
             this.sponsorshipForm.get('banner').setValue(this.sponsorship.banner[0]);
             this.sponsorshipForm.get('link').setValue(this.sponsorship.link);
-            this.sponsorshipForm.get('price').setValue(this.sponsorship.price);
           } else {
             this.router.navigate(['denied-access'], { queryParams: { previousURL: this.router.url}});
           }
@@ -64,8 +63,7 @@ export class SponsorshipFormComponent extends TranslatableComponent implements O
     this.sponsorshipForm = this.fb.group({
       idTrip: ['', [Validators.required]],
       banner: ['', [Validators.required, ValidateUrlOptional]],
-      link: ['', [Validators.required, ValidateUrlOptional]],
-      price: ['', [Validators.required]]
+      link: ['', [Validators.required, ValidateUrlOptional]]
     });
     this.tripService.getTrips()
     .then(data => {
@@ -77,7 +75,6 @@ export class SponsorshipFormComponent extends TranslatableComponent implements O
     const SponsorshipFromForm = {
       banner: [this.sponsorshipForm.get('banner').value],
       link: this.sponsorshipForm.get('link').value,
-      price: this.sponsorshipForm.get('price').value,
       trip_id: this.sponsorshipForm.get('idTrip').value,
     };
 
@@ -97,7 +94,7 @@ export class SponsorshipFormComponent extends TranslatableComponent implements O
       .then(_ => {
         this.updated = true;
         this.toastr.success(this.translateService.instant('messages.sponsorshipCreated'));
-        this.router.navigate(['/']);
+        this.router.navigate(['/sponsorships']);
       })
       .catch(error => {
         this.sponsorshipForm.reset();
