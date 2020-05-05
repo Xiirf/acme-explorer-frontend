@@ -15,6 +15,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ApplicationListComponent } from './application-list.component';
 import { ApplicationService } from 'src/app/services/application.service';
 import { ApplicationServiceMock } from 'src/app/services/mocks/application.service.mock';
+import { ToastrModule } from 'ngx-toastr';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('ApplicationListComponent', () => {
   let component: ApplicationListComponent;
@@ -35,7 +37,9 @@ describe('ApplicationListComponent', () => {
         MatTableModule,
         MatPaginatorModule,
         MatInputModule,
+        ToastrModule.forRoot(),
         MatButtonModule,
+        MatDialogModule,
         BrowserAnimationsModule,
         BrowserModule,
       ],

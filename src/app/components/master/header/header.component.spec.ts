@@ -9,6 +9,9 @@ import { AuthServiceMock } from 'src/app/services/mocks/auth.services.mock';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter } from '@angular/material/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
@@ -29,10 +32,12 @@ describe('HeaderComponent', () => {
                 }),
                 ToastrModule.forRoot(),
                 HttpClientTestingModule,
+                RouterTestingModule.withRoutes([]),
                 BrowserAnimationsModule
             ],
             providers: [
                 { provide: AuthService, useClass: AuthServiceMock },
+                { provide: DateAdapter, useClass: MomentDateAdapter },
                 ToastrService,
             ],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
