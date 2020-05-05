@@ -1,11 +1,20 @@
 {
+    "role": {
+        "Administrator": "Administrador",
+        "Manager": "Gerente",
+        "Explorer": "Explorador",
+        "Sponsor": "Patrocinador",
+        "Auditor": "Auditor"
+    },
     "actor": {
         "name": "Nombre",
         "surname": "Apellidos",
         "email": "Correo electronico",
         "password": "Contraseña",
         "phone": "Teléfono",
-        "address": "Dirección"
+        "address": "Dirección",
+        "banned": "Prohibido",
+        "role": "Papel"
     },
     "trip": {
         "title": "Título",
@@ -14,10 +23,13 @@
         "requirements": "Requisitos",
         "start": "Fecha de inicio",
         "end": "Fecha de fin",
-        "pictures": "Imágenes",
+        "pictures": "Imágen",
         "stages": "Etapas",
         "managerId": "Gerente ID",
-        "price": "Precio"
+        "price": "Precio",
+        "cancelled": "Cancelado",
+        "cancel": "Cancelar",
+        "reasonCancelling": "Razón de la cancelación"
     },
     "sponsorship": {
         "banner": "Bandera",
@@ -33,7 +45,8 @@
         "comments": "Comentarios",
         "reasonRejected": "Razón del rechazo",
         "trip": "Viaje",
-        "detail": "Detalles"
+        "detail": "Detalles",
+        "payment": "Pago"
     },
     "audit": {
         "auditor": "Auditor",
@@ -67,10 +80,21 @@
             "email": "El correo electronico es requerido",
             "password": "La contraseña es requerida",
             "phone": "El téléfono es requerido",
-            "address": "La dirección es requerida"
+            "address": "La dirección es requerida",
+            "title": "El título es requerido",
+            "description": "La descripción es requerida",
+            "requirement": "Los requisitos son requeridos",
+            "price": "El precio es requerido",
+            "start": "Se requiere una fecha de inicio",
+            "end": "Se requiere una fecha de fin",
+            "reason": "La razón es requerida"
         },
         "email": "Por favor, introduzca un correo electrónico válido",
-        "password": "La contraseña debe tener entre 8 y 12 caracteres"
+        "password": "La contraseña debe tener entre 8 y 12 caracteres",
+        "picture.invalidURL": "El enlace debe comenzar con http",
+        "date.invalid": "La fecha final debe ser mayor que la fecha de inicio.",
+        "reason.invalid": "La razón debe contener al menos una letra y 10 caracteres.",
+        "keyword": "La búsqueda sólo acepta una palabra"
     },
     "button": {
         "submit": "Enviar",
@@ -78,13 +102,19 @@
         "login": "Conectarse",
         "search": "Buscar",
         "logout": "Desconexión",
-        "details": "Detalles"
+        "details": "Detalles",
+        "ban": "Prohibir",
+        "authorize": "Autorizar"
     },
     "message": {
         "connected": "Conectado",
         "disconnected": "Desconectado",
         "registered": "Registrado",
-        "errorrConnect": "Combinación incorrecta de correo electrónico y contraseña"
+        "errorConnect": "Combinación incorrecta de correo electrónico y contraseña",
+        "role.changed": "Has cambiado el papel del usuario:",
+        "user.banned": "ha sido prohibido",
+        "user.un.banned": "se le autorizó",
+        "connect.user.banned": "No se puede iniciar la sesión, el usuario está prohibido"
     },
     "denied-access": {
         "title": "Acceso denegado",
@@ -111,7 +141,8 @@
         "auditsList": "Mis auditorías",
         "applications": "Solicitudes",
         "applicationsList": "Lista de solicitudes",
-        "dashboard": "Tablero de mandos"
+        "dashboard": "Tablero de mandos",
+        "users": "Usuarios"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
@@ -123,7 +154,28 @@
         "save": "Guardar",
         "cancel": "Cancelar",
         "delete": "Eliminar",
-        "placeHolder": "Entrar"
+        "update": "Editar",
+        "placeHolder": "Entrar",
+        "addRequirement": "Añadir requisitos",
+        "addStage": "Añadir una etapa",
+        "createTrip": "Crear un viaje",
+        "tripCreated": "Viaje creado",
+        "updateTrip": "Modificar viaje",
+        "tripUpdated": "Viaje modificado",
+        "cancel.title": "Cancelación del viaje",
+        "trip.cancelled": "Viaje cancelado",
+        "createAudit": "Crear una auditoría",
+        "addOA": "Añadir archivos adjuntos",
+        "tripChoice": "Elija un viaje",
+        "auditCreated": "Auditoría creada",
+        "paymentMade": "Pago realizado",
+        "discard.changes": "¿Quieres descartar el cambio?",
+        "sponsorshipCreated": "Patrocinio creado",
+        "updateSponsorship": "Modificar el patrocinio",
+        "sponsorshipUpdated": "Patrocinio modificado",
+        "createSponsorship": "Crear un patrocinio",
+        "deleteSponsorship": "Eliminar el patrocinio",
+        "sponsorshipDeleted": "Patrocinio eliminado"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
@@ -144,6 +196,11 @@
         "audit.not.found": "No hay ningúna auditoría que corresponda a esta identificación",
         "comments.not.found": "No hay ningún comentario que corresponda a esta identificación",
         "application.not.found": "No hay ningún solicitude que corresponda a esta identificación",
-        "dashboard.not.found": "No hay un tablero de mandos"
+        "dashboard.not.found": "No hay un tablero de mandos",
+        "requirement.needed": "Debe tener al menos un requisito",
+        "cancel.reason.need": "Debe dar la razón para la cancelación.",
+        "to.late": "¡Es demasiado tarde para cancelar este viaje!",
+        "trip.keyword.not.found": "No hay ningún viaje que corresponda a esta palabra clave",
+        "trip.needed": "Se requiere la elección del viaje"
     }
 }

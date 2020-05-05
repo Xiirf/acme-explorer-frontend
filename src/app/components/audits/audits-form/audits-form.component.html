@@ -1,0 +1,75 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="createAudit()" [formGroup]="auditForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <h1>{{'messages.createAudit' | translate}} <mat-icon>message</mat-icon></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'messages.tripChoice' | translate}}</mat-label>
+                        <mat-select formControlName="idTrip" required>
+                          <mat-option *ngFor="let trip of trips" [value]="trip._id">
+                            {{ trip.title }}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="auditForm.controls.idTrip.hasError('required')">
+                            {{'errorMessages.trip.needed' | translate}}
+                        </mat-error>
+                      </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'audit.title' | translate}}</mat-label>
+                        <input matInput formControlName="title">
+                        <mat-error *ngIf="auditForm.controls.title.hasError('required')">
+                            {{'validator.required.title' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'audit.description' | translate}}</mat-label>
+                        <textarea matInput formControlName="description"></textarea>
+                        <mat-error *ngIf="auditForm.controls.description.hasError('required')">
+                            {{'validator.required.description' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <fieldset>
+                        <legend>{{'audit.optionalAttachments' | translate}}</legend>
+                        <div formArrayName="optionalAttachments">
+                            <div *ngFor="let oA of optionalAttachmentsList.controls; let i=index">
+                                <div [formGroupName]="i">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>{{'audit.optionalAttachments' | translate}}</mat-label>
+                                        <input matInput formControlName="optionalAttachment">
+                                        <mat-error *ngIf="oA.controls.optionalAttachment.errors">
+                                            {{'validator.picture.invalidURL' | translate}}
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <button *ngIf="optionalAttachmentsList.length > 1" (click)="removeObject(i)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button (click)="addObject()" type="button" class="btn btn-outline-success">{{'messages.addOA' | translate}}</button>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button mat-stroked-button type="submit" [disabled]="!auditForm.valid">{{'messages.createAudit' | translate}}</button>
+        </p>
+    </form>
+</div>

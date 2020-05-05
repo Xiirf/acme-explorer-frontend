@@ -10,6 +10,7 @@ export class Application extends Entity {
     reasonRejected?: string;
     nameExplo?: string;
     nameTrip?: string;
+    price?: number;
 
     constructor() {
         super();

@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('TripDatatableComponent', () => {
   let component: TripDatatableComponent;
@@ -36,6 +38,8 @@ describe('TripDatatableComponent', () => {
         MatPaginatorModule,
         MatInputModule,
         MatButtonModule,
+        ToastrModule.forRoot(),
+        MatDialogModule,
         BrowserAnimationsModule,
         BrowserModule,
       ],

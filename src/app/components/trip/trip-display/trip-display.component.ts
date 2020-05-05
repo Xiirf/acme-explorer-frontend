@@ -10,6 +10,7 @@ import { AuditService } from 'src/app/services/audit.service';
 import { Audit } from 'src/app/models/audit.model';
 import { ActorService } from 'src/app/services/actor.service';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
+import { SponsorshipService } from 'src/app/services/sponsorship.service';
 
 @Component({
   selector: 'app-trip-display',
@@ -23,10 +24,12 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
   applications: Application[];
   audits: Audit[];
   faFile = faFile;
+  bannerSponsor: string;
 
   constructor(private route: ActivatedRoute,
               private tripService: TripService,
               private translateService: TranslateService,
+              private sponsorshipService: SponsorshipService,
               private applicationService: ApplicationService,
               private auditService: AuditService,
               private actorService: ActorService,
@@ -40,10 +43,9 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
     this.idTrip = this.route.snapshot.params.idTrip;
     this.tripService.getTrip(this.idTrip).then(trip => {
       this.trip = trip;
-      this.applicationService.getApplicationByIdTrip(this.idTrip).then( applications => {
+      this.applicationService.getApplicationByIdTrip(this.idTrip).then(async applications => {
         for (const application of applications) {
-            this.actorService.getActorById(application.idExplorer)
-          .then((actor) => {
+          await this.actorService.getActorById(application.idExplorer).then((actor) => {
             application.nameExplo = actor.name + ' ' + actor.surname;
             this.applications.push(application);
           });
@@ -51,18 +53,25 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
         if (this.applications.length > 0) {
           this.applications.sort(this.sortByDate);​
         }
-        this.auditService.getAuditByIdTrip(this.idTrip).then( audits => {
-          for (const audit of audits) {
-            this.actorService.getActorById(audit.idAuditor)
-            .then((actor) => {
-              audit.nameAuditor = actor.name + ' ' + actor.surname;
-              this.audits.push(audit);
-            });
-          }
-          if (this.audits.length > 0) {
-            this.audits.sort(this.sortByDate);
-          }
-        });
+      });
+      this.auditService.getAuditByIdTrip(this.idTrip).then(async audits => {
+        for (const audit of audits) {
+          await this.actorService.getActorById(audit.idAuditor)
+          .then((actor) => {
+            audit.nameAuditor = actor.name + ' ' + actor.surname;
+            this.audits.push(audit);
+          });
+        }
+        if (this.audits.length > 0) {
+          this.audits.sort(this.sortByDate);
+        }
+      });
+      // TODO recup banière
+      this.sponsorshipService.getSponsorshipsByIdTrip(this.idTrip).then(sponsorships => {
+        if (sponsorships.length > 0) {
+          const max = sponsorships.length;
+          this.bannerSponsor = sponsorships[Math.floor((Math.random() * max))].banner[0];
+        }
       });
     });
   }

@@ -4,6 +4,12 @@
     object-fit: cover;
 }
 
+div.center {
+    display: flex;
+    justify-content: center;
+}
+
+
 @media (min-width:34em) {
     .card-deck > .card {
         width: 29%;

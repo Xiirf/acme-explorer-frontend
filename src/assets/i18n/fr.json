@@ -1,11 +1,20 @@
 {
+    "role": {
+        "Administrator": "Administeur",
+        "Manager": "Manager",
+        "Explorer": "Explorateur",
+        "Sponsor": "Parrain",
+        "Auditor": "Auditeur"
+    },
     "actor": {
         "name": "Prénom",
         "surname": "Nom",
         "email": "Email",
         "password": "Mot de passe",
         "phone": "Téléphone",
-        "address": "Adresse"
+        "address": "Adresse",
+        "banned": "Banni",
+        "role": "Rôle"
     },
     "trip": {
         "title": "Titre",
@@ -14,11 +23,14 @@
         "requirements": "Conditions requises",
         "start": "Date de début",
         "end": "Date de fin",
-        "pictures": "Photos",
+        "pictures": "Photo",
         "stages": "Étapes",
         "managerId": "Manager ID",
         "price": "Prix",
-        "details": "Détails"
+        "details": "Détails",
+        "cancelled": "Annulé",
+        "cancel": "Annuler",
+        "reasonCancelling": "Raison de l'annulation"
     },
     "sponsorship": {
         "banner": "Bannière",
@@ -34,7 +46,8 @@
         "comments": "Commentaires",
         "reasonRejected": "Motif du rejet",
         "trip": "Voyage",
-        "detail": "Détails"
+        "detail": "Détails",
+        "payment": "Paiement"
     },
     "audit": {
         "auditor": "Auditeur",
@@ -68,10 +81,21 @@
             "email": "L'email est requis",
             "password": "Le mot de passe est requis",
             "phone": "Le téléphone est requis",
-            "address": "L'adresse est requise"
+            "address": "L'adresse est requise",
+            "title": "Le titre est requis",
+            "description": "La description est requise",
+            "requirement": "Les prérequis sont obligatoire",
+            "price": "Le prix est requis",
+            "start": "La date de début est requise",
+            "end": "La date de fin est requise",
+            "reason": "La raison est requise"
         },
         "email": "Veuillez renseigner un email valide",
-        "password": "Le mot de passe doit faire entre 8 et 12 caractères"
+        "password": "Le mot de passe doit faire entre 8 et 12 caractères",
+        "picture.invalidURL": "Le lien doit commencer par http",
+        "date.invalid": "La date de fin doit être supérieur à la date de début.",
+        "reason.invalid": "La raison doit contenir au moins une lettre et 10 caractères",
+        "keyword": "La recherche n'accepte qu'un seul mot"
     },
     "button": {
         "submit": "Envoyer",
@@ -79,13 +103,19 @@
         "login": "Se connecter",
         "search": "Rechercher",
         "logout": "Déconnexion",
-        "details": "Détails"
+        "details": "Détails",
+        "ban": "Bannir",
+        "authorize": "Autoriser"
     },
     "message": {
         "connected": "Connecté",
         "disconnected": "Déconnecté",
         "registered": "Inscrit",
-        "errorConnect": "Mauvaise combinaison email  / mot de passe"
+        "errorConnect": "Mauvaise combinaison email  / mot de passe",
+        "role.changed": "Vous avez changé le rôle de l'utilisateur:",
+        "user.banned": "a été banni",
+        "user.un.banned": "a été autorisé",
+        "connect.user.banned": "Connexion impossible, utilisateur banni"
     },
     "denied-access": {
         "title": "Accès refusé",
@@ -112,7 +142,8 @@
         "auditsList": "Mes audits",
         "applications": "Candidatures",
         "applicationsList": "Liste des candidatures",
-        "dashboard": "Tableau de bord"
+        "dashboard": "Tableau de bord",
+        "users": "Utilisateurs"
     },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
@@ -124,7 +155,28 @@
         "save": "Sauvegarder",
         "cancel": "Annuler",
         "delete": "Supprimer",
-        "placeHolder": "Valider"
+        "update": "Modifier",
+        "placeHolder": "Valider",
+        "addRequirement": "Ajouter un prérequis",
+        "addStage": "Ajouter une étape",
+        "createTrip": "Créer un voyage",
+        "tripCreated": "Voyage créé",
+        "updateTrip": "Mettre à jour le voyage",
+        "tripUpdated": "Voyage mis à jour",
+        "cancel.title": "Annulation du voyage",
+        "trip.cancelled": "Voyage annulé",
+        "createAudit": "Créer un audit",
+        "addOA": "Ajouter une pièce jointe",
+        "tripChoice": "Choisissez un voyage",
+        "auditCreated": "Audit créé",
+        "paymentMade": "Paiement effectué",
+        "discard.changes": "Voulez-vous renoncer au changement ?",
+        "sponsorshipCreated": "Parrainage créé",
+        "updateSponsorship": "Modifier le parrainage",
+        "sponsorshipUpdated": "Parrainage modifié",
+        "createSponsorship": "Créer un parrainage",
+        "deleteSponsorship": "Supprimer le parrainage",
+        "sponsorshipDeleted": "Parrainage supprimé"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",
@@ -145,6 +197,11 @@
         "audit.not.found": "Il n'y a pas d'audit correspondant à cet identifiant",
         "comments.not.found": "Il n'y a pas de commentaire correspondant à cet identifiant",
         "application.not.found": "Il n'y a pas de candidature correspondant à cet identifiant",
-        "dashboard.not.found": "Il n'y a pas de tableau de bord"
+        "dashboard.not.found": "Il n'y a pas de tableau de bord",
+        "requirement.needed": "Vous devez avoir au moins 1 prérequis",
+        "cancel.reason.need": "Vous devez renseigner la raison de l'annulation",
+        "to.late": "Il est trop tard pour annuler ce voyage !",
+        "trip.keyword.not.found": "Il n'y a pas de voyage correspondant à ce mot clé",
+        "trip.needed": "Le choix du voyage est requis"
     }
 }

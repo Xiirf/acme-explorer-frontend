@@ -1,11 +1,20 @@
 {
+    "role": {
+        "Administrator": "Administrator",
+        "Manager": "Manager",
+        "Explorer": "Explorer",
+        "Sponsor": "Sponsor",
+        "Auditor": "Auditor"
+    },
     "actor": {
         "name": "First Name",
         "surname": "Last Name",
         "email": "Email",
         "password": "Password",
         "phone": "Phone",
-        "address": "Address"
+        "address": "Address",
+        "banned": "Banned",
+        "role": "Role"
     },
     "trip": {
         "title": "Title",
@@ -14,10 +23,13 @@
         "requirements": "Requirements",
         "start": "Start date",
         "end": "End date",
-        "pictures": "Pictures",
+        "pictures": "Picture",
         "stages": "Stages",
         "managerId": "Manager ID",
-        "price": "Price"
+        "price": "Price",
+        "cancelled": "Cancelled",
+        "cancel": "Cancel",
+        "reasonCancelling": "Reason for cancellation"
     },
     "sponsorship": {
         "banner": "Banner",
@@ -33,7 +45,8 @@
         "comments": "Comments",
         "reasonRejected": "Reason for rejection",
         "trip": "Trip",
-        "detail": "Details"
+        "detail": "Details",
+        "payment": "Payment"
     },
     "audit": {
         "auditor": "Auditor",
@@ -67,10 +80,21 @@
             "email": "The email is required",
             "password": "The password is required",
             "phone": "The phone is required",
-            "address": "The address is required"
+            "address": "The address is required",
+            "title": "The title is required",
+            "description": "The description is required",
+            "requirement": "The requirement is required",
+            "price": "The price is required",
+            "start": "Start date is required",
+            "end": "End date is required",
+            "reason": "The reason is required"
         },
         "email": "Please enter a valid email address",
-        "password": "Password must have between 8 and 12 letters"
+        "password": "Password must have between 8 and 12 letters",
+        "picture.invalidURL": "The link must start with http",
+        "date.invalid": "The end date must be greater than the start date.",
+        "reason.invalid": "The reason must contain at least one letter and 10 characters.",
+        "keyword": "The search accepts only one word"
     },
     "button": {
         "submit": "Submit",
@@ -78,13 +102,19 @@
         "login": "Login",
         "search": "Search",
         "logout": "Logout",
-        "details": "Details"
+        "details": "Details",
+        "ban": "Ban",
+        "authorize": "Authorize"
     },
     "message": {
         "connected": "Connected",
         "disconnected": "Disconnected",
         "registered": "Registered",
-        "errorConnect": "Wrong email / password combination"
+        "errorConnect": "Wrong email / password combination",
+        "role.changed": "You have changed the role of the user:",
+        "user.banned": "has been banned",
+        "user.un.banned": "was allowed",
+        "connect.user.banned": "Cannot log in, user banned"
     },
     "denied-access": {
         "title": "Denied access",
@@ -111,7 +141,8 @@
         "auditsList": "My audits",
         "applications": "Applications",
         "applicationsList": "Applications List",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "users": "Users"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
@@ -123,7 +154,28 @@
         "save": "Save",
         "cancel": "Cancel",
         "delete": "Delete",
-        "placeHolder": "Enter"
+        "update": "Edit",
+        "placeHolder": "Enter",
+        "addRequirement": "Add requirement",
+        "addStage": "Add stage",
+        "createTrip": "Create a trip",
+        "tripCreated": "Trip created",
+        "updateTrip": "Update the trip",
+        "tripUpdated": "Trip updated",
+        "cancel.title": "Trip Cancellation",
+        "trip.cancelled": "Trip cancelled",
+        "createAudit": "Create an audit",
+        "addOA": "Add optional attachment",
+        "tripChoice": "Choose a trip",
+        "auditCreated": "Audit created",
+        "paymentMade": "Payment made",
+        "discard.changes": "Do you want to discard change ?",
+        "sponsorshipCreated": "Sponsorship created",
+        "updateSponsorship": "Update the sponsorship",
+        "sponsorshipUpdated": "Sponsorship updated",
+        "createSponsorship": "Create a sponsorship",
+        "deleteSponsorship": "Delete the sponsorship",
+        "sponsorshipDeleted": "Sponsorship deleted"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",
@@ -144,6 +196,11 @@
         "audit.not.found": "There is no audit corresponding to this ID",
         "comments.not.found": "There is no comment corresponding to this ID",
         "application.not.found": "There is no application corresponding to this ID",
-        "dashboard.not.found": "No dashboard found"
+        "dashboard.not.found": "No dashboard found",
+        "requirement.needed": "You must have at least 1 prerequisite",
+        "cancel.reason.need": "You must give the reason for the cancellation.",
+        "to.late": "It's too late to cancel this trip !",
+        "trip.keyword.not.found": "There is no trip corresponding to this keyword",
+        "trip.needed": "The choice of the trip is required"
     }
 }

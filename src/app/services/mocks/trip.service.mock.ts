@@ -65,7 +65,8 @@ export class TripServiceMock {
                 pictures: faker.random.arrayElement(this.pictures),
                 stages,
                 managerId: faker.random.uuid(),
-                price
+                price,
+                cancelled: false
             });
         }
     }
