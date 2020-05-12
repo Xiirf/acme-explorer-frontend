@@ -20,7 +20,6 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
   token: string;
   currenActor: Actor;
   activeRole = 'anonymous';
-  keyWord: string;
 
   keyWordControl = new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z]+$')]);
 
@@ -55,15 +54,14 @@ export class HeaderComponent extends TranslatableComponent implements OnInit {
 
   sendKeyWord() {
     if (this.router.url !== '/trips' && this.router.url !== '/') {
-      localStorage.setItem('keyword', this.keyWord);
+      localStorage.setItem('keyword', this.keyWordControl.value);
       this.router.navigateByUrl('/');
     }
-    this.storageService.setKeyWord(this.keyWord);
+    this.storageService.setKeyWord(this.keyWordControl.value);
   }
 
-  setKeyword(keyword: string) {
-    this.keyWord = keyword;
-    if (keyword === '') {
+  setKeyword() {
+    if (this.keyWordControl.value === '') {
       this.sendKeyWord();
     }
   }

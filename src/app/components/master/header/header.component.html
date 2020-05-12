@@ -58,7 +58,7 @@
         </ul>
 
         <form class="form-inline mx-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="..." aria-label="Search" [ngModel]="keyWord" [formControl]="keyWordControl" (ngModelChange)="setKeyword($event)">
+            <input class="form-control mr-sm-2" type="search" placeholder="..." aria-label="Search" [formControl]="keyWordControl" (change)="setKeyword()">
             <button mat-stroked-button (click)="sendKeyWord()" [disabled]="!keyWordControl.valid">{{'button.search' | translate}}</button>
         </form>
 

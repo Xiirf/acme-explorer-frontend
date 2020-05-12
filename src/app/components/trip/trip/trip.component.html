@@ -11,7 +11,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'trip.title' | translate}}</mat-label>
-                        <input matInput formControlName="title">
+                        <input matInput formControlName="title" id="title">
                         <mat-error *ngIf="tripForm.controls.title.hasError('required')">
                             {{'validator.required.title' | translate}}
                         </mat-error>
@@ -22,7 +22,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'trip.description' | translate}}</mat-label>
-                        <textarea matInput formControlName="description"></textarea>
+                        <textarea matInput formControlName="description" id="description"></textarea>
                         <mat-error *ngIf="tripForm.controls.description.hasError('required')">
                             {{'validator.required.description' | translate}}
                         </mat-error>
@@ -66,7 +66,7 @@
                                 <div [formGroupName]="i">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>{{'trip.requirements' | translate}}</mat-label>
-                                        <input matInput formControlName="requirement">
+                                        <input matInput formControlName="requirement" id="req{{i}}">
                                         <mat-error *ngIf="req.controls.requirement.hasError('required')">
                                             {{'validator.required.requirement' | translate}}
                                         </mat-error>
@@ -91,7 +91,7 @@
                                     <div [formGroupName]="i">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>{{'trip.title' | translate}}</mat-label>
-                                            <input matInput formControlName="title">
+                                            <input matInput formControlName="title" id="titleStage{{i}}">
                                             <mat-error *ngIf="stage.controls.title.hasError('required')">
                                                 {{'validator.required.title' | translate}}
                                             </mat-error>
