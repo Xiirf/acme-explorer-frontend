@@ -62,9 +62,10 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
 
   createForm(): void {
     this.applicationForm = this.fb.group({
-      requirements: this.fb.array([this.createApplication()])
+      status: [''],
+      comments: this.fb.array([this.createApplication()])
     });
-    this.commentsList = this.applicationForm.get('requirements') as FormArray;
+    this.commentsList = this.applicationForm.get('comments') as FormArray;
   }
 
   createApplication(): FormGroup {

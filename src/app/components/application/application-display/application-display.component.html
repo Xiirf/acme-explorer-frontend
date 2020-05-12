@@ -20,6 +20,13 @@
                 <li><h5 class="card-subtitle text-muted">{{comment}}</h5></li>
             </ul>
         </div>
+        <div class="card-footer">
+            <a routerLink="/applications/update/{{application._id}}"
+                class="btn btn-primary pull-left">
+                <span class="" aria-hidden="true"></span>
+                {{ 'button.update' | translate }}
+            </a>
+        </div>
     </div>
 </ng-container>
 <ng-template #noDataFound>

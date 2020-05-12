@@ -16,8 +16,8 @@
                                 <div [formGroupName]="i">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>{{'application.comments' | translate}}</mat-label>
-                                        <input matInput formControlName="comments">
-                                        <mat-error *ngIf="comment.controls.comments.hasError('required')">
+                                        <input matInput formControlName="comment">
+                                        <mat-error *ngIf="comment.controls.comment.hasError('required')">
                                             {{'validator.required.comment' | translate}}
                                         </mat-error>
                                     </mat-form-field>
@@ -31,7 +31,7 @@
                     </fieldset>
                 </td>
             </tr>
-            <tr *ngIf="this.application && currentActor && activeRole=='Explorer' && this.application.status=='ACCEPTED'">
+           <tr *ngIf="this.application && currentActor && activeRole=='Explorer' && this.application.status=='ACCEPTED'">
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'application.status' | translate}}</mat-label>
