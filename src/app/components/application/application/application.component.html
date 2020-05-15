@@ -3,7 +3,7 @@
         <table class="example-full-width" cellspacing="0">
             <tr>
                 <td>
-                    <h1 *ngIf="!application">{{'messages.createApplication' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
+                    <h1 *ngIf="!application">{{'button.apply' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
                     <h1 *ngIf="application">{{'messages.updateApplication' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
                 </td>
             </tr>
@@ -16,7 +16,7 @@
                                 <div [formGroupName]="i">
                                     <mat-form-field class="example-full-width">
                                         <mat-label>{{'application.comments' | translate}}</mat-label>
-                                        <input matInput formControlName="comment">
+                                        <input matInput formControlName="comment" id="comment{{i}}">
                                         <mat-error *ngIf="comment.controls.comment.hasError('required')">
                                             {{'validator.required.comment' | translate}}
                                         </mat-error>
@@ -35,9 +35,9 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'application.status' | translate}}</mat-label>
-                        <mat-select>
-                            <mat-option>ACCEPTED</mat-option>
-                            <mat-option>CANCELLED</mat-option>
+                        <mat-select [value]="selectedOption">
+                            <mat-option value="1">ACCEPTED</mat-option>
+                            <mat-option value="2">CANCELLED</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </td>
@@ -46,11 +46,19 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'application.status' | translate}}</mat-label>
-                        <mat-select>
-                            <mat-option>PENDING</mat-option>
-                            <mat-option>DUE</mat-option>
-                            <mat-option>REJECTED</mat-option>
+                        <mat-select [(value)]="selectedOption">
+                            <mat-option value="1">PENDING</mat-option>
+                            <mat-option value="2">DUE</mat-option>
+                            <mat-option value="3">REJECTED</mat-option>
                         </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr *ngIf="this.application && currentActor && activeRole=='Manager' && this.selectedOption=='3'">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'application.reasonRejected' | translate}}</mat-label>
+                        <input matInput formControlName="reasonRejected">
                     </mat-form-field>
                 </td>
             </tr>

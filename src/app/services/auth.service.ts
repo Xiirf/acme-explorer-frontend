@@ -51,11 +51,12 @@ export class AuthService {
   login(email: string, password: string) {
     return new Promise<any>((resolve, reject) => {
       this.fireAuth.auth.signInWithEmailAndPassword(email, password)
-        .then(_ => {
+        .then(userCredential => {
           this.actorService.getActorByEmail(email)
           .then((actor: Actor) => {
             this.currentActor = actor;
             localStorage.setItem('currentActor', JSON.stringify(this.currentActor));
+            localStorage.setItem('userCredential', JSON.stringify(userCredential));
             // Message co effectuée
             resolve(this.currentActor);
           }).catch(error => {
@@ -65,6 +66,23 @@ export class AuthService {
         }).catch(error => {
           reject(error);
         });
+    });
+  }
+
+  updateProfile(actor: Actor) {
+    return new Promise<any>((resolve, reject) => {
+      const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+      this.http.put<Actor>(`${environment.backendApiBaseUrl}/actors/${actor._id}`, actor, {headers}).toPromise()
+        .then(newActor => {
+          this.currentActor = newActor;
+          const user = this.fireAuth.auth.currentUser;
+          user.updateEmail(actor.email);
+          if (actor.password) {
+            user.updatePassword(actor.password);
+          }
+          resolve();
+        })
+        .catch(error => reject(error));
     });
   }
 

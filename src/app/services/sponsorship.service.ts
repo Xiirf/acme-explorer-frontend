@@ -37,6 +37,12 @@ export class SponsorshipService {
     return this.http.put<Sponsorship>(`${environment.backendApiBaseUrl}/sponsorships/${idSponsorship}`, sponsorship, {headers}).toPromise();
   }
 
+  updateSponsorshipPayement(idSponsorship: string): Promise<Sponsorship> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.patch<Sponsorship>(`${environment.backendApiBaseUrl}/sponsorships/${idSponsorship}`,
+      {payed: true}, {headers}).toPromise();
+  }
+
   deleteSponsorship(idSponsorship: string): Promise<Sponsorship> {
     const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.delete<Sponsorship>(`${environment.backendApiBaseUrl}/sponsorships/${idSponsorship}`, {headers}).toPromise();

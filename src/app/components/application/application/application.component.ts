@@ -23,6 +23,7 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
   application: Application;
   currentActor: Actor;
   activeRole: string;
+  selectedOption: string;
 
   private updated: boolean;
 
@@ -58,12 +59,14 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
 
   ngOnInit(): void {
     this.updated = false;
+    this.selectedOption = '1';
   }
 
   createForm(): void {
     this.applicationForm = this.fb.group({
       status: [''],
-      comments: this.fb.array([this.createApplication()])
+      comments: this.fb.array([this.createApplication()]),
+      reasonRejected: ['']
     });
     this.commentsList = this.applicationForm.get('comments') as FormArray;
   }
@@ -97,7 +100,7 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
       .then(_ => {
         this.updated = true;
         this.toastr.success(this.translateService.instant('messages.applicationUpdated'));
-        this.router.navigate(['/applications/update/' + this.application._id]);
+        this.router.navigate(['/applications/' + this.application._id]);
       })
       .catch(error => {
         this.applicationForm.reset();
@@ -107,7 +110,7 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
       const applicationFromForm = {
         idTrip: this.route.snapshot.params.idTrip,
         comments
-      }
+      };
       this.applicationService.createApplication(applicationFromForm)
       .then(_ => {
         this.updated = true;

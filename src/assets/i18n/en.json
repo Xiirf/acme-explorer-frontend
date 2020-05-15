@@ -73,6 +73,18 @@
         "maxAvg": "Maximum average",
         "keywords": "Keywords"
     },
+    "globalVars": {
+        "flatRateSponsorships": "Flat rate of a sponsorship",
+        "cacheTimeOutFinderResults": "Cache timeout",
+        "maxNumberFinderResults": "Maximum number of results"
+    },
+    "finder": {
+        "keyWord": "Keyword",
+        "priceMin": "Minimum price",
+        "priceMax": "Maximum price",
+        "dateMin": "Minimum date",
+        "dateMax": "Maximum date"
+    },
     "validator": {
         "required": {
             "name": "The first name is required",
@@ -87,14 +99,22 @@
             "price": "The price is required",
             "start": "Start date is required",
             "end": "End date is required",
-            "reason": "The reason is required"
+            "reason": "The reason is required",
+            "data": "This information is required",
+            "comment": "The comment can't be empty"
         },
         "email": "Please enter a valid email address",
         "password": "Password must have between 8 and 12 letters",
         "picture.invalidURL": "The link must start with http",
         "date.invalid": "The end date must be greater than the start date.",
         "reason.invalid": "The reason must contain at least one letter and 10 characters.",
-        "keyword": "The search accepts only one word"
+        "keyword": "The search accepts only one word",
+        "phone": "Please enter a valid phone number",
+        "flatRateSponsorships": "It should be a positive integer",
+        "cacheTimeOutFinderResults": "It should be an integer between 1 and 24",
+        "maxNumberFinderResults": "It should be an integer between 10 and 100",
+        "price": "The maximum should be greater than the minimum",
+        "date": "The maximum should be greater than the minimum"
     },
     "button": {
         "submit": "Submit",
@@ -104,7 +124,10 @@
         "logout": "Logout",
         "details": "Details",
         "ban": "Ban",
-        "authorize": "Authorize"
+        "authorize": "Authorize",
+        "apply": "Apply",
+        "profile": "Profile",
+        "advanceSearch": "Advanced search"
     },
     "message": {
         "connected": "Connected",
@@ -142,7 +165,8 @@
         "applications": "Applications",
         "applicationsList": "Applications List",
         "dashboard": "Dashboard",
-        "users": "Users"
+        "users": "Users",
+        "global-variables": "Global variables"
     },
     "messages": {
         "auth.registration.correct": "The user {{username}} has been correctly registered",
@@ -175,7 +199,10 @@
         "sponsorshipUpdated": "Sponsorship updated",
         "createSponsorship": "Create a sponsorship",
         "deleteSponsorship": "Delete the sponsorship",
-        "sponsorshipDeleted": "Sponsorship deleted"
+        "sponsorshipDeleted": "Sponsorship deleted",
+        "globalVars": "Update global variables",
+        "updated": "Update successful",
+        "updateApplication": "Update the application"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",

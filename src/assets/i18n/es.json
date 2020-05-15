@@ -73,6 +73,18 @@
         "maxAvg": "Promedio máximo",
         "keywords": "Palabras clave"
     },
+    "globalVars": {
+        "flatRateSponsorships": "Tarifa plana de un patrocinio",
+        "cacheTimeOutFinderResults": "Tiempo de espera de la caché",
+        "maxNumberFinderResults": "Número máximo de resultados"
+    },
+    "finder": {
+        "keyWord": "Palabra clave",
+        "priceMin": "Precio mínimo",
+        "priceMax": "Precio máximo",
+        "dateMin": "Fecha mínima",
+        "dateMax": "Fecha máxima"
+    },
     "validator": {
         "required": {
             "name": "El nombre es requerido",
@@ -87,14 +99,22 @@
             "price": "El precio es requerido",
             "start": "Se requiere una fecha de inicio",
             "end": "Se requiere una fecha de fin",
-            "reason": "La razón es requerida"
+            "reason": "La razón es requerida",
+            "data": "Esta información es necesaria",
+            "comment": "El comentario no puede estar vacío"
         },
         "email": "Por favor, introduzca un correo electrónico válido",
         "password": "La contraseña debe tener entre 8 y 12 caracteres",
         "picture.invalidURL": "El enlace debe comenzar con http",
         "date.invalid": "La fecha final debe ser mayor que la fecha de inicio.",
         "reason.invalid": "La razón debe contener al menos una letra y 10 caracteres.",
-        "keyword": "La búsqueda sólo acepta una palabra"
+        "keyword": "La búsqueda sólo acepta una palabra",
+        "phone": "Por favor, introduzca un número de teléfono válido",
+        "flatRateSponsorships": "Debería ser un número entero positivo",
+        "cacheTimeOutFinderResults": "Debe ser un número entero entre 1 y 24",
+        "maxNumberFinderResults": "Debe ser un número entero entre 10 y 100",
+        "price": "El máximo debe ser mayor que el mínimo",
+        "date": "El máximo debe ser mayor que el mínimo"
     },
     "button": {
         "submit": "Enviar",
@@ -104,7 +124,10 @@
         "logout": "Desconexión",
         "details": "Detalles",
         "ban": "Prohibir",
-        "authorize": "Autorizar"
+        "authorize": "Autorizar",
+        "apply": "Solicitar",
+        "profile": "Perfil",
+        "advanceSearch": "Búsqueda avanzada"
     },
     "message": {
         "connected": "Conectado",
@@ -142,7 +165,8 @@
         "applications": "Solicitudes",
         "applicationsList": "Lista de solicitudes",
         "dashboard": "Tablero de mandos",
-        "users": "Usuarios"
+        "users": "Usuarios",
+        "global-variables": "Variables globales"
     },
     "messages": {
         "auth.registration.correct": "El usuario {{username}} ha sido registrado correctamente",
@@ -175,7 +199,10 @@
         "sponsorshipUpdated": "Patrocinio modificado",
         "createSponsorship": "Crear un patrocinio",
         "deleteSponsorship": "Eliminar el patrocinio",
-        "sponsorshipDeleted": "Patrocinio eliminado"
+        "sponsorshipDeleted": "Patrocinio eliminado",
+        "globalVars": "Actualizar las variables globales",
+        "updated": "Actualización exitosa",
+        "updateApplication": "Actualizar la solicitud"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",

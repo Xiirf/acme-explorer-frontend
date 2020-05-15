@@ -69,6 +69,9 @@ import { ApplicationComponent } from './components/application/application/appli
 import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
 import { SponsorshipModalComponent } from './components/sponsorship/sponsorship-list/sponsorship-modal/sponsorship-modal.component';
 import { SponsorshipService } from './services/sponsorship.service';
+import { GlobalVariablesComponent } from './components/global-variables/global-variables.component';
+import { ProfileComponent } from './components/security/profile/profile.component';
+import { FinderComponent } from './components/finder/finder.component';
 
 registerLocaleData(localeEs, 'es');
 registerLocaleData(localeFr, 'fr');
@@ -107,7 +110,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     CheckoutComponent,
     SponsorshipFormComponent,
     SponsorshipModalComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    GlobalVariablesComponent,
+    ProfileComponent,
+    FinderComponent
   ],
   imports: [
     BrowserModule,

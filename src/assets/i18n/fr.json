@@ -74,6 +74,18 @@
         "maxAvg": "Moyenne maximale",
         "keywords": "Mots clés"
     },
+    "globalVars": {
+        "flatRateSponsorships": "Forfait d'un parrainage",
+        "cacheTimeOutFinderResults": "Délai de temporisation du cache",
+        "maxNumberFinderResults": "Nombre maximum de résultats"
+    },
+    "finder": {
+        "keyWord": "Mot-clé",
+        "priceMin": "Prix minimum",
+        "priceMax": "Prix maximum",
+        "dateMin": "Date minimale",
+        "dateMax": "Date maximale"
+    },
     "validator": {
         "required": {
             "name": "Le prénom est requis",
@@ -88,14 +100,22 @@
             "price": "Le prix est requis",
             "start": "La date de début est requise",
             "end": "La date de fin est requise",
-            "reason": "La raison est requise"
+            "reason": "La raison est requise",
+            "data": "Ces informations sont nécessaires",
+            "comment": "Le commentaire ne peut pas être vide"
         },
         "email": "Veuillez renseigner un email valide",
         "password": "Le mot de passe doit faire entre 8 et 12 caractères",
         "picture.invalidURL": "Le lien doit commencer par http",
         "date.invalid": "La date de fin doit être supérieur à la date de début.",
         "reason.invalid": "La raison doit contenir au moins une lettre et 10 caractères",
-        "keyword": "La recherche n'accepte qu'un seul mot"
+        "keyword": "La recherche n'accepte qu'un seul mot",
+        "phone": "Veuillez entrer un numéro de téléphone valide",
+        "flatRateSponsorships": "Il doit s'agir d'un nombre entier positif",
+        "cacheTimeOutFinderResults": "Il doit être un nombre entier compris entre 1 et 24",
+        "maxNumberFinderResults": "Il doit être un nombre entier compris entre 10 et 100",
+        "price": "Le maximum doit être supérieur au minimum",
+        "date": "Le maximum doit être supérieur au minimum"
     },
     "button": {
         "submit": "Envoyer",
@@ -105,7 +125,10 @@
         "logout": "Déconnexion",
         "details": "Détails",
         "ban": "Bannir",
-        "authorize": "Autoriser"
+        "authorize": "Autoriser",
+        "apply": "S'inscrire",
+        "profile": "Profil",
+        "advanceSearch": "Recherche avancée"
     },
     "message": {
         "connected": "Connecté",
@@ -143,7 +166,8 @@
         "applications": "Candidatures",
         "applicationsList": "Liste des candidatures",
         "dashboard": "Tableau de bord",
-        "users": "Utilisateurs"
+        "users": "Utilisateurs",
+        "global-variables": "Variables globales"
     },
     "messages": {
         "auth.registration.correct": "L'utilisateur {{username}} a été correctement enregistré",
@@ -176,7 +200,10 @@
         "sponsorshipUpdated": "Parrainage modifié",
         "createSponsorship": "Créer un parrainage",
         "deleteSponsorship": "Supprimer le parrainage",
-        "sponsorshipDeleted": "Parrainage supprimé"
+        "sponsorshipDeleted": "Parrainage supprimé",
+        "globalVars": "Mettre à jour les variables globales",
+        "updated": "Mise à jour réussie",
+        "updateApplication": "Mise à jour de la demande"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",

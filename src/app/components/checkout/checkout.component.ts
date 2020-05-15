@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApplicationService } from 'src/app/services/application.service';
 import { ToastrService } from 'ngx-toastr';
+import { SponsorshipService } from 'src/app/services/sponsorship.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,6 +21,7 @@ export class CheckoutComponent extends TranslatableComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private applicationService: ApplicationService,
+    private sponsorshipService: SponsorshipService,
     private ngZone: NgZone) {
       super(translateService);
     }
@@ -58,14 +60,25 @@ export class CheckoutComponent extends TranslatableComponent implements OnInit {
       },
       onClientAuthorization: (data) => {
         const idApp = this.route.snapshot.queryParams.idApp;
+        const idSponsorship = this.route.snapshot.queryParams.idSponsorship;
 
-        this.applicationService.updateApplicationToDue(idApp)
-        .then(_ => {
-          this.ngZone.run(() => this.router.navigate(['/applications']));
-        })
-        .catch(error => {
-          console.log(error);
-        });
+        if (idApp) {
+          this.applicationService.updateApplicationToDue(idApp)
+            .then(_ => {
+              this.ngZone.run(() => this.router.navigate(['/applications']));
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        } else {
+          this.sponsorshipService.updateSponsorshipPayement(idSponsorship)
+          .then(_ => {
+            this.ngZone.run(() => this.router.navigate(['/sponsorships']));
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        }
       },
       onCancel: (data, actions) => {
           console.log('OnCancel', data, actions);

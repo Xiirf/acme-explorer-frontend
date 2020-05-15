@@ -12,6 +12,8 @@ import { SponsorshipModalComponent } from './sponsorship-modal/sponsorship-modal
 import { TranslatableComponent } from '../../shared/translatable/translatable.component';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSort } from '@angular/material/sort';
+import { GlobalVariables } from 'src/app/models/global-variables.model';
+import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 
 export interface DialogData {
   idTrip: string;
@@ -28,6 +30,7 @@ export class SponsorshipListComponent extends TranslatableComponent implements O
   sponsorships: Sponsorship[];
   displayedColumns: string[] = ['banner', 'price', 'nameTrip', 'createdAt', 'link', 'payed', 'edit', 'cancel'];
   dataSource;
+  flatRate;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -39,7 +42,8 @@ export class SponsorshipListComponent extends TranslatableComponent implements O
               private translateService: TranslateService,
               public dialog: MatDialog,
               private toastr: ToastrService,
-              private cdr: ChangeDetectorRef) {
+              private cdr: ChangeDetectorRef,
+              private globalVarsService: GlobalVariablesService) {
     super(translateService);
     this.initialize();
   }
@@ -66,6 +70,9 @@ export class SponsorshipListComponent extends TranslatableComponent implements O
   }
 
   ngOnInit(): void {
+    this.globalVarsService.getGlobalVars()
+      .then((data) => this.flatRate = data.flatRateSponsorships)
+      .catch((error) => {console.log(error); });
   }
 
   onEdit(idSponsorship: string) {
@@ -87,6 +94,10 @@ export class SponsorshipListComponent extends TranslatableComponent implements O
         });
       }
     });
+  }
+
+  payment(sponsorship: Sponsorship) {
+    this.router.navigate(['/checkout'], { queryParams: { price: this.flatRate, idSponsorship: sponsorship._id } });
   }
 
 }

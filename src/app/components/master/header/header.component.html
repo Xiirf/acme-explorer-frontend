@@ -54,12 +54,14 @@
             <li class="nav-item dropdown" *ngIf="currenActor && activeRole=='Administrator'">
                 <a mat-button routerLink="/dashboard">{{'header.dashboard' | translate}}</a>
                 <a mat-button routerLink="/users">{{'header.users' | translate}}</a>
+                <a mat-button routerLink="/global-variables">{{'header.global-variables' | translate}}</a>
             </li>
         </ul>
 
         <form class="form-inline mx-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="..." aria-label="Search" [formControl]="keyWordControl" (change)="setKeyword()">
             <button mat-stroked-button (click)="sendKeyWord()" [disabled]="!keyWordControl.valid">{{'button.search' | translate}}</button>
+            <a *ngIf="currenActor && activeRole=='Explorer'" mat-button routerLink="/finder">{{'button.advanceSearch' | translate}}</a>
         </form>
 
         <ul class="navbar-nav">
@@ -80,6 +82,9 @@
                 </li>
             </ng-container>
             <ng-template #logout>
+                <li class="nav-item">
+                    <a mat-button routerLink="/profile">{{'button.profile' | translate}}</a>
+                </li>
                 <li class="nav-item">
                     <a mat-button (click)="onLogout()" href="#">{{'button.logout' | translate}}</a>
                 </li>
