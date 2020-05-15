@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ApplicationService } from 'src/app/services/application.service';
 import { TripService } from 'src/app/services/trip.service';
+import { Actor } from 'src/app/models/actor.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-application-display',
@@ -15,13 +17,21 @@ export class ApplicationDisplayComponent extends TranslatableComponent implement
 
   private idApplication: string;
   application: Application;
+  currentActor: Actor;
+  activeRole: string;
+  backgroundColor: string;
 
   constructor(private route: ActivatedRoute,
               private translateService: TranslateService,
               private router: Router,
               private applicationService: ApplicationService,
+              private authService: AuthService,
               private tripService: TripService) {
     super(translateService);
+    this.currentActor = this.authService.getCurrentActor();
+    if (this.currentActor) {
+      this.activeRole = this.currentActor.role.toString();
+    }
   }
 
   ngOnInit(): void {
@@ -30,7 +40,35 @@ export class ApplicationDisplayComponent extends TranslatableComponent implement
       .then((data) => {
         this.application = data;
         this.tripService.getTrip(this.application.idTrip)
-          .then((trip) => this.application.nameTrip = trip.title)
+          .then((trip) => {
+            this.application.nameTrip = trip.title;
+            switch (this.application.status) {
+              case 'PENDING':
+                const now = new Date();
+                now.setMonth(now.getMonth() + 1);
+                if (now > trip.start) {
+                  this.backgroundColor = 'text-danger bg-secondary mb-3';
+                } else {
+                  this.backgroundColor = '';
+                }
+                break;
+              case 'REJECTED':
+                this.backgroundColor = 'text-white bg-secondary mb-3';
+                break;
+              case 'DUE':
+                this.backgroundColor = 'text-white bg-warning mb-3';
+                break;
+              case 'ACCEPTED':
+                this.backgroundColor = 'text-white bg-success mb-3';
+                break;
+              case 'CANCELLED':
+                this.backgroundColor = 'text-white bg-info mb-3';
+                break;
+              default:
+                this.backgroundColor = '';
+                break;
+            }
+          })
           .catch((err) => console.error(err.message));
       })
       .catch((err) => console.error(err.message));

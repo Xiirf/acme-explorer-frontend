@@ -10,7 +10,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'actor.email' | translate}}</mat-label>
-                        <input matInput formControlName="email" [errorStateMatcher]="matcher">
+                        <input matInput formControlName="email" [errorStateMatcher]="matcher" id="email">
                         <mat-error *ngIf="loginForm.controls.email.hasError('required')">
                             {{'validator.required.email' | translate}}
                         </mat-error>
@@ -21,7 +21,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'actor.password' | translate}}</mat-label>
-                        <input matInput formControlName="password" [errorStateMatcher]="matcher" type="password">
+                        <input matInput formControlName="password" [errorStateMatcher]="matcher" type="password" id="pwd">
                         <mat-error *ngIf="loginForm.controls.password.hasError('required')">
                             {{'validator.required.password' | translate}}
                         </mat-error>

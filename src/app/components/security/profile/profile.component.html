@@ -1,0 +1,85 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="onUpdateProfile()" [formGroup]="profileForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td colspan="2">
+                    <div class="example-full-width center">
+                        <img src="../../../../assets/images/logoRegister.png" class="img" alt="Logo Register">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'actor.name' | translate}}</mat-label>
+                        <input matInput formControlName="name" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="profileForm.controls.name.hasError('required')">
+                            {{'validator.required.name' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'actor.surname' | translate}}</mat-label>
+                        <input matInput formControlName="surname" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="profileForm.controls.surname.hasError('required')">
+                            {{'validator.required.surname' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'actor.phone' | translate}}</mat-label>
+                        <input matInput formControlName="phone" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="profileForm.controls.phone.hasError('pattern') && !profileForm.controls.phone.hasError('required')">
+                            {{'validator.phone' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="profileForm.controls.phone.hasError('required')">
+                            {{'validator.required.phone' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'actor.password' | translate}}</mat-label>
+                        <input matInput formControlName="password" [errorStateMatcher]="matcher" type="password">
+                        <mat-error *ngIf="(profileForm.controls.password.hasError('minlength') || profileForm.controls.password.hasError('maxlength')) && profileForm.get('address').touched">
+                            {{'validator.password' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'actor.email' | translate}}</mat-label>
+                        <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+                        <mat-error *ngIf="profileForm.controls.email.hasError('email') && !profileForm.controls.email.hasError('required')">
+                            {{'validator.email' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="profileForm.controls.email.hasError('required')">
+                            {{'validator.required.email' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+                <td>
+            </tr>
+        </table>
+    
+        <p>
+            <mat-form-field class="example-full-width">
+                <mat-label>{{'actor.address' | translate}}</mat-label>
+                <textarea matInput formControlName="address" [errorStateMatcher]="matcher" placeholder="Ex. 100 Main St"></textarea>
+                <mat-error *ngIf="profileForm.controls.address.hasError('required')">
+                    {{'validator.required.address' | translate}}
+                </mat-error>
+            </mat-form-field>
+        </p>
+    
+        <p>
+            <button mat-stroked-button type="submit" [disabled]="!profileForm.valid">{{'button.submit' | translate}}</button>
+        </p>
+    </form>
+</div>

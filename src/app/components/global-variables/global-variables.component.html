@@ -1,0 +1,62 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="updateGlobalVars()" [formGroup]="globalVarsForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <h1>{{'messages.globalVars' | translate}} <mat-icon>supervised_user_circle</mat-icon></h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'globalVars.flatRateSponsorships' | translate}}</mat-label>
+                        <input matInput formControlName="flatRateSponsorships">
+                        <mat-error *ngIf="globalVarsForm.controls.flatRateSponsorships.hasError('required')">
+                            {{'validator.required.data' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="!globalVarsForm.controls.flatRateSponsorships.hasError('required') &&
+                                            globalVarsForm.get('flatRateSponsorships').errors &&
+                                            globalVarsForm.get('flatRateSponsorships').touched">
+                            {{'validator.flatRateSponsorships' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'globalVars.cacheTimeOutFinderResults' | translate}}</mat-label>
+                        <input matInput formControlName="cacheTimeOutFinderResults">
+                        <mat-error *ngIf="globalVarsForm.controls.cacheTimeOutFinderResults.hasError('required')">
+                            {{'validator.required.data' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="!globalVarsForm.controls.cacheTimeOutFinderResults.hasError('required') &&
+                                            globalVarsForm.get('cacheTimeOutFinderResults').errors &&
+                                            globalVarsForm.get('cacheTimeOutFinderResults').touched">
+                            {{'validator.cacheTimeOutFinderResults' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'globalVars.maxNumberFinderResults' | translate}}</mat-label>
+                        <input matInput formControlName="maxNumberFinderResults">
+                        <mat-error *ngIf="globalVarsForm.controls.maxNumberFinderResults.hasError('required')">
+                            {{'validator.required.data' | translate}}
+                        </mat-error>
+                        <mat-error *ngIf="!globalVarsForm.controls.maxNumberFinderResults.hasError('required') &&
+                                            globalVarsForm.get('maxNumberFinderResults').errors &&
+                                            globalVarsForm.get('maxNumberFinderResults').touched">
+                            {{'validator.maxNumberFinderResults' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button mat-stroked-button type="submit" [disabled]="!globalVarsForm.valid">{{'messages.update' | translate}}</button>
+        </p>
+    </form>
+</div>

@@ -1,27 +1,50 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Sponsorship } from 'src/app/models/sponsorship.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { SponsorshipService } from 'src/app/services/sponsorship.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { TripService } from 'src/app/services/trip.service';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { SponsorshipModalComponent } from './sponsorship-modal/sponsorship-modal.component';
+import { TranslatableComponent } from '../../shared/translatable/translatable.component';
+import { TranslateService } from '@ngx-translate/core';
+import { MatSort } from '@angular/material/sort';
+import { GlobalVariables } from 'src/app/models/global-variables.model';
+import { GlobalVariablesService } from 'src/app/services/global-variables.service';
+
+export interface DialogData {
+  idTrip: string;
+  nameTrip: string;
+}
 
 @Component({
   selector: 'app-sponsorship-list',
   templateUrl: './sponsorship-list.component.html',
   styleUrls: ['./sponsorship-list.component.css']
 })
-export class SponsorshipListComponent implements OnInit {
+export class SponsorshipListComponent extends TranslatableComponent implements OnInit {
 
   sponsorships: Sponsorship[];
-  displayedColumns: string[] = ['banner', 'price', 'nameTrip', 'createdAt', 'link'];
+  displayedColumns: string[] = ['banner', 'price', 'nameTrip', 'createdAt', 'link', 'payed', 'edit', 'cancel'];
   dataSource;
+  flatRate;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private sponsorshipService: SponsorshipService,
               private authService: AuthService,
-              private tripService: TripService) {
+              private tripService: TripService,
+              private router: Router,
+              private translateService: TranslateService,
+              public dialog: MatDialog,
+              private toastr: ToastrService,
+              private cdr: ChangeDetectorRef,
+              private globalVarsService: GlobalVariablesService) {
+    super(translateService);
     this.initialize();
   }
 
@@ -38,13 +61,43 @@ export class SponsorshipListComponent implements OnInit {
             .catch((err) => console.error(err));
         });
         this.dataSource = new MatTableDataSource<Sponsorship>(this.sponsorships);
+        this.cdr.detectChanges();
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     })
     .catch((error) => {console.log(error); });
   }
 
   ngOnInit(): void {
+    this.globalVarsService.getGlobalVars()
+      .then((data) => this.flatRate = data.flatRateSponsorships)
+      .catch((error) => {console.log(error); });
+  }
+
+  onEdit(idSponsorship: string) {
+    this.router.navigate(['/sponsorships/update/' + idSponsorship]);
+  }
+
+  cancelSponsorship(idSponsorship: string, nameTrip: string) {
+    const dialogRef = this.dialog.open(SponsorshipModalComponent, {
+      width: '400px',
+      data: {idSponsorship, nameTrip}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+        this.sponsorshipService.deleteSponsorship(result.idSponsorship).then(_ => {
+          this.toastr.success(this.translateService.instant('messages.trip.cancelled'));
+          this.router.navigate(['/sponsorships']);
+        });
+      }
+    });
+  }
+
+  payment(sponsorship: Sponsorship) {
+    this.router.navigate(['/checkout'], { queryParams: { price: this.flatRate, idSponsorship: sponsorship._id } });
   }
 
 }

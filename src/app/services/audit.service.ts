@@ -24,4 +24,9 @@ export class AuditService {
   getAuditByIdAudit(auditId: string): Promise<Audit> {
     return this.http.get<Audit>(`${environment.backendApiBaseUrl}/audits/${auditId}`).toPromise();
   }
+
+  createAudit(audit: any): Promise<Audit> {
+    const headers = new HttpHeaders().set('authorization', 'Bearer ' + localStorage.getItem('token'));
+    return this.http.post<Audit>(`${environment.backendApiBaseUrl}/audits`, audit, {headers}).toPromise();
+  }
 }

@@ -33,6 +33,9 @@
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'actor.phone' | translate}}</mat-label>
                         <input matInput formControlName="phone" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="registerForm.controls.phone.hasError('pattern') && !registerForm.controls.phone.hasError('required')">
+                            {{'validator.phone' | translate}}
+                        </mat-error>
                         <mat-error *ngIf="registerForm.controls.phone.hasError('required')">
                             {{'validator.required.phone' | translate}}
                         </mat-error>

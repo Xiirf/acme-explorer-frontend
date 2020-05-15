@@ -8,6 +8,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
 import { ToastrService } from 'ngx-toastr';
+import { CanComponentDeactivate } from 'src/app/guards/can-deactivate.service';
+import { Observable } from 'rxjs';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,8 +23,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends TranslatableComponent implements OnInit {
+export class LoginComponent extends TranslatableComponent implements OnInit, CanComponentDeactivate {
   loginForm: FormGroup;
+  private updated: boolean;
 
   matcher = new MyErrorStateMatcher();
   private returnUrl: string;
@@ -47,26 +50,43 @@ export class LoginComponent extends TranslatableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.updated = false;
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   onLogin(): void {
     this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
       .then(actor => {
-        this.fireAuth.auth.currentUser.getIdToken()
+        if (actor.banned) {
+          this.loginForm.reset();
+          this.toastr.error(this.translateService.instant('message.connect.user.banned'));
+        } else {
+          this.fireAuth.auth.currentUser.getIdToken()
           .then(
             (token: string) => {
+              this.updated = true;
               this.storageService.setItem('token', token);
               this.toastr.success(this.translateService.instant('message.connected'));
               this.loginForm.reset();
               this.router.navigateByUrl(this.returnUrl);
             }
           );
+        }
       })
       .catch((err) => {
         this.loginForm.reset();
         this.toastr.error(this.translateService.instant('message.errorConnect'));
       });
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    let result = true;
+    const message = this.translateService.instant('messages.discard.changes');
+    if (!this.updated && this.loginForm.dirty) {
+      result = confirm(message);
+    }
+
+    return result;
   }
 
 }
