@@ -47,7 +47,7 @@ export class RegisterComponent extends TranslatableComponent implements OnInit, 
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern('[0-9]+')]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
       email: ['', [Validators.required, Validators.email]],
       adress: ['', Validators.required],

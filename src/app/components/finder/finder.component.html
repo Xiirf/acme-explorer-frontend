@@ -1,0 +1,108 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="submitForm()" [formGroup]="finderForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td colspan="2">
+                    <h1>{{'button.advanceSearch' | translate}} <mat-icon>supervised_user_circle</mat-icon>
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field>
+                        <mat-label>{{'finder.keyWord' | translate}}</mat-label>
+                        <input matInput formControlName="keyWord">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'finder.priceMin' | translate}}</mat-label>
+                        <input matInput formControlName="priceMin">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'finder.priceMax' | translate}}</mat-label>
+                        <input matInput formControlName="priceMax">
+                        <mat-error *ngIf="finderForm.errors?.forbidenValuePrice && (finderForm.touched || finderForm.dirty)">
+                            {{'validator.price' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'finder.dateMin' | translate}}</mat-label>
+                        <input matInput [min]="minDate" [matDatepicker]="pickerMin" formControlName="dateMin">
+                        <mat-datepicker-toggle [for]="pickerMin"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerMin></mat-datepicker>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>{{'finder.dateMax' | translate}}</mat-label>
+                        <input matInput [matDatepicker]="pickerMax" formControlName="dateMax">
+                        <mat-datepicker-toggle [for]="pickerMax"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerMax></mat-datepicker>
+                        <mat-error *ngIf="finderForm.errors?.forbidenValueDate && (finderForm.touched || finderForm.dirty)">
+                            {{'validator.date' | translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button mat-stroked-button type="submit"
+                [disabled]="!finderForm.valid">{{'messages.search' | translate}}</button>
+        </p>
+    </form>
+</div>
+
+<div *ngIf="(trips != undefined && trips.length != 0) || search">
+    <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="(trips == undefined || trips.length == 0) && !loading">
+        {{ 'errorMessages.trip.keyword.not.found' | translate }}
+    </div>
+
+    <div *ngIf="trips != undefined && trips.length > 0 && !loading" class="card-deck">
+        <div *ngFor="let trip of trips" class="card mb-3">
+            <div class="card-header">
+                <h4 class="card-title">{{ trip.title }}</h4>
+            </div>
+            <div class="card-body">
+                <div class="container-fluid text-center" ng-init="advstatus=true">
+                    <img *ngIf="trip.pictures[0] != null && trip.pictures[0].length != 0"
+                        class="card-img-top img-fluid mt-3" style="object-fit: contain;" src="{{trip.pictures[0]}}"
+                        alt="{{trip.title}}" />
+                    <img *ngIf="!trip.pictures[0] || trip.pictures[0].length === 0" class="card-img-top img-fluid mt-3"
+                        style="object-fit: contain;"
+                        src="https://wingslax.com/wp-content/uploads/2017/12/no-image-available.png"
+                        alt="{{trip.title}}" />
+
+                    <details>
+                        <summary ng-hide="advstatus">
+                            {{trip.description | slice:0:50}}
+                            <span class="badge badge-light" ng-click="advstatus=true">
+                                (...)
+                            </span>
+                        </summary>
+                        <p class="card-text">{{trip.description}}</p>
+                    </details>
+
+                    <span class="badge badge-primary">{{trip.price}}</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a routerLink="/trips/{{trip.id}}" class="btn btn-primary pull-left">
+                    <span class="" aria-hidden="true"></span>
+                    {{ 'button.details' | translate }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

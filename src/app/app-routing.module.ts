@@ -22,6 +22,10 @@ import { AuditsFormComponent } from './components/audits/audits-form/audits-form
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CanDeactivateGuard } from './guards/can-deactivate.service';
 import { SponsorshipFormComponent } from './components/sponsorship/sponsorship-form/sponsorship-form.component';
+import { ApplicationComponent } from './components/application/application/application.component';
+import { ProfileComponent } from './components/security/profile/profile.component';
+import { GlobalVariablesComponent } from './components/global-variables/global-variables.component';
+import { FinderComponent } from './components/finder/finder.component';
 
 const appRoutes: Routes = [
   { path: 'trips', children: [
@@ -57,20 +61,29 @@ const appRoutes: Routes = [
     { path: '', component: ApplicationListComponent,
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}},
     { path: ':idApplication', component: ApplicationDisplayComponent,
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}},
+    { path: 'create/:idTrip', component: ApplicationComponent, canDeactivate: [CanDeactivateGuard],
+      canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer'}},
+    { path: 'update/:idApplication', component: ApplicationComponent, canDeactivate: [CanDeactivateGuard],
       canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer, Manager'}}
   ]},
   {
     path: 'checkout', component: CheckoutComponent,
     canActivate: [ActorRoleGuard],
-    data: { expectedRole: 'Explorer'}
+    data: { expectedRole: 'Explorer, Sponsor'}
   },
   { path: '', redirectTo: '/trips', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent, canDeactivate: [CanDeactivateGuard] },
   { path: 'login', component: LoginComponent, canDeactivate: [CanDeactivateGuard] },
+  { path: 'profile', component: ProfileComponent, canDeactivate: [CanDeactivateGuard] },
   { path: 'denied-access', component: DeniedAccessComponent },
   { path: 'not-found', component: NotFoundPageComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: 'finder', component: FinderComponent,
+    canActivate: [ActorRoleGuard], data: {expectedRole: 'Explorer'}},
   { path: 'dashboard', component: DashboardDisplayComponent,
+    canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}},
+  { path: 'global-variables', component: GlobalVariablesComponent, canDeactivate: [CanDeactivateGuard],
     canActivate: [ActorRoleGuard], data: {expectedRole: 'Administrator'}},
   { path: '**', redirectTo: '/not-found' }
 ];

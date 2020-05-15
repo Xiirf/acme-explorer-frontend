@@ -11,6 +11,8 @@ import { Audit } from 'src/app/models/audit.model';
 import { ActorService } from 'src/app/services/actor.service';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import { SponsorshipService } from 'src/app/services/sponsorship.service';
+import { Actor } from 'src/app/models/actor.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-trip-display',
@@ -25,6 +27,8 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
   audits: Audit[];
   faFile = faFile;
   bannerSponsor: string;
+  currentActor: Actor;
+  activeRole: string;
 
   constructor(private route: ActivatedRoute,
               private tripService: TripService,
@@ -33,10 +37,15 @@ export class TripDisplayComponent extends TranslatableComponent implements OnIni
               private applicationService: ApplicationService,
               private auditService: AuditService,
               private actorService: ActorService,
+              private authService: AuthService,
               private router: Router) {
                 super(translateService);
                 this.audits = [];
                 this.applications = [];
+                this.currentActor = this.authService.getCurrentActor();
+                if (this.currentActor) {
+                  this.activeRole = this.currentActor.role.toString();
+                }
               }
 
   ngOnInit(): void {

@@ -1,0 +1,71 @@
+<div class="center">
+    <form class="example-form" (ngSubmit)="createOrUpdateApplication()" [formGroup]="applicationForm">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <h1 *ngIf="!application">{{'button.apply' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
+                    <h1 *ngIf="application">{{'messages.updateApplication' | translate}} <mat-icon>flight_takeoff</mat-icon></h1>
+                </td>
+            </tr>
+            <tr *ngIf="currentActor && activeRole=='Explorer'">
+                <td>
+                    <fieldset>
+                        <legend>{{'application.comments' | translate}}</legend>
+                        <div formArrayName="comments">
+                            <div *ngFor="let comment of commentsList.controls; let i=index">
+                                <div [formGroupName]="i">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>{{'application.comments' | translate}}</mat-label>
+                                        <input matInput formControlName="comment" id="comment{{i}}">
+                                        <mat-error *ngIf="comment.controls.comment.hasError('required')">
+                                            {{'validator.required.comment' | translate}}
+                                        </mat-error>
+                                    </mat-form-field>
+                                    <button *ngIf="commentsList.length > 1" (click)="removeComment(i)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button (click)="addComment()" type="button" class="btn btn-outline-success">{{'messages.addComment' | translate}}</button>
+                    </fieldset>
+                </td>
+            </tr>
+           <tr *ngIf="this.application && currentActor && activeRole=='Explorer' && this.application.status=='ACCEPTED'">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'application.status' | translate}}</mat-label>
+                        <mat-select [value]="selectedOption">
+                            <mat-option value="1">ACCEPTED</mat-option>
+                            <mat-option value="2">CANCELLED</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr *ngIf="this.application && currentActor && activeRole=='Manager' && this.application.status=='PENDING'">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'application.status' | translate}}</mat-label>
+                        <mat-select [(value)]="selectedOption">
+                            <mat-option value="1">PENDING</mat-option>
+                            <mat-option value="2">DUE</mat-option>
+                            <mat-option value="3">REJECTED</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr *ngIf="this.application && currentActor && activeRole=='Manager' && this.selectedOption=='3'">
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>{{'application.reasonRejected' | translate}}</mat-label>
+                        <input matInput formControlName="reasonRejected">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <button *ngIf="!application" mat-stroked-button type="submit" [disabled]="!applicationForm.valid">{{'messages.create' | translate}}</button>
+            <button *ngIf="application" mat-stroked-button type="submit" [disabled]="!applicationForm.valid">{{'messages.update' | translate}}</button>
+        </p>
+    </form>
+</div>
