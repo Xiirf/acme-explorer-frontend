@@ -9,6 +9,8 @@ import { TripService } from 'src/app/services/trip.service';
 import { TripServiceMock } from 'src/app/services/mocks/trip.service.mock';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthService } from 'src/app/services/auth.service';
+import { AuthServiceMock } from 'src/app/services/mocks/auth.services.mock';
 
 describe('TripDisplayComponent', () => {
   let component: TripDisplayComponent;
@@ -28,7 +30,8 @@ describe('TripDisplayComponent', () => {
         }),
         HttpClientTestingModule
       ],
-      providers: [ { provide: TripService, useClass: TripServiceMock } ],
+      providers: [  { provide: TripService, useClass: TripServiceMock },
+                    { provide: AuthService, useClass: AuthServiceMock } ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
