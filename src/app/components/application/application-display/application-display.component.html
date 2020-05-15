@@ -20,11 +20,11 @@
                 <li><h5 class="card-subtitle">{{comment}}</h5></li>
             </ul>
         </div>
-        <div class="card-footer" *ngIf="currentActor && ((activeRole=='Explorer' && application.status=='ACCEPTED') || (activeRole=='Manager' && application.status=='PENDING'))">
+        <div class="card-footer" *ngIf="currentActor && (activeRole=='Explorer' || (activeRole=='Manager' && application.status=='PENDING'))">
             <a routerLink="/applications/update/{{application._id}}"
                 class="btn btn-primary pull-left">
                 <span class="" aria-hidden="true"></span>
-                {{ 'button.update' | translate }}
+                {{ 'messages.update' | translate }}
             </a>
         </div>
     </div>
