@@ -202,7 +202,9 @@
         "sponsorshipDeleted": "Sponsorship deleted",
         "globalVars": "Update global variables",
         "updated": "Update successful",
-        "updateApplication": "Update the application"
+        "updateApplication": "Update the application",
+        "create": "Create",
+        "addComment": "Add a comment"
     },
     "errorMessages": {
         "auth.user.not.found": "There is no user record corresponding to this identifier. The user may have been deleted.",

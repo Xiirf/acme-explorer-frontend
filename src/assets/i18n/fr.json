@@ -203,7 +203,9 @@
         "sponsorshipDeleted": "Parrainage supprimé",
         "globalVars": "Mettre à jour les variables globales",
         "updated": "Mise à jour réussie",
-        "updateApplication": "Mise à jour de la demande"
+        "updateApplication": "Mise à jour de la demande",
+        "create": "Créer",
+        "addComment": "Ajouter un commentaire"
     },
     "errorMessages": {
         "auth.user.not.found": "Il n'y a pas d'utilisateur correspondant à cet identifiant. L'utilisateur peut avoir été supprimé.",

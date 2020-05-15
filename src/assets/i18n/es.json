@@ -202,7 +202,9 @@
         "sponsorshipDeleted": "Patrocinio eliminado",
         "globalVars": "Actualizar las variables globales",
         "updated": "Actualización exitosa",
-        "updateApplication": "Actualizar la solicitud"
+        "updateApplication": "Actualizar la solicitud",
+        "create": "Crear",
+        "addComment": "Añadir un comentario"
     },
     "errorMessages": {
         "auth.user.not.found": "No hay ningún registro de usuario que corresponda a este identificador. El usuario puede haber sido eliminado.",
