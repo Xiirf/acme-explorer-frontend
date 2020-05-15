@@ -89,8 +89,8 @@ export class SponsorshipListComponent extends TranslatableComponent implements O
       if (result) {
         console.log(result);
         this.sponsorshipService.deleteSponsorship(result.idSponsorship).then(_ => {
-          this.toastr.success(this.translateService.instant('messages.trip.cancelled'));
-          this.router.navigate(['/sponsorships']);
+          this.toastr.success(this.translateService.instant('messages.sponsorshipDeleted'));
+          location.reload();
         });
       }
     });
