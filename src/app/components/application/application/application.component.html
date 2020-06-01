@@ -35,9 +35,9 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'application.status' | translate}}</mat-label>
-                        <mat-select [value]="selectedOption">
-                            <mat-option value="1">ACCEPTED</mat-option>
-                            <mat-option value="2">CANCELLED</mat-option>
+                        <mat-select [(value)]="selectedOption">
+                            <mat-option value="ACCEPTED">ACCEPTED</mat-option>
+                            <mat-option value="CANCELLED">CANCELLED</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </td>
@@ -47,9 +47,9 @@
                     <mat-form-field class="example-full-width">
                         <mat-label>{{'application.status' | translate}}</mat-label>
                         <mat-select [(value)]="selectedOption">
-                            <mat-option value="1">PENDING</mat-option>
-                            <mat-option value="2">DUE</mat-option>
-                            <mat-option value="3">REJECTED</mat-option>
+                            <mat-option value="PENDING">PENDING</mat-option>
+                            <mat-option value="DUE">DUE</mat-option>
+                            <mat-option value="REJECTED">REJECTED</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </td>

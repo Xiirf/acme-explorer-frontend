@@ -46,6 +46,7 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
     if (this.route.snapshot.params.idApplication) {
       this.applicationService.getApplication(this.route.snapshot.params.idApplication).then(application => {
         this.application = application;
+        this.selectedOption = this.application.status;
         this.applicationForm.get('status').setValue(application.status);
         for (let i = 0; i < this.application.comments.length; i++) {
           if (i > 0) {
@@ -93,9 +94,7 @@ export class ApplicationComponent extends TranslatableComponent implements OnIni
 
     if (this.application) {
       this.application.comments = comments;
-      if (this.applicationForm.value.status) {
-        this.application.status = this.applicationForm.value.status;
-      }
+      this.application.status = this.selectedOption;
       this.applicationService.updateApplication(this.application, this.application._id)
       .then(_ => {
         this.updated = true;
